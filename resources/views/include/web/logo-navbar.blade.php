@@ -24,7 +24,7 @@
                         <i class="fa fa-info-circle mr-2 navIcon"></i> Hakkımızda
                     </a>
                     <div class="dropdown-menu fs-10 mt-0" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item px-3 mainDropdown" href="hakkinda.html"><i class="fas fa-bullseye mr-2 navIcon fs-9"></i> Hakkımızda</a>
+                        <a class="dropdown-item px-3 mainDropdown" href="{{route('web.sayfa','hakkinda')}}"><i class="fas fa-bullseye mr-2 navIcon fs-9"></i> Hakkımızda</a>
                         <hr class="mb-0 mt-2 mx-3">
                         <a class="dropdown-item px-3 mainDropdown" href="misyonumuz.html"><i class="fas fa-bullseye mr-2 navIcon fs-9"></i> Misyonumuz</a>
                         <hr class="mb-0 mt-2 mx-3">
