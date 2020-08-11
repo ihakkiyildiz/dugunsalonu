@@ -27,13 +27,14 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
-
+           
         if(!Cache::has('ayarlar'))
         {
             Cache::rememberForever('ayarlar', function () {
                 return Ayarlar::all();
             });
         }
+       
 		
     }
 }
