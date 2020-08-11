@@ -20,7 +20,7 @@
                     <tbody>
                         @foreach ($hizmetler as $h)
                             <tr>
-                                <th scope="row">{{ $loop->index + 1 }}</th>
+                                <th scope="row">{{ $loop->index + 1 }}.</th>
                                 <td>{{ $h->sayfatitle }}</td>
                                 <td colspan="2" class="float-right">
 
