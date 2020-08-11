@@ -10,7 +10,7 @@
                     class="btn col-6 col-md-2 float-right mb-4 btn-hero-sm btn-hero-primary">Ekle <i
                         class="fa fa-plus-circle"></i></a>
                 <table class="table table-hover table-striped">
-                    <thead class="thead-light">
+                    <thead class="thead-dark">
                         <tr>
                             <th scope="col">id</th>
                             <th scope="col">Hizmet Adı</th>
