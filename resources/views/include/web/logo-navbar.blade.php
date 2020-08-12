@@ -26,9 +26,9 @@
                     <div class="dropdown-menu fs-10 mt-0" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item px-3 mainDropdown" href="{{route('web.sayfa','hakkinda')}}"><i class="fas fa-bullseye mr-2 navIcon fs-9"></i> Hakkımızda</a>
                         <hr class="mb-0 mt-2 mx-3">
-                        <a class="dropdown-item px-3 mainDropdown" href="misyonumuz.html"><i class="fas fa-bullseye mr-2 navIcon fs-9"></i> Misyonumuz</a>
+                        <a class="dropdown-item px-3 mainDropdown" href="{{route('web.sayfa','misyon')}}"><i class="fas fa-bullseye mr-2 navIcon fs-9"></i> Misyonumuz</a>
                         <hr class="mb-0 mt-2 mx-3">
-                        <a class="dropdown-item px-3 mainDropdown" href="vizyonumuz.html"><i class="fas fa-bullseye mr-2 navIcon fs-9"></i> Vizyonumuz</a>
+                        <a class="dropdown-item px-3 mainDropdown" href="{{route('web.sayfa','vizyon')}}"><i class="fas fa-bullseye mr-2 navIcon fs-9"></i> Vizyonumuz</a>
 
                     </div>
                     <hr class="mt-0 mb-1" />

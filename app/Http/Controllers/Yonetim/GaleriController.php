@@ -141,7 +141,9 @@ class GaleriController extends Controller
         $galeri->yer = $request->yer;
         $galeri->sira = $request->sira;
         if($request->has('resim')) {
+            unlink(storage_path('app/public'.$galeri->resim));
             $galeri->resim = $dosyaYeri;
+
         }
         $galeri->durum = $durum;
         if($galeri->save())

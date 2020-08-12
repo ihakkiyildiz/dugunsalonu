@@ -81,7 +81,7 @@ class HizmetlerController extends Controller
     }
 
 
-        
+
     }
 
     /**
@@ -104,6 +104,8 @@ class HizmetlerController extends Controller
     public function edit($id)
     {
         //
+        $hizmet = Hizmetler::where('id',$id)->first();
+        return view('Yonetim.hizmetler.duzenle',compact('hizmet'));
     }
 
     /**
@@ -116,6 +118,45 @@ class HizmetlerController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'sayfatitle' => 'required|max:200',
+            'metaicerik'=>'required',
+            'icerik'=>'required',
+            'sira'=>'required|numeric',
+            'keyword'=>'required'
+        ]);
+        $hizmet = Hizmetler::where('id',$id)->first();
+        $hizmet->seourl = Str::slug($request->sayfatitle);
+        $hizmet->sayfatitle = $request->sayfatitle;
+        $hizmet->metaicerik = $request->metaicerik;
+        $hizmet->icerik = $request->icerik;
+        $hizmet->sira = $request->sira;
+        $hizmet->keyword = $request->keyword;
+        if($request->has('image')) {
+            unlink(storage_path('app/public'.$hizmet->image));
+            $resim = $request->file('image');
+            $name = Str::slug($request->sayfatitle) . "-" . time();
+            $klasor = "/resim/hizmetler/";
+            $dosyaYeri = $klasor . $name . '.' . $resim->getClientOriginalExtension();
+            $this->uploadOne($resim, $klasor, 'public', $name);
+            $hizmet->image = $dosyaYeri;
+        }
+        if($hizmet->save())
+        {
+
+            return redirect()->back()
+                ->with('status','ok')
+                ->with('message','Güncelleme Başarılı')
+                ->with('type','success')
+                ->with('icon','fa-check');
+        } else {
+            return redirect()->back()
+                ->with('status','ok')
+                ->with('message','Bir Problem Oluştu')
+                ->with('type','danger')
+                ->with('icon','fa-exclamation');
+        }
+
     }
 
     /**
@@ -127,5 +168,27 @@ class HizmetlerController extends Controller
     public function destroy($id)
     {
         //
+        $hizmetler = Hizmetler::where('id',$id)->first();
+
+        if($hizmetler) {
+              unlink(storage_path('app/public'.$hizmetler->image));
+            $hizmetler->delete();
+
+
+            /* return redirect()->back()
+                 ->with('status','ok')
+                 ->with('message','Silme Başarılı')
+                 ->with('type','success')
+                 ->with('icon','fa-check');
+         } else {
+             return redirect()->back()
+                 ->with('status', 'ok')
+                 ->with('message', 'Bir Problem Oluştu')
+                 ->with('type', 'danger')
+                 ->with('icon', 'fa-exclamation');
+         } */
+            return ['status'=>'ok','message'=>'Silme İşlemi Başarılı'];
+        }
+        return ['status'=>'err','message'=>'Silme İşlemi Başarısız'];
     }
 }

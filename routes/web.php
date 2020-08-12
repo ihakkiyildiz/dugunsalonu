@@ -32,7 +32,8 @@ Route::group(['prefix' => 'Yonetim','as'=>'yonetim.','namespace'=>'Yonetim'], fu
 });
 Route::group(['as'=>'web','namespace'=>'Web'],function (){
     Route::get('/','WebController@index')->name('.index');
-    Route::get('/Sayfa/{slug?}','WebController@sayfa')->name('.sayfa');
+    Route::get('/Sayfa/{slug}','WebController@sayfa')->name('.sayfa');
+    Route::get('/Hizmetler/{slug?}','WebController@hizmetler')->name('.hizmetler');
 });
 
 
