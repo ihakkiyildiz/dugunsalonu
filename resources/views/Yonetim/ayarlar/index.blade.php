@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="content ">
-        <div class="block block-themed">
+        <div class="block block-themed block-fx-shadow">
             <div class="block-header bg-gd-sea">
                 <h3 class="block-title">Site Ayarları</h3>
             </div>

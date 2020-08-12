@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row mt-5 mb-5">
             <div class="col-12 col-md-8 mx-auto">
-                <div class="block block-themed">
+                <div class="block block-themed block-fx-shadow">
                     <div class="block-header bg-gd-sea">
                         <h3 class="block-title">Vizyonumuz Sayfası Ayarları</h3>
                     </div>
