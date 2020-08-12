@@ -1,41 +1,57 @@
 @extends('layouts.backend')
 
 @section('content')
-    <div class="container">
+
+    <div class="container mt-5 p-0 p-md-2">
         <div class="row mt-5 mb-5">
             <div class="col-12 col-md-12 mx-auto">
-                <h1 class="text-muted text-center">Hizmetlerimiz Sayfası Ayarları</h1>
-                <!--FORM-->
-                <a href="{{ route('yonetim.Hizmetler.create') }}"
-                    class="btn col-6 col-md-2 float-right mb-4 btn-hero-sm btn-hero-primary">Ekle <i
-                        class="fa fa-plus-circle"></i></a>
-                <table class="table table-hover table-striped">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th scope="col">id</th>
-                            <th scope="col">Hizmet Adı</th>
-                            <th scope="col" class="text-center">İşlemler</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($hizmetler as $h)
-                            <tr>
-                                <th scope="row">{{ $loop->index + 1 }}.</th>
-                                <td>{{ $h->sayfatitle }}</td>
-                                <td colspan="2" class="float-right">
+                <div class="block block-themed block-fx-shadow">
+                    <div class="block-header bg-primary-dark">
+                        <h2 class="block-title">Hizmetlerimiz Sayfası <small>Ayarları</small></h2>
 
-                                    <a href="{{ route('yonetim.Hizmetler.edit', $h->id) }}"
-                                        class="btn btn-hero-primary btn-hero-sm"><i class="fa fa-edit"></i> Düzenle</a>
+                        <div class="block-options">
+                            <button type="button" class="btn-block-option">
+                                <a href="{{ route('yonetim.Hizmetler.create') }}" class="btn btn-hero-light">Hizmet Ekle <i
+                                        class="si si-plus"></i></a>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="block-content p-0">
+                        
+                        <!--FORM-->
+                        <table class="table table-hover table-striped">
+                            <thead class="bg-primary-dark-op">
+                                <tr>
+                                    <th scope="col" class="block-title text-body-color-light">id</th>
+                                    <th scope="col" class="block-title text-body-color-light">HİZMET ADI</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($hizmetler as $h)
+                                    <tr>
+                                        <th scope="row">{{ $loop->index + 1 }}.</th>
+                                        <td>{{ $h->sayfatitle }}</td>
+                                        <td colspan="2" class="float-right">
 
-                                    <a href="#" type="submit" class="btn btn-hero-danger btn-hero-sm"><i
-                                            class="fa fa-trash"></i> Sil</a>
-                                </td>
-                            </tr>
-                        @endforeach
+                                            <a href="{{ route('yonetim.Hizmetler.edit', $h->id) }}"
+                                                class="btn btn-hero-primary btn-hero-sm"><i class="fa fa-edit"></i>
+                                                Düzenle</a>
 
-                    </tbody>
-                </table>
+                                            <a href="#" type="submit" class="btn btn-hero-danger btn-hero-sm"><i
+                                                    class="fa fa-trash"></i> Sil</a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
             </div>
+
         </div>
     </div>
 @endsection
