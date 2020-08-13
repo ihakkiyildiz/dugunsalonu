@@ -117,6 +117,7 @@ class GaleriController extends RedirectController
             'link'=>'nullable',
             'yer'=>'required|in:galeri,alt,liste',
             'sira'=>'required|numeric',
+            'resim'=>'image|mimes:jpeg,png,jpg,gif|max:2048'
             ]);
 
         $durum = $request->has('durum')?1:0;

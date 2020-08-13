@@ -20,7 +20,22 @@
                     </div>
                     <div class="block-content p-2 mt-3">
 
-                        <!--FORM-->
+                        <table class="table table-striped">
+                            <tr>
+                                <td>#</td>
+                                <td>Resim</td>
+                                <td>Duyuru</td>
+                                <td>AKSİYON</td>
+                            </tr>
+                            @foreach($duyurular as $d)
+                                <tr>
+                                    <td>{{$loop->index+1}}</td>
+                                    <td><img src="{{$d->image}}" class="img-thumbnail" alt=""></td>
+                                    <td>{{$d->duyurutitle}}</td>
+                                    <td><a href="{{route('yonetim.Duyurular.edit',$d->id)}}" class="btn btn-sm btn-primary">Göster</a> <a href="javascript:sil({{$d->id}})" class="btn btn-sm btn-danger"> SİL</a></td>
+                                </tr>
+                                @endforeach
+                        </table>
 
                     </div>
                 </div>
@@ -32,16 +47,29 @@
     </div>
 @endsection
 @section('js')
-    <script src="{{ asset('assets/js/plugins/datatables/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('assets/js/plugins/datatables/dataTables.bootstrap4.min.js') }}"></script>
+
     <script>
+        function sil(id) {
+            if (confirm('Duyuruyu Silmek İstediğinize Emin misiniz?')) {
+                var url = "{{ route('yonetim.Duyurular.destroy', ':id') }}".replace(':id', id);
+                $.ajax({
+                    url: url,
+                    method: "post",
+                    data: {
+                        '_token': "{{ csrf_token() }}",
+                        '_method': "delete",
+                        'id': id
+                    },
+                    success: function(d) {
+                        if (d.status == 'ok')
+                            location.reload();
+                    }
+                });
+
+            }
+
+        }
 
     </script>
 @endsection
 
-@section('css')
-    <link rel="stylesheet" href="{{ asset('assets/js/plugins/datatables/dataTables.bootstrap4.css') }}">
-    <style>
-
-    </style>
-@endsection

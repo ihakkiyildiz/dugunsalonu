@@ -20,8 +20,8 @@ class DuyurularController extends RedirectController
     public function index()
     {
         //
-        $sayfa = Duyurular::all();
-        return view('yonetim.duyurular.index',compact('sayfa'));
+        $duyurular = Duyurular::paginate(20);
+        return view('yonetim.duyurular.index',compact('duyurular'));
     }
 
     /**
@@ -43,7 +43,15 @@ class DuyurularController extends RedirectController
      */
     public function store(Request $request)
     {
-        //$request->validate([''=>'']);
+        $request->validate(
+            [
+                'duyurutitle'=>'required|max:150',
+                'icerik'=>'required',
+                'metaicerik'=>'required|max:250',
+                'keyword'=>'required|max:250',
+                'image'=>'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+            ]
+        );
 
         $duyuru = new Duyurular();
         $duyuru->duyurutitle = $request->duyurutitle;
@@ -91,6 +99,8 @@ class DuyurularController extends RedirectController
     public function edit($id)
     {
         //
+        $d = Duyurular::whereId($id)->firstOrFail();
+        return view('Yonetim.duyurular.duzenle',compact('d'));
     }
 
     /**
@@ -102,7 +112,40 @@ class DuyurularController extends RedirectController
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate(
+            [
+                'duyurutitle'=>'required|max:150',
+                'icerik'=>'required',
+                'metaicerik'=>'required|max:250',
+                'keyword'=>'required|max:250',
+                'image'=>'image|mimes:jpeg,png,jpg,gif|max:2048'
+            ]
+        );
+
+        $duyuru = Duyurular::whereId($id)->firstOrFail();
+        $duyuru->duyurutitle = $request->duyurutitle;
+        $duyuru->seourl = Str::slug($duyuru->duyurutitle);
+        $duyuru->durum = $request->has('durum')?1:0;
+        $duyuru->icerik = $request->icerik;
+        $duyuru->metaicerik = $request->metaicerik;
+        $duyuru->keyword = $request->keyword;
+        if($request->has('image')) {
+            unlink(storage_path('/app/public'.$duyuru->image));
+            $resim = $request->file('image');
+            $name = Str::slug($request->duyurutitle)."-".time();
+            $klasor ='/resim/duyurular/';
+            $dosyaYeri = $klasor.$name.'.'.$resim->getClientOriginalExtension();
+            $this->uploadOne($resim,$klasor,'public',$name);
+            $duyuru->image = $dosyaYeri;
+        }
+
+
+        if($duyuru->save())
+        {
+            return $this->success('Kayıt Başarılı Bir Şekilde Güncellendi');
+        } else {
+            return $this->fail('Kayıt Başarısı');
+        }
     }
 
     /**
@@ -113,6 +156,17 @@ class DuyurularController extends RedirectController
      */
     public function destroy($id)
     {
-        //
+        $duyuru = Duyurular::where('id',$id)->first();
+
+        if($duyuru) {
+            unlink(storage_path('app/public'.$duyuru->image));
+            $duyuru->delete();
+
+
+
+            return ['status'=>'ok','message'=>'Silme İşlemi Başarılı'];
+        }
+        return ['status'=>'err','message'=>'Silme İşlemi Başarısız'];
+
     }
 }
