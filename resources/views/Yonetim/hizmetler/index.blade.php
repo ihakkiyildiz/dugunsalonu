@@ -70,7 +70,7 @@
                         '_method' : "delete",
                         'id' : id
                     },
-                    onsuccess : function (d) {
+                    success : function (d) {
                         if(d.status == 'ok')
                             location.reload();
                     }
