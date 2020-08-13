@@ -162,7 +162,7 @@ class GaleriController extends RedirectController
 
         if($galeri)
         {
-            unlink(storage_path('app/public'.$galeri->resim));
+            unlink(storage_path().'/app/public'.$galeri->resim);
             $galeri->delete();
 
 

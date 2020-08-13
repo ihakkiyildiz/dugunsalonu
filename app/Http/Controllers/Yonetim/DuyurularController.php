@@ -159,7 +159,7 @@ class DuyurularController extends RedirectController
         $duyuru = Duyurular::where('id',$id)->first();
 
         if($duyuru) {
-            unlink(storage_path('app/public'.$duyuru->image));
+            unlink(storage_path().'/app/public'.$duyuru->image);
             $duyuru->delete();
 
 

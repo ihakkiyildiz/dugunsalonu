@@ -7,12 +7,12 @@
             <div class="col-12 col-md-12 mx-auto">
                 <div class="block block-themed block-fx-shadow">
                     <div class="block-header bg-primary-dark">
-                        <h2 class="block-title">Salonlar</h2>
+                        <h2 class="block-title">Duyurular</h2>
 
                         <div class="block-options">
                             <button type="button" class="btn-block-option">
                                 <a href="{{ route('yonetim.Salonlar.create') }}" class="btn btn-hero-light">
-                                    <span class="d-none d-md-block">Rezervasyon Ekle <i class="si si-plus"></i></span>
+                                    <span class="d-none d-md-block">Salon Ekle <i class="si si-plus"></i></span>
                                     <span class="d-block d-md-none">Ekle <i class="si si-plus"></i></span>
                                 </a>
                             </button>
@@ -20,102 +20,23 @@
                     </div>
                     <div class="block-content p-2 mt-3">
 
-                        <!--FORM-->
-                        <table class="table table-hover table-striped table-responsive" id="rezervasyonlarTablo">
-                            <thead class="bg-primary-dark-op">
+                        <table class="table table-striped">
+                            <tr>
+                                <td>#</td>
+                                <td>Resim</td>
+                                <td>Salon Adı</td>
+                                <td>Aksiyon</td>
+                            </tr>
+                            @foreach($salonlar as $d)
                                 <tr>
-                                    <th scope="col" class="block-title text-body-color-light">id</th>
-                                    <th scope="col" class="block-title text-body-color-light">Salon</th>
-                                    <th scope="col" class="block-title text-body-color-light">Tarih</th>
-                                    <th scope="col" class="block-title text-body-color-light">Ad Soyad</th>
-                                    <th scope="col" class="block-title text-body-color-light">Telefon</th>
-                                    <th scope="col" class="block-title text-body-color-light">Not</th>
-                                    <th scope="col"></th>
-
+                                    <td>{{$loop->index+1}}</td>
+                                    <td><img src="{{$d->image}}" class="img-thumbnail" alt=""></td>
+                                    <td>{{$d->adi}}</td>
+                                    <td><a href="{{route('yonetim.Salonlar.edit',$d->id)}}" class="btn btn-sm btn-primary">Göster</a> <a href="javascript:sil({{$d->id}})" class="btn btn-sm btn-danger"> SİL</a></td>
                                 </tr>
-                            </thead>
-                            <tbody>
-
-                                <tr>
-                                    <input type="hidden" name="salon_id" id="salon_id" />
-                                    <th scope="row">1.</th>
-                                    <td>
-                                        Kır Düğün Salonu
-                                    </td>
-                                    <td>
-                                        12.08.2020
-                                    </td>
-                                    <td>
-                                        Abdullah YILDIZ
-                                    </td>
-                                    <td>
-                                        05078873651
-                                    </td>
-                                    <td class="w-25">
-                                        Her şeyin düzgün olmasını istiyorum. Elinizden geleni yaparsanız sevinirim.
-                                    </td>
-                                    <td class="text-center">
-                                        <a href="#" class="btn btn-hero-success btn-hero-sm"><i class="fa fa-check"></i></a>
-                                        <a href="#" class="btn btn-hero-primary btn-hero-sm"><i class="fa fa-edit"></i></a>
-                                        <a href="#" type="submit" class="btn btn-hero-danger btn-hero-sm m-1"><i
-                                                class="fa fa-trash"></i></a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <input type="hidden" name="salon_id" id="salon_id" />
-                                    <th scope="row">2.</th>
-                                    <td>
-                                        Kır Düğün Salonu
-                                    </td>
-                                    <td>
-                                        12.08.2020
-                                    </td>
-                                    <td>
-                                        İsmail Hakkı YILDIZ
-                                    </td>
-                                    <td>
-                                        05xxxxxxx
-                                    </td>
-                                    <td class="w-25">
-                                        Pazar günü şirket toplantısı için düzenlenmesini istiyorum.
-                                    </td>
-                                    <td class="text-center">
-                                        <a href="#" class="btn btn-hero-success btn-hero-sm"><i class="fa fa-check"></i></a>
-                                        <a href="#" class="btn btn-hero-primary btn-hero-sm"><i class="fa fa-edit"></i></a>
-                                        <a href="#" type="submit" class="btn btn-hero-danger btn-hero-sm m-1"><i
-                                                class="fa fa-trash"></i></a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <input type="hidden" name="salon_id" id="salon_id" />
-                                    <th scope="row">3.</th>
-                                    <td class="">
-                                        Havuz Başı Düğün Salonu
-                                    </td>
-                                    <td>
-                                        12.08.2020
-                                    </td>
-                                    <td>
-                                        Ali Ülger
-                                    </td>
-                                    <td>
-                                        05xxxxxxx
-                                    </td>
-                                    <td class="w-25">
-                                        Keyfi rezervasyon yapıyorum o gün kimse evlenmesin :d
-                                    </td>
-                                    <td class="text-center">
-                                        <a href="#" class="btn btn-hero-success btn-hero-sm"><i class="fa fa-check"></i></a>
-                                        <a href="#" class="btn btn-hero-primary btn-hero-sm"><i class="fa fa-edit"></i></a>
-                                        <a href="#" type="submit" class="btn btn-hero-danger btn-hero-sm m-1"><i
-                                                class="fa fa-trash"></i></a>
-                                    </td>
-                                </tr>
-
-                            </tbody>
+                                @endforeach
                         </table>
+
                     </div>
                 </div>
 
@@ -126,58 +47,29 @@
     </div>
 @endsection
 @section('js')
-    <script src="{{ asset('assets/js/plugins/datatables/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('assets/js/plugins/datatables/dataTables.bootstrap4.min.js') }}"></script>
+
     <script>
-        $(document).ready(() => {
-            $("#rezervasyonlarTablo").DataTable({
-                "language": {
-                    "sDecimal": ",",
-                    "sEmptyTable": "Tabloda herhangi bir veri mevcut değil",
-                    "sInfo": "_TOTAL_ kayıttan _START_ - _END_ arasındaki kayıtlar gösteriliyor",
-                    "sInfoEmpty": "Kayıt yok",
-                    "sInfoFiltered": "(_MAX_ kayıt içerisinden bulunan)",
-                    "sInfoPostFix": "",
-                    "sInfoThousands": ".",
-                    "sLengthMenu": "Sayfada _MENU_ kayıt göster",
-                    "sLoadingRecords": "Yükleniyor...",
-                    "sProcessing": "İşleniyor...",
-                    "sSearch": "Ara:",
-                    "sZeroRecords": "Eşleşen kayıt bulunamadı",
-                    "oPaginate": {
-                        "sFirst": "İlk",
-                        "sLast": "Son",
-                        "sNext": "Sonraki",
-                        "sPrevious": "Önceki"
+        function sil(id) {
+            if (confirm('Duyuruyu Silmek İstediğinize Emin misiniz?')) {
+                var url = "{{ route('yonetim.Salonlar.destroy', ':id') }}".replace(':id', id);
+                $.ajax({
+                    url: url,
+                    method: "post",
+                    data: {
+                        '_token': "{{ csrf_token() }}",
+                        '_method': "delete",
+                        'id': id
                     },
-                    "oAria": {
-                        "sSortAscending": ": artan sütun sıralamasını aktifleştir",
-                        "sSortDescending": ": azalan sütun sıralamasını aktifleştir"
-                    },
-                    "select": {
-                        "rows": {
-                            "_": "%d kayıt seçildi",
-                            "0": "",
-                            "1": "1 kayıt seçildi"
-                        }
+                    success: function(d) {
+                        if (d.status == 'ok')
+                            location.reload();
                     }
-                }
-            });
-        });
-        /*
-            "lengthMenu": "Sayfa Başına _MENU_ Öge Gösteriliyor",
-            "zeroRecords": "Bulunamadı.",
-            "info": "Sayfa Sayısı: _PAGES_ Mevcut Sayfa: _PAGE_",
-            "infoEmpty": "Hiç rezervasyon yok",
-            "search": "Ara",
-        */
+                });
+
+            }
+
+        }
 
     </script>
 @endsection
 
-@section('css')
-    <link rel="stylesheet" href="{{ asset('assets/js/plugins/datatables/dataTables.bootstrap4.css') }}">
-    <style>
-
-    </style>
-@endsection
