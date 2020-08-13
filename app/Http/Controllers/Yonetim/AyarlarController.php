@@ -3,11 +3,12 @@
 namespace App\Http\Controllers\Yonetim;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\RedirectController;
 use App\Models\Ayarlar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 
-class AyarlarController extends Controller
+class AyarlarController extends RedirectController
 {
     /**
      * Display a listing of the resource.
@@ -84,17 +85,10 @@ class AyarlarController extends Controller
             Ayarlar::where('key',$k)->update(['value'=>$v]);
         }
             Cache::forget('ayarlar');
-        return redirect()->back()
-        ->with('status','ok')
-        ->with('message','Güncelleme Başarılı')
-        ->with('type','success')
-        ->with('icon','fa-check');
+            return $this->success('Ekleme Başarılı');
+
         } catch (\Exception $e) {
-        return redirect()->back()
-            ->with('status','ok')
-            ->with('message',$e->getMessage())
-            ->with('type','danger')
-            ->with('icon','fa-exclamation');
+            return $this->fail('Hata Oluştu');
 
     }
     }

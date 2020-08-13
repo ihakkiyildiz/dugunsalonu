@@ -91,6 +91,35 @@
 
                 </ul>
             </li>
+            <li class="nav-main-item">
+                <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
+                    <i class="nav-main-link-icon si si-notebook"></i>
+                    <span class="nav-main-link-name">Duyurular</span>
+                </a>
+                <ul class="nav-main-submenu">
+                    <li class="nav-main-item">
+                        <a class="nav-main-link" href="{{route('yonetim.Duyurular.index')}}">
+                            <span class="nav-main-link-name">Duyurular</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+            <li class="nav-main-item">
+                <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
+                    <i class="nav-main-link-icon si si-notebook"></i>
+                    <span class="nav-main-link-name">Salonlar</span>
+                </a>
+                <ul class="nav-main-submenu">
+                    <li class="nav-main-item">
+                        <a class="nav-main-link" href="{{route('yonetim.Salonlar.index')}}">
+                            <span class="nav-main-link-name">Salonlar</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+
             <li class="nav-main-heading">İLETİŞİM ALANI</li>
             <li class="nav-main-item">
                 <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">

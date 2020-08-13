@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\RedirectController;
 use Illuminate\Http\Request;
 
-class RezervasyonlarController extends RedirectController
+class SalonlarController extends RedirectController
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,6 @@ class RezervasyonlarController extends RedirectController
     public function index()
     {
         //
-        return view('Yonetim.rezervasyonlar.index');
     }
 
     /**
@@ -27,7 +26,6 @@ class RezervasyonlarController extends RedirectController
     public function create()
     {
         //
-        return view('Yonetim.rezervasyonlar.ekle');
     }
 
     /**

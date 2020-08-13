@@ -3,12 +3,13 @@
 namespace App\Http\Controllers\Yonetim;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\RedirectController;
 use Illuminate\Http\Request;
 use App\Models\Hizmetler;
 use App\Traits\UploadTrait;
 use Illuminate\Support\Str;
 
-class HizmetlerController extends Controller
+class HizmetlerController extends RedirectController
 {
     use UploadTrait;
     /**
@@ -67,18 +68,10 @@ class HizmetlerController extends Controller
         if($hizmet->save())
         {
 
-            return redirect()->back()
-            ->with('status','ok')
-            ->with('message','Ekleme Başarılı')
-            ->with('type','success')
-            ->with('icon','fa-check');
-    } else {
-        return redirect()->back()
-            ->with('status','ok')
-            ->with('message','Bir Problem Oluştu')
-            ->with('type','danger')
-            ->with('icon','fa-exclamation');
-    }
+            return $this->success('Ekleme Başarılı');
+        } else {
+            return $this->fail('Hata Oluştu');
+        }
 
 
 
@@ -144,17 +137,9 @@ class HizmetlerController extends Controller
         if($hizmet->save())
         {
 
-            return redirect()->back()
-                ->with('status','ok')
-                ->with('message','Güncelleme Başarılı')
-                ->with('type','success')
-                ->with('icon','fa-check');
+            return $this->success('Güncelleme Başarılı');
         } else {
-            return redirect()->back()
-                ->with('status','ok')
-                ->with('message','Bir Problem Oluştu')
-                ->with('type','danger')
-                ->with('icon','fa-exclamation');
+            return $this->fail('Hata Oluştu');
         }
 
     }
@@ -175,18 +160,7 @@ class HizmetlerController extends Controller
             $hizmetler->delete();
 
 
-            /* return redirect()->back()
-                 ->with('status','ok')
-                 ->with('message','Silme Başarılı')
-                 ->with('type','success')
-                 ->with('icon','fa-check');
-         } else {
-             return redirect()->back()
-                 ->with('status', 'ok')
-                 ->with('message', 'Bir Problem Oluştu')
-                 ->with('type', 'danger')
-                 ->with('icon', 'fa-exclamation');
-         } */
+
             return ['status'=>'ok','message'=>'Silme İşlemi Başarılı'];
         }
         return ['status'=>'err','message'=>'Silme İşlemi Başarısız'];

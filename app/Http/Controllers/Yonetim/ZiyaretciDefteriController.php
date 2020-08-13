@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\Yonetim;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\RedirectController;
 use Illuminate\Http\Request;
 
-class ZiyaretciDefteriController extends Controller
+class ZiyaretciDefteriController extends RedirectController
 {
     /**
      * Display a listing of the resource.

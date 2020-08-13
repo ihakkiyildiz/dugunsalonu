@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Yonetim;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\RedirectController;
+use App\Models\Sayfalar;
 use Illuminate\Http\Request;
 
-class HakkindaController extends Controller
+class HakkindaController extends RedirectController
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +17,8 @@ class HakkindaController extends Controller
     public function index()
     {
         //
-        return view('Yonetim.sayfalar.hakkinda');
+        $sayfa = Sayfalar::where('seourl','hakkinda')->first();
+        return view('Yonetim.sayfalar.hakkinda',compact('sayfa'));
     }
 
     /**
@@ -71,6 +74,27 @@ class HakkindaController extends Controller
     public function update(Request $request, $id)
     {
         //
+
+        $request->validate([
+            'sayfatitle'=>'required|max:100',
+            'metaicerik'=>'required',
+            'icerik'=>'required',
+            'keyword'=>'required'
+        ]);
+        $kayit = Sayfalar::updateOrCreate(['seourl'=>'hakkinda'],
+            [
+                'sayfatitle'=>$request->sayfatitle,
+                'metaicerik'=>$request->metaicerik,
+                'icerik'=>$request->icerik,
+                'keyword'=>$request->keyword
+                ]);
+        if($kayit)
+        {
+
+            return $this->success('Sayfa Güncelleme Başarılı');
+        } else {
+            return $this->fail('Hata Oluştu');
+        }
     }
 
     /**

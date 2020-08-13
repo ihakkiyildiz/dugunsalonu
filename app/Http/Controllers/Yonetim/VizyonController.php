@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Yonetim;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\RedirectController;
+use App\Models\Sayfalar;
 use Illuminate\Http\Request;
 
-class VizyonController extends Controller
+class VizyonController extends RedirectController
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +17,8 @@ class VizyonController extends Controller
     public function index()
     {
         //
-        return view('Yonetim.sayfalar.vizyon');
+        $sayfa = Sayfalar::where('seourl','vizyon')->first();
+        return view('Yonetim.sayfalar.vizyon',compact('sayfa'));
     }
 
     /**
@@ -70,7 +73,27 @@ class VizyonController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'sayfatitle'=>'required|max:100',
+            'metaicerik'=>'required',
+            'icerik'=>'required',
+            'keyword'=>'required'
+        ]);
+        $kayit = Sayfalar::updateOrCreate(['seourl'=>$id],
+            [
+                'sayfatitle'=>$request->sayfatitle,
+                'metaicerik'=>$request->metaicerik,
+                'icerik'=>$request->icerik,
+                'keyword'=>$request->keyword
+            ]);
+        if($kayit)
+        {
+
+            return $this->success('Güncelleme Başarılı');
+        } else {
+            return $this->fail('Hata Oluştu');
+
+        }
     }
 
     /**

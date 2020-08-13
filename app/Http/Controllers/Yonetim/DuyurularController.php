@@ -4,10 +4,14 @@ namespace App\Http\Controllers\Yonetim;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\RedirectController;
+use App\Models\Duyurular;
+use App\Traits\UploadTrait;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
-class RezervasyonlarController extends RedirectController
+class DuyurularController extends RedirectController
 {
+    use UploadTrait;
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +20,8 @@ class RezervasyonlarController extends RedirectController
     public function index()
     {
         //
-        return view('Yonetim.rezervasyonlar.index');
+        $sayfa = Duyurular::all();
+        return view('yonetim.duyurular.index',compact('sayfa'));
     }
 
     /**
@@ -27,7 +32,7 @@ class RezervasyonlarController extends RedirectController
     public function create()
     {
         //
-        return view('Yonetim.rezervasyonlar.ekle');
+        return view('yonetim.duyurular.ekle');
     }
 
     /**
@@ -38,7 +43,32 @@ class RezervasyonlarController extends RedirectController
      */
     public function store(Request $request)
     {
-        //
+        //$request->validate([''=>'']);
+
+        $duyuru = new Duyurular();
+        $duyuru->duyurutitle = $request->duyurutitle;
+        $duyuru->seourl = Str::slug($duyuru->duyurutitle);
+        $duyuru->durum = 1;
+        $duyuru->icerik = $request->icerik;
+        $duyuru->metaicerik = $request->metaicerik;
+        $duyuru->keyword = $request->keyword;
+        if($request->has('image')) {
+            $resim = $request->file('image');
+            $name = Str::slug($request->duyurutitle)."-".time();
+            $klasor ='/resim/duyurular/';
+            $dosyaYeri = $klasor.$name.'.'.$resim->getClientOriginalExtension();
+            $this->uploadOne($resim,$klasor,'public',$name);
+            $duyuru->image = $dosyaYeri;
+        }
+
+
+        if($duyuru->save())
+        {
+            return $this->success('Kayıt Başarılı');
+        } else {
+            return $this->fail('Kayıt Başarısı');
+        }
+
     }
 
     /**

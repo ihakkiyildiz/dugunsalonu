@@ -20,7 +20,7 @@ class CreateSayfalarsTable extends Migration
             $table->string('metaicerik');
             $table->text('icerik');
             $table->string('keyword');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

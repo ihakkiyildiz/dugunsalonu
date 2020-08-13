@@ -10,59 +10,60 @@
                     </div>
                     <div class="block-content p-1 mt-2">
                         <!--FORM-->
-                        <form action="">
+                        <form action="{{route('yonetim.Hakkinda.update','hakkinda')}}" method="post">
                             <!--SEO TITLE-->
-                            <input type="hidden" name="hakkinda" value="hakkinda">
-        
+                            @csrf
+                            @method('PUT')
+
                             <!--Sayfa Başlığı-->
                             <div class="input-group-lg mb-3">
-        
+
                                 <div class="input-group-text text-muted"><i class="fas fa-heading mr-3"></i> Sayfa Başlığı</div>
-        
-                                <input type="text" class="form-control customInput" name="sayfatitle" placeholder="Sayfa Başlığı" />
+
+                                <input type="text" class="form-control customInput" name="sayfatitle" placeholder="Sayfa Başlığı" value="{{$sayfa->sayfatitle}}" />
                             </div>
-        
+
                             <!--Meta İçeriği-->
                             <div class="input-group-lg mb-3">
-        
+
                                 <div class="input-group-text">
                                     <h5 class="mb-1 text-muted"><i class="fas fa-list-alt mr-3"></i> Özet</h5>
                                 </div>
-        
-        
-                                <textarea name="metaicerigi" id="" cols="30" rows="3" class="form-control customInput"
-                                    placeholder="Özet"></textarea>
+
+
+                                <textarea name="metaicerik" id="" cols="30" rows="3" class="form-control customInput"
+                                    placeholder="Özet">{{$sayfa->metaicerik}}</textarea>
                             </div>
-        
-                           
+
+
                             <!--İçerik-->
                             <div class="input-group-lg mb-3">
-        
+
                                 <div class="input-group-text">
                                     <h5 class="mb-1 text-muted"><i class="fa fa-users mr-3"></i> Hakkımızda Yazısı</h5>
                                 </div>
                                 <div class="form-group">
                                     <!-- CKEditor Container -->
-                                    <textarea id="js-ckeditor" name="icerik" placeholder=""></textarea>
+                                    <textarea id="js-ckeditor" name="icerik" placeholder="">{{$sayfa->icerik}}</textarea>
                                 </div>
                             </div>
-                            
-        
+
+
                             <!--keyword-->
                             <div class="input-group-lg mb-3">
-        
+
                                 <div class="input-group-text text-muted"><i class="fa fa-tags mr-3"></i> Anahtar Kelimeler</div>
-        
-                                <input type="text" class="form-control customInput" name="keyword"
+
+                                <input type="text" class="form-control customInput" name="keyword" value="{{$sayfa->keyword}}"
                                     placeholder="Anahtar Kelimeler (Virgülle ayırın örn: a, b, c,...)" />
                             </div>
-        
+
                             <input type="submit" value="Kaydet" class="btn btn-block btn-success mt-5" />
                         </form>
                     </div>
                 </div>
-                
-                
+
+
 
             </div>
         </div>
@@ -72,7 +73,7 @@
 <script src="{{asset('assets/js/plugins/ckeditor/ckeditor.js')}}"></script>
     <script>
         jQuery(function(){ Dashmix.helpers([ 'ckeditor']); });
-    
+
     </script>
 @endsection
 

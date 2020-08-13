@@ -26,6 +26,8 @@ Route::group(['prefix' => 'Yonetim','as'=>'yonetim.','namespace'=>'Yonetim'], fu
         Route::resource('Hizmetler', 'HizmetlerController');
         Route::resource('Rezervasyonlar', 'RezervasyonlarController');
         Route::resource('ZiyaretciDefteri', 'ZiyaretciDefteriController');
+        Route::resource('Duyurular', 'DuyurularController');
+        Route::resource('Salonlar', 'SalonlarController');
 
 
 
