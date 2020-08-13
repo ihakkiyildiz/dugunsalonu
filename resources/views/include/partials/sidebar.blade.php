@@ -132,11 +132,6 @@
                             <span class="nav-main-link-name">Gelen Rezervasyonlar</span>
                         </a>
                     </li>
-                    <li class="nav-main-item">
-                        <a class="nav-main-link" href="{{route('yonetim.Rezervasyonlar.create')}}">
-                            <span class="nav-main-link-name">Rezervasyon Yap</span>
-                        </a>
-                    </li>
 
                 </ul>
             </li>

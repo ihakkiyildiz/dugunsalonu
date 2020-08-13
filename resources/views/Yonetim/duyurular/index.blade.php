@@ -20,23 +20,41 @@
                     </div>
                     <div class="block-content p-2 mt-3">
 
-                        <table class="table table-striped">
-                            <tr>
-                                <td>#</td>
-                                <td>Resim</td>
-                                <td>Duyuru</td>
-                                <td>AKSİYON</td>
-                            </tr>
-                            @foreach($duyurular as $d)
+                        <table class="table table-hover table-striped">
+                            <thead class="bg-primary-dark-op">
                                 <tr>
-                                    <td>{{$loop->index+1}}</td>
-                                    <td><img src="{{$d->image}}" class="img-thumbnail" alt=""></td>
-                                    <td>{{$d->duyurutitle}}</td>
-                                    <td><a href="{{route('yonetim.Duyurular.edit',$d->id)}}" class="btn btn-sm btn-primary">Göster</a> <a href="javascript:sil({{$d->id}})" class="btn btn-sm btn-danger"> SİL</a></td>
+                                    <th scope="col" class="block-title text-body-color-light">#</th>
+                                    <th scope="col" class="block-title text-body-color-light">Resim</th>
+                                    <th scope="col" class="block-title text-body-color-light">Duyuru</th>
+                                    <th scope="col" class="block-title text-body-color-light"></th>
                                 </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($duyurular as $d)
+                                    <tr>
+                                        <th scope="row">{{ $loop->index + 1 }}.</th>
+                                        <td class="p-2 m-0" style="width:17%"><img src="{{ $d->image }}" class="img-thumbnail" style="width:10em;height:5em;border-radius:.8xem" alt=""></td>
+                                        <td>{{ $d->duyurutitle }}</td>
+                                        <td class="float-right"><a href="{{ route('yonetim.Duyurular.edit', $d->id) }}"
+                                                class="btn btn-hero-sm btn-hero-primary">Göster <i
+                                                    class="si si-eye"></i></a> <a href="javascript:sil({{ $d->id }})"
+                                                class="btn btn-hero-sm btn-hero-danger">Sil <i class="si si-trash"></i></a>
+                                        </td>
+                                    </tr>
                                 @endforeach
+                                <tr>
+                                    <th scope="row">6.</th>
+                                    <td class="p-2 m-0" style="width:17%"><img src="{{ asset('assets/media/photos/photo11.jpg') }}" class="img-thumbnail" style="width:10em;height:5em;border-radius:.8xem" alt=""></td>
+                                    <td class="mr-0">Deneme</td>
+                                    <td class="float-right"><a href="#"
+                                            class="btn btn-hero-sm btn-hero-primary">Göster <i class="si si-eye"></i></a> <a
+                                            href="#" class="btn btn-hero-sm btn-hero-danger">Sil
+                                            <i class="si si-trash"></i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
                         </table>
-
+                        {{ $duyurular->links() }}
                     </div>
                 </div>
 
@@ -72,4 +90,3 @@
 
     </script>
 @endsection
-
