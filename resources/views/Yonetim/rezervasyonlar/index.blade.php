@@ -25,6 +25,7 @@
                             <thead class="bg-primary-dark-op">
                                 <tr>
                                     <th scope="col" class="block-title text-body-color-light">id</th>
+                                    <th scope="col" class="block-title text-body-color-light">Salon</th>
                                     <th scope="col" class="block-title text-body-color-light">Tarih</th>
                                     <th scope="col" class="block-title text-body-color-light">Ad Soyad</th>
                                     <th scope="col" class="block-title text-body-color-light">Telefon</th>
@@ -39,6 +40,9 @@
                                     <input type="hidden" name="salon_id" id="salon_id" />
                                     <th scope="row">1.</th>
                                     <td>
+                                        Kır Düğün Salonu
+                                    </td>
+                                    <td>
                                         12.08.2020
                                     </td>
                                     <td>
@@ -50,10 +54,10 @@
                                     <td class="w-25">
                                         Her şeyin düzgün olmasını istiyorum. Elinizden geleni yaparsanız sevinirim.
                                     </td>
-                                    <td class="text-right">
+                                    <td class="text-center">
                                         <a href="#" class="btn btn-hero-success btn-hero-sm"><i class="fa fa-check"></i></a>
                                         <a href="#" class="btn btn-hero-primary btn-hero-sm"><i class="fa fa-edit"></i></a>
-                                        <a href="#" type="submit" class="btn btn-hero-danger btn-hero-sm"><i
+                                        <a href="#" type="submit" class="btn btn-hero-danger btn-hero-sm m-1"><i
                                                 class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
@@ -61,6 +65,9 @@
                                 <tr>
                                     <input type="hidden" name="salon_id" id="salon_id" />
                                     <th scope="row">2.</th>
+                                    <td>
+                                        Kır Düğün Salonu
+                                    </td>
                                     <td>
                                         12.08.2020
                                     </td>
@@ -73,10 +80,10 @@
                                     <td class="w-25">
                                         Pazar günü şirket toplantısı için düzenlenmesini istiyorum.
                                     </td>
-                                    <td class="text-right w-auto">
+                                    <td class="text-center">
                                         <a href="#" class="btn btn-hero-success btn-hero-sm"><i class="fa fa-check"></i></a>
                                         <a href="#" class="btn btn-hero-primary btn-hero-sm"><i class="fa fa-edit"></i></a>
-                                        <a href="#" type="submit" class="btn btn-hero-danger btn-hero-sm"><i
+                                        <a href="#" type="submit" class="btn btn-hero-danger btn-hero-sm m-1"><i
                                                 class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
@@ -84,6 +91,9 @@
                                 <tr>
                                     <input type="hidden" name="salon_id" id="salon_id" />
                                     <th scope="row">3.</th>
+                                    <td class="">
+                                        Havuz Başı Düğün Salonu
+                                    </td>
                                     <td>
                                         12.08.2020
                                     </td>
@@ -96,10 +106,10 @@
                                     <td class="w-25">
                                         Keyfi rezervasyon yapıyorum o gün kimse evlenmesin :d
                                     </td>
-                                    <td class="text-right">
+                                    <td class="text-center">
                                         <a href="#" class="btn btn-hero-success btn-hero-sm"><i class="fa fa-check"></i></a>
                                         <a href="#" class="btn btn-hero-primary btn-hero-sm"><i class="fa fa-edit"></i></a>
-                                        <a href="#" type="submit" class="btn btn-hero-danger btn-hero-sm"><i
+                                        <a href="#" type="submit" class="btn btn-hero-danger btn-hero-sm m-1"><i
                                                 class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>

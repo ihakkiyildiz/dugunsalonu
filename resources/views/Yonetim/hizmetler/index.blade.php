@@ -38,12 +38,19 @@
                                                 class="btn btn-hero-primary btn-hero-sm"><i class="fa fa-edit"></i>
                                                 Düzenle</a>
 
-                                            <a href="javascript:sil({{$h->id}})" type="submit" class="btn btn-hero-danger btn-hero-sm"><i
-                                                    class="fa fa-trash"></i> Sil</a>
+                                            <a href="javascript:sil({{ $h->id }})" type="submit"
+                                                class="btn btn-hero-danger btn-hero-sm"><i class="fa fa-trash"></i> Sil</a>
                                         </td>
                                     </tr>
                                 @endforeach
 
+                                @if (count($hizmetler) == 0)
+                                    <tr>
+                                        <td colspan="3" class="text-center">
+                                            <h4 class="text-muted">Hizmet Bulunmamaktadır.</h4>
+                                        </td>
+                                    </tr>
+                                @endif
                             </tbody>
                         </table>
                     </div>
@@ -59,19 +66,18 @@
 
     <script>
         function sil(id) {
-            if(confirm('Hizmeti Silmek İstediğinize Emin misiniz?'))
-            {
-                var url = "{{route('yonetim.Hizmetler.destroy',':id')}}".replace(':id',id);
+            if (confirm('Hizmeti Silmek İstediğinize Emin misiniz?')) {
+                var url = "{{ route('yonetim.Hizmetler.destroy', ':id') }}".replace(':id', id);
                 $.ajax({
-                    url:url,
-                    method:"post",
-                    data : {
-                        '_token' : "{{csrf_token()}}",
-                        '_method' : "delete",
-                        'id' : id
+                    url: url,
+                    method: "post",
+                    data: {
+                        '_token': "{{ csrf_token() }}",
+                        '_method': "delete",
+                        'id': id
                     },
-                    success : function (d) {
-                        if(d.status == 'ok')
+                    success: function(d) {
+                        if (d.status == 'ok')
                             location.reload();
                     }
                 });
@@ -79,6 +85,7 @@
             }
 
         }
+
     </script>
 @endsection
 

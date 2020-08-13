@@ -43,7 +43,18 @@
                                     placeholder="5xxxxxxxxx" maxlength="10"/>
                             </div>
 
+                            <div class="input-group-lg mb-3">
 
+                                <div class="input-group-text text-muted"><i class="fa fa-mobile-alt mr-3"></i>Salon
+                                </div>
+
+                                <select name="salon_id" class="form-control customInput">
+                                    <option value="kir">Kır Düğün Salonu</option>
+                                    <option value="havuzbasi">Havuz Başı Düğün Salonu</option>
+                                    <option value="cedir">Cedir Düğün Salonu</option>
+                                    
+                                </select>
+                            </div>
                             <!--Not-->
                             <div class="input-group-lg mb-3">
 
