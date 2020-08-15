@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers\Yonetim;
 
+use App\DataTables\RezervasyonlarTableDataTable;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\RedirectController;
+use App\Http\Requests\RezervasyonlarRequest;
+use App\Models\Rezervasyonlar;
 use App\Models\Salonlar;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Contracts\DataTable;
 
 class RezervasyonlarController extends RedirectController
 {
@@ -14,10 +18,14 @@ class RezervasyonlarController extends RedirectController
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(RezervasyonlarTableDataTable $table)
     {
         //
-        return view('Yonetim.rezervasyonlar.index');
+        return $table->render('Yonetim.rezervasyonlar.index');
+    }
+    public function rezervasyonListesi()
+    {
+        return DataTable::of(Rezervasyonlar::all())->toJson();
     }
 
     /**
@@ -38,9 +46,21 @@ class RezervasyonlarController extends RedirectController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RezervasyonlarRequest $request)
     {
         //
+        $rezervasyon = new Rezervasyonlar();
+        $rezervasyon->adsoyad = $request->adsoyad;
+        $rezervasyon->not = $request->not;
+        $rezervasyon->durum = 1;
+        $rezervasyon->salon_id = $request->salon_id;
+        $rezervasyon->tarih = $request->tarih;
+        $rezervasyon->telefon = $request->telefon;
+        if($rezervasyon->save())
+        {
+            return $this->success('Rezervasyon Yapıldı');
+        }
+        return $this->fail('Bir Problem Oluştu');
 
     }
 

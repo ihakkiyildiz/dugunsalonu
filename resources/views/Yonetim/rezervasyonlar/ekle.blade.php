@@ -40,7 +40,7 @@
                                 </div>
 
                                 <input type="text" class="form-control customInput" name="telefon"
-                                    placeholder="5xxxxxxxxx" maxlength="10"/>
+                                    placeholder="5xxxxxxxxx" id="telefon" maxlength="10"/>
                             </div>
 
                             <div class="input-group-lg mb-3">
@@ -81,10 +81,15 @@
 @endsection
 @section('js')
     <script src="{{ asset('assets/js/plugins/ckeditor/ckeditor.js') }}"></script>
+    <script src="{{asset('assets/js/plugins/jquery.maskedinput/jquery.maskedinput.min.js')}}"></script>
     <script>
+
         jQuery(function() {
-            Dashmix.helpers(['ckeditor']);
+            Dashmix.helpers(['ckeditor','masked-inputs']);
+            $('#telefon').mask('(999) 999-9999');
+
         });
+
 
         //CUSTOM FILE INPUT
         $(".custom-file-input").on("change", function() {
