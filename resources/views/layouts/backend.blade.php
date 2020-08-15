@@ -110,7 +110,18 @@
 
             <!-- Main Container -->
             <main id="main-container">
+                @if($errors->any())
+                <div class="alert alert-danger id='uyari'">
+                    <b>Hatalarlar Karşılaşıldı</b>
 
+                    <ul>
+                        @foreach($errors->all() as $error)
+                        <li>{{$error}}</li>
+                        @endforeach
+                    </ul>
+
+                </div>
+                @endif
                 @yield('content')
 
             </main>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Yonetim;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\RedirectController;
+use App\Http\Requests\GaleriRequest;
 use App\Models\Galeri;
 use App\Traits\UploadTrait;
 use Illuminate\Http\Request;
@@ -41,15 +42,8 @@ class GaleriController extends RedirectController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(GaleriRequest $request)
     {
-        $request->validate([
-        'aciklama' => 'required|max:20',
-        'link'=>'nullable',
-        'yer'=>'required|in:galeri,alt,liste',
-        'sira'=>'required|numeric',
-        'resim' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
-        ]);
 
         $durum = $request->has('durum')?1:0;
 
@@ -109,16 +103,10 @@ class GaleriController extends RedirectController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(GaleriRequest $request, $id)
     {
         //
-        $request->validate([
-            'aciklama' => 'required|max:20',
-            'link'=>'nullable',
-            'yer'=>'required|in:galeri,alt,liste',
-            'sira'=>'required|numeric',
-            'resim'=>'image|mimes:jpeg,png,jpg,gif|max:2048'
-            ]);
+
 
         $durum = $request->has('durum')?1:0;
 

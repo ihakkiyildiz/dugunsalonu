@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Yonetim;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\RedirectController;
+use App\Http\Requests\DuyurularRequest;
 use App\Models\Duyurular;
 use App\Traits\UploadTrait;
-use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 class DuyurularController extends RedirectController
@@ -41,18 +41,8 @@ class DuyurularController extends RedirectController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(DuyurularRequest $request)
     {
-        $request->validate(
-            [
-                'duyurutitle'=>'required|max:150',
-                'icerik'=>'required',
-                'metaicerik'=>'required|max:250',
-                'keyword'=>'required|max:250',
-                'image'=>'required|image|mimes:jpeg,png,jpg,gif|max:2048'
-            ]
-        );
-
         $duyuru = new Duyurular();
         $duyuru->duyurutitle = $request->duyurutitle;
         $duyuru->seourl = Str::slug($duyuru->duyurutitle);
@@ -110,17 +100,9 @@ class DuyurularController extends RedirectController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(DuyurularRequest $request, $id)
     {
-        $request->validate(
-            [
-                'duyurutitle'=>'required|max:150',
-                'icerik'=>'required',
-                'metaicerik'=>'required|max:250',
-                'keyword'=>'required|max:250',
-                'image'=>'image|mimes:jpeg,png,jpg,gif|max:2048'
-            ]
-        );
+
 
         $duyuru = Duyurular::whereId($id)->firstOrFail();
         $duyuru->duyurutitle = $request->duyurutitle;

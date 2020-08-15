@@ -42,19 +42,10 @@
                                     </td>
                                     </tr>
                                 @endforeach
-                                <tr>
-                                    <th scope="row">6.</th>
-                                    <td class="p-2 m-0" style="width:17%"><img src="{{ asset('assets/media/photos/photo11.jpg') }}" class="img-thumbnail" style="width:10em;height:5em;border-radius:.8xem" alt=""></td>
-                                    <td class="mr-0">Deneme</td>
-                                    <td class="float-right"><a href="#"
-                                            class="btn btn-hero-sm btn-hero-primary">Göster <i class="si si-eye"></i></a> <a
-                                            href="#" class="btn btn-hero-sm btn-hero-danger">Sil
-                                            <i class="si si-trash"></i></a>
-                                    </td>
-                                </tr>
+
                             </tbody>
                         </table>
-                        
+
                     </div>
                 </div>
 

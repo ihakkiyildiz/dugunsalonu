@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Yonetim;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\RedirectController;
+use App\Http\Requests\HizmetlerRequest;
 use Illuminate\Http\Request;
 use App\Models\Hizmetler;
 use App\Traits\UploadTrait;
@@ -41,17 +42,10 @@ class HizmetlerController extends RedirectController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(HizmetlerRequest $request)
     {
         //
-        $request->validate([
-            'sayfatitle' => 'required|max:200',
-            'metaicerik'=>'required',
-            'icerik'=>'required',
-            'sira'=>'required|numeric',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'keyword'=>'required'
-            ]);
+
         $hizmet = new Hizmetler();
         $hizmet->seourl = Str::slug($request->sayfatitle);
         $hizmet->sayfatitle = $request->sayfatitle;
@@ -108,16 +102,10 @@ class HizmetlerController extends RedirectController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(HizmetlerRequest $request, $id)
     {
         //
-        $request->validate([
-            'sayfatitle' => 'required|max:200',
-            'metaicerik'=>'required',
-            'icerik'=>'required',
-            'sira'=>'required|numeric',
-            'keyword'=>'required'
-        ]);
+
         $hizmet = Hizmetler::where('id',$id)->first();
         $hizmet->seourl = Str::slug($request->sayfatitle);
         $hizmet->sayfatitle = $request->sayfatitle;

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Yonetim;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\RedirectController;
+use App\Http\Requests\SalonlarRequest;
 use App\Models\Salonlar;
 use App\Models\Sayfalar;
 use App\Traits\UploadTrait;
@@ -42,17 +43,10 @@ class SalonlarController extends RedirectController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SalonlarRequest $request)
     {
         //
-        $request->validate(
-            [
-                'adi'=>'required|max:150',
-                'aciklama'=>'required',
-                'keyword'=>'required|max:250',
-                'image'=>'required|image|mimes:jpeg,png,jpg,gif|max:2048'
-            ]
-        );
+
 
         $salon = new Salonlar();
         $salon->adi = $request->adi;
@@ -107,16 +101,9 @@ class SalonlarController extends RedirectController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(SalonlarRequest $request, $id)
     {
-        $request->validate(
-            [
-                'adi'=>'required|max:150',
-                'aciklama'=>'required',
-                'keyword'=>'required|max:250',
-                'image'=>'image|mimes:jpeg,png,jpg,gif|max:2048'
-            ]
-        );
+
 
         $salon = Salonlar::whereId($id)->firstOrFail();
         $salon->adi = $request->adi;
@@ -150,15 +137,10 @@ class SalonlarController extends RedirectController
     public function destroy($id)
     {
         $salon = Salonlar::where('id',$id)->first();
-
-
         if($salon) {
 
             unlink(storage_path().'/app/public'.$salon->image);
             $salon->delete();
-
-
-
             return ['status'=>'ok','message'=>'Silme İşlemi Başarılı'];
         }
         return ['status'=>'err','message'=>'Silme İşlemi Başarısız'];
