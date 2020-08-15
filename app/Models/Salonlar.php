@@ -30,4 +30,9 @@ class Salonlar extends Model
 {
     //
     protected $table = "salonlar";
+    protected $guarded = [];
+    protected function rezervasyonlar()
+    {
+        return $this->hasMany('App\Models\Rezervasyonlar','id','salon_id');
+    }
 }

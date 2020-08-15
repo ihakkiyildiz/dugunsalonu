@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Yonetim;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\RedirectController;
+use App\Models\Salonlar;
 use Illuminate\Http\Request;
 
 class RezervasyonlarController extends RedirectController
@@ -27,7 +28,8 @@ class RezervasyonlarController extends RedirectController
     public function create()
     {
         //
-        return view('Yonetim.rezervasyonlar.ekle');
+        $dugunsalonlari = Salonlar::all();
+        return view('Yonetim.rezervasyonlar.ekle',compact('dugunsalonlari'));
     }
 
     /**
@@ -39,6 +41,7 @@ class RezervasyonlarController extends RedirectController
     public function store(Request $request)
     {
         //
+
     }
 
     /**

@@ -11,7 +11,7 @@
                     </div>
                     <div class="block-content p-1 mt-2">
                         <!--FORM-->
-                        <form action="#" method="post">
+                        <form action="{{ route('yonetim.Rezervasyonlar.store') }}" method="post">
                             @csrf
                             <!--Adı Soyadı-->
                             <div class="input-group-lg mb-3">
@@ -49,10 +49,10 @@
                                 </div>
 
                                 <select name="salon_id" class="form-control customInput">
-                                    <option value="kir">Kır Düğün Salonu</option>
-                                    <option value="havuzbasi">Havuz Başı Düğün Salonu</option>
-                                    <option value="cedir">Cedir Düğün Salonu</option>
-                                    
+                                    @foreach($dugunsalonlari as $ds)
+                                    <option value="{{$ds->id}}">{{$ds->adi}}</option>
+                                    @endforeach
+
                                 </select>
                             </div>
                             <!--Not-->

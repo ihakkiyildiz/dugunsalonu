@@ -34,4 +34,12 @@ class Rezervasyonlar extends Model
 {
     //
     protected $table = "rezervasyonlar";
+    protected $guarded = [];
+
+
+    public function salon()
+    {
+        return $this->belongsTo('App\Models\Salonlar','salon_id','id');
+    }
+
 }
