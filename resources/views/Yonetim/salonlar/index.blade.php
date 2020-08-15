@@ -33,19 +33,23 @@
                                 @foreach ($salonlar as $d)
                                     <tr>
                                         <th scope="row">{{ $loop->index + 1 }}.</th>
-                                        <td class="p-2 m-0" style="width:17%"><img src="{{ $d->image }}" class="img-thumbnail" style="width:10em;height:5em;border-radius:.8xem" alt=""></td>
+                                        <td class="p-2 m-0" style="width:17%"><img src="{{ $d->image }}"
+                                                class="img-thumbnail" style="width:10em;height:5em;border-radius:.8xem"
+                                                alt=""></td>
                                         <td>{{ $d->adi }}</td>
                                         <td class="float-right"><a href="{{ route('yonetim.Salonlar.edit', $d->id) }}"
-                                            class="btn btn-hero-sm btn-hero-primary">Göster <i class="si si-eye"></i></a> <a
-                                            href="javascript:sil({{ $d->id }})" class="btn btn-hero-sm btn-hero-danger">Sil
-                                            <i class="si si-trash"></i></a>
-                                    </td>
+                                                class="btn btn-hero-sm btn-hero-primary">Göster <i
+                                                    class="si si-eye"></i></a> <a href="javascript:sil({{ $d->id }})"
+                                                class="btn btn-hero-sm btn-hero-danger">Sil
+                                                <i class="si si-trash"></i></a>
+                                        </td>
                                     </tr>
                                 @endforeach
-
                             </tbody>
                         </table>
-
+                        <div class="text-center">
+                            {{ $salonlar->links() }}
+                        </div>
                     </div>
                 </div>
 

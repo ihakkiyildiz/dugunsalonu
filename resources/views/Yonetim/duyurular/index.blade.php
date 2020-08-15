@@ -45,7 +45,9 @@
 
                             </tbody>
                         </table>
-                        {{ $duyurular->links() }}
+                        <div class="text-center">
+                            {{ $duyurular->links() }}
+                        </div>
                     </div>
                 </div>
 
