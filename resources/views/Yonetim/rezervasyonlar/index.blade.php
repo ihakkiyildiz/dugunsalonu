@@ -42,6 +42,53 @@
     <script src="{{ asset('vendor/datatables/buttons.server-side.js') }}"></script>
 
     {{$dataTable->scripts()}}
+    <script>
+        $(function () {
+              $('#rezervasyontablo thead').addClass('bg-primary-dark-op text-light')
+              $('#rezervasyontablo').addClass('table-hover table-stripped')
+        })
+        function sil(id) {
+            if (confirm('Rezervasyonu Silmek İstediğinize Emin misiniz?')) {
+                var url = "{{ route('yonetim.Rezervasyonlar.destroy', ':id') }}".replace(':id', id);
+                $.ajax({
+                    url: url,
+                    method: "post",
+                    data: {
+                        '_token': "{{ csrf_token() }}",
+                        '_method': "delete",
+                        'id': id
+                    },
+                    success: function(d) {
+                        if (d.status == 'ok')
+                            location.reload();
+                    }
+                });
+
+            }
+
+        }
+        function durumdegistir(id)
+        {
+            if (confirm('Durumu değiştirmek istediğinize emin misiniz?')) {
+                var url = "{{ route('yonetim.Rezervasyonlar.update', ':id') }}".replace(':id', id);
+                $.ajax({
+                    url: url,
+                    method: "post",
+                    data: {
+                        '_token': "{{ csrf_token() }}",
+                        '_method': "patch",
+                        'id': id
+                    },
+                    success: function(d) {
+                        if (d.status == 'ok')
+                            location.reload();
+                    }
+                });
+
+            }
+
+        }
+    </script>
 @endsection
 
 @section('css')

@@ -17,14 +17,17 @@ class RezervasyonlarTableDataTable extends DataTable
      */
     public function dataTable($query)
     {
+        $GLOBALS['art'] = 1;
         return datatables()
             ->eloquent($query)
-            ->addColumn('#', function ($s){
-                return $s->id;
+            ->addColumn('#',function () {
+                global $art;
+               return $art++;
             })
             ->editColumn('durum',function ($x){
-
-                return '<a href="javascript:durumdegistir('.$x->id.')" class="btn btn-hero-success btn-hero-sm"><i class="fa fa-check"></i></a>
+                $drm = $x->durum == 1 ? 'success' : 'danger';
+                $ico = $x->durum == 1 ? 'check' : 'times';
+                return '<a href="javascript:durumdegistir('.$x->id.')" class="btn btn-hero-'.$drm.' btn-hero-sm"><i class="fa fa-'.$ico.'"></i></a>
                                         <a href="'.route('yonetim.Rezervasyonlar.edit',$x->id).'" class="btn btn-hero-primary btn-hero-sm"><i class="fa fa-edit"></i></a>
                                         <a href="javascript:sil('.$x->id.')" type="submit" class="btn btn-hero-danger btn-hero-sm m-1"><i
                                                 class="fa fa-trash"></i></a>';
@@ -61,10 +64,12 @@ class RezervasyonlarTableDataTable extends DataTable
                     ->minifiedAjax()
                     ->dom('Bfrtip')
                     ->orderBy(1)
+
                 ->parameters([
                     'language'=>[
                         'url' => url('assets/datatable.tr.json')
                     ]
+
                 ])
 
 
@@ -82,17 +87,14 @@ class RezervasyonlarTableDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            Column::computed('#')
-                  ->exportable(true)
-                  ->printable(false)
-                  ->width(60)
-                  ->addClass('text-center'),
-            Column::make('adsoyad'),
-            Column::make('not'),
-            Column::make('tarih'),
-            Column::make('telefon'),
-            Column::make('salon_id'),
-            Column::make('durum')
+            Column::computed('#'),
+            Column::make('adsoyad')->title('Ad Soyad'),
+            Column::make('not')->title('Açıklama'),
+            Column::make('tarih')->title('Tarih'),
+            Column::make('telefon')->title('Telefon'),
+            Column::make('salon_id')->title('Salon Adı'),
+            Column::make('durum')->title('İşlemler')->orderable(false)->searchable(false)
+
 
         ];
     }

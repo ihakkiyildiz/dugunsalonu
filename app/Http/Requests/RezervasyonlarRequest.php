@@ -23,6 +23,8 @@ class RezervasyonlarRequest extends FormRequest
      */
     public function rules()
     {
+        if($this->getMethod()=='PATCH')
+            return [];
         return [
             //
             'adsoyad'=>'required|max:200',

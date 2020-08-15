@@ -83,7 +83,9 @@ class RezervasyonlarController extends RedirectController
      */
     public function edit($id)
     {
-        //
+        $rez = Rezervasyonlar::whereId($id)->firstOrFail();
+        $dugunsalonlari = Salonlar::all();
+        return view('Yonetim.rezervasyonlar.duzenle',compact('rez','dugunsalonlari'));
     }
 
     /**
@@ -93,9 +95,26 @@ class RezervasyonlarController extends RedirectController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(RezervasyonlarRequest $request, $id)
     {
-        //
+        $rezervasyon = Rezervasyonlar::whereId($id)->firstOrFail();
+        if($request->getMethod()=='PATCH')
+        {
+            $rezervasyon->durum = !$rezervasyon->durum;
+            if($rezervasyon->save())
+                return ['status'=>'ok'];
+        }
+
+
+        $rezervasyon->adsoyad = $request->adsoyad;
+        $rezervasyon->tarih = $request->tarih;
+        $rezervasyon->telefon = $request->telefon;
+        $rezervasyon->salon_id = $request->salon_id;
+        $rezervasyon->not = $request->not;
+        $rezervasyon->durum = $request->has('durum')?1:0;
+        if($rezervasyon->save())
+            return $this->success('Güncelleme Başarılı');
+        return $this->fail('Bir Hata Oluştu');
     }
 
     /**
@@ -107,5 +126,8 @@ class RezervasyonlarController extends RedirectController
     public function destroy($id)
     {
         //
+        if(Rezervasyonlar::whereId($id)->delete())
+            return ['status'=>'ok'];
+        return ['status'=>'err'];
     }
 }
