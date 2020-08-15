@@ -61,6 +61,13 @@ class RezervasyonlarTableDataTable extends DataTable
                     ->minifiedAjax()
                     ->dom('Bfrtip')
                     ->orderBy(1)
+                ->parameters([
+                    'language'=>[
+                        'url' => url('assets/datatable.tr.json')
+                    ]
+                ])
+
+
                     ->buttons(
                         Button::make('excel'),
                         Button::make('print')

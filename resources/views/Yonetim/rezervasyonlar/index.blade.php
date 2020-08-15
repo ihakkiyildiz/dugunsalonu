@@ -32,8 +32,15 @@
     </div>
 @endsection
 @section('js')
-    <script src="{{ mix('js/app.js') }}"></script>
+    <script src="/assets/js/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="/assets/js/plugins/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="/assets/js/plugins/datatables/buttons/dataTables.buttons.min.js"></script>
+    <script src="/assets/js/plugins/datatables/buttons/buttons.print.min.js"></script>
+
+
+
     <script src="{{ asset('vendor/datatables/buttons.server-side.js') }}"></script>
+
     {{$dataTable->scripts()}}
 @endsection
 
