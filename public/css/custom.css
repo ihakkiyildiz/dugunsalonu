@@ -174,8 +174,9 @@ body {
 
 .itemSized {
     width: 100%;
-    height: 500px;
+    height: 547px;
     overflow: hidden;
+    margin: auto;
 }
 
 .hizmetIndexText {
@@ -236,11 +237,13 @@ body {
     word-wrap: inherit;
     top: 20%;
 }
-.hl{
+
+.hl {
     font-size: 16pt;
     left: 0;
     top: 10%;
 }
+
 .hizmetLink:hover,
 .hizmetLinkDetay:hover {
     text-decoration: none;
@@ -253,7 +256,8 @@ body {
     font-size: 7pt;
     top: 55%;
 }
-.hld{
+
+.hld {
     left: 4.2%;
     font-size: 9pt;
 }
@@ -305,6 +309,7 @@ body {
 .letterSpace-3 {
     letter-spacing: 3px;
 }
+
 .letterSpace-2 {
     letter-spacing: 2px;
 }
@@ -349,28 +354,38 @@ body {
 .dropdown-menu>.mainDropdown:hover {
     background-color: lavender;
 }
-.duyuruImg{
-    width: 400px; height: auto; overflow: hidden;
+
+.duyuruImg {
+    width: 400px;
+    height: auto;
+    overflow: hidden;
 }
-.duyuruHover{
+
+.duyuruHover {
     transition: all .5s;
     color: rgb(129, 127, 127);
 }
-.duyuruHover:hover{
+
+.duyuruHover:hover {
     color: rgb(145, 118, 32);
 }
 
-.yorumSatiri{
+.yorumSatiri {
     background-image: url("./img/testimonial-bg.jpg");
     z-index: 0;
     min-height: 200px;
 }
 
-.yorumSatiriOver{
+.yorumSatiriOver {
     z-index: 1;
-    background-image: linear-gradient(to right, rgba(255,255,255,.9),rgba(255,255,255,.9));
+    background-image: linear-gradient(to right, rgba(255, 255, 255, .9), rgba(255, 255, 255, .9));
     min-height: 200px;
 }
+
+.navIcon {
+    display: inline;
+}
+
 @media (min-width: 760px) {
     .salonumuzIMG {
         width: 800px;
@@ -386,7 +401,7 @@ body {
 @media (max-width: 760px) {
     .itemSized {
         width: 100%;
-        height: 250px;
+        height: 275px;
         overflow: hidden;
     }
     .itemSizedHizmetler {

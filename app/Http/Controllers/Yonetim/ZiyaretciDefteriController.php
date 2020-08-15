@@ -27,6 +27,7 @@ class ZiyaretciDefteriController extends RedirectController
     public function create()
     {
         //
+        return view('Yonetim.ziyaretcidefteri.ekle');
     }
 
     /**
@@ -60,6 +61,7 @@ class ZiyaretciDefteriController extends RedirectController
     public function edit($id)
     {
         //
+        return view('Yonetim.ziyaretcidefteri.duzenle');
     }
 
     /**

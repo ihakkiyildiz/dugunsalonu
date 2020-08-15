@@ -7,7 +7,9 @@
                 <div class="carousel-item itemSized active">
                     <img src="./css/img/p1.jpg" class="d-block img-fluid w-100">
                 </div>
-
+                <div class="carousel-item itemSized">
+                    <img src="./css/img/banner.jpg" class="d-block img-fluid w-100">
+                </div>
                 <div class="carousel-item itemSized">
                     <img src="./css/img/p2.jpg" class="d-block img-fluid w-100">
                 </div>
