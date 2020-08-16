@@ -74,8 +74,6 @@
                                     <input type="submit" class="fs-10 btn btn-block btnSubmit" value="GÖNDER">
                                 </div>
                             </div>
-
-
                         </form>
                     </div>
                 </div>

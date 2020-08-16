@@ -17,7 +17,7 @@
             <span class="no"><i class="fa fa-phone-alt mr-2"></i> 555-555-55-55</span>
 
             <div class="float-right">
-                <a class="rzvBtn" href="#">REZERVASYON <i class="fa fa-arrow-circle-right"
+            <a class="rzvBtn" href="{{ route('web.rezervasyontakvimi') }}">REZERVASYON <i class="fa fa-arrow-circle-right"
                                                           style="font-size:9pt"></i></a>
             </div>
             <div class="float-right mr-4">
