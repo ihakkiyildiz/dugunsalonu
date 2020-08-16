@@ -58,9 +58,11 @@
 
             <!-- Toggle Side Overlay -->
             <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
+            <!-- RİGHT SİDEBAR AÇMA
             <button type="button" class="btn btn-dual" data-toggle="layout" data-action="side_overlay_toggle">
                 <i class="far fa-fw fa-list-alt"></i>
             </button>
+            -->
             <!-- END Toggle Side Overlay -->
         </div>
         <!-- END Right Section -->
