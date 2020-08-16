@@ -1,9 +1,9 @@
 @extends('layouts.web')
 @section('content')
-    <section class="container-fluid mt-3 m-0 p-0">
+    <section class="container-fluid m-0 p-0">
         <div class="calendar-wrapper">
-            <button id="btnPrev" type="button"><i class="fa"></i>  Önceki</button>
-            <button id="btnNext" type="button">Sonraki</button>
+            <button id="btnPrev" type="button"><i class="fa fa-step-backward"></i>  Önceki</button>
+            <button id="btnNext" type="button">Sonraki <i class="fa fa-step-forward"></i></button>
             <div id="divCal"></div>
         </div>
     </section>
@@ -68,9 +68,10 @@
             this.showMonth(this.currYear, this.currMonth);
         };
 
+
         // Show month (year, month)
         Cal.prototype.showMonth = function(y, m) {
-
+            
             var d = new Date()
                 // First day of the week in the selected month
                 ,
@@ -82,14 +83,13 @@
                 ,
                 lastDayOfLastMonth = m == 0 ? new Date(y - 1, 11, 0).getDate() : new Date(y, m, 0).getDate();
 
-
             var html = '<table>';
 
             // Write selected month and year
             html += '<thead><tr>';
             html += '<td colspan="7">' + this.Months[m] + ' ' + y + '</td>';
             html += '</tr></thead>';
-
+                
 
             // Write the header of the days of the week
             html += '<tr class="days">';
@@ -97,10 +97,12 @@
                 html += '<td>' + this.DaysOfWeek[i] + '</td>';
             }
             html += '</tr>';
-
+      
+            
             // Write the days
             var i = 1;
             do {
+                
 
                 var dow = new Date(y, m, i).getDay();
 
@@ -118,7 +120,7 @@
                         k++;
                     }
                 }
-
+                
                 // Write the current day in the loop
                 var chk = new Date();
                 var chkY = chk.getFullYear();
@@ -126,7 +128,7 @@
                 if (chkY == this.currYear && chkM == this.currMonth && i == this.currDay) {
                     html += '<td class="bos"><span style="color:yellow">' + i + '</span></td>';
                 } else {
-                    html += '<td class="bos">' + i + '</td>';
+                    html += '<td class="bos" id="gun'+i+m+y+'">' + i + '</td>';
                 }
                 // If Saturday, closes the row
                 if (dow == 6) {
@@ -228,9 +230,9 @@
             height: 48px;
             text-align: center;
             vertical-align: middle;
-            border-right: 1px solid transparent;
-            border-top: 1px solid transparent;
+            border: 1px solid rgb(194, 192, 192);
             width: 14.28571429%;
+            cursor: pointer;
 
         }
 
@@ -253,7 +255,7 @@
         .normal,
         .dolu,
         .today {
-            background-color: red;
+            background-color: rgb(163, 73, 73);
             color: white;
         }
 
@@ -263,7 +265,7 @@
         }
 
         #btnPrev:before {
-            content: '\f104';
+            content: '';
             font-family: FontAwesome;
             padding-right: 4px;
         }
@@ -274,7 +276,7 @@
         }
 
         #btnNext:after {
-            content: '\f105';
+            content: '';
             font-family: FontAwesome;
             padding-left: 4px;
         }
@@ -300,9 +302,13 @@
         }
 
         .bos {
-            background-color: green;
+            background-color: rgb(73, 163, 73);
             color: white;
         }
-
+        @media (max-width: 760px) {
+            .calendar-wrapper{
+                width: 100%;
+            }
+        }
     </style>
 @endsection
