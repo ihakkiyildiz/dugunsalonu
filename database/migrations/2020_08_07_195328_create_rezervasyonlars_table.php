@@ -22,6 +22,7 @@ class CreateRezervasyonlarsTable extends Migration
             $table->string('telefon');
             $table->text('not');
             $table->boolean('durum')->default(0);
+            $table->dateTime('okundu')->nullable();
             $table->timestamps();
         });
     }

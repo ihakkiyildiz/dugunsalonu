@@ -19,6 +19,7 @@ class CreateZiyaretcidefterisTable extends Migration
             $table->string('email');
             $table->text('mesaj');
             $table->boolean('durum')->default(0);
+            $table->dateTime('okundu')->nullable();
             $table->timestamps();
         });
     }

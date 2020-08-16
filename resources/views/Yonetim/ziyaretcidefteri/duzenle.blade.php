@@ -11,35 +11,23 @@
                     </div>
                     <div class="block-content p-2 mt-3">
                         <!--FORM-->
-                        <form action="#" method="post">
-                            @csrf
-                            <!-- Ad Soyad -->
+                        <form action="{{route('yonetim.ZiyaretciDefteri.update',$zd->id)}}" method="post">
+                        @csrf
+                        @method('PUT')
+                        <!-- Ad Soyad -->
                             <div class="input-group-lg mb-3">
                                 <div class="input-group-text text-muted"><i class="fa fa-user-alt mr-3"></i>Ad Soyad
                                 </div>
                                 <input type="text" class="form-control customInput" name="adsoyad" id="adsoyad"
-                                    placeholder="Ziyaretçi Adı Soyadı" />
+                                       placeholder="Ziyaretçi Adı Soyadı" value="{{$zd->adsoyad}}" />
                             </div>
 
                             <!-- E-Posta -->
                             <div class="input-group-lg mb-3">
                                 <div class="input-group-text text-muted"><i class="fa fa-envelope mr-3"></i>E-Posta
                                 </div>
-                                <input type="text" class="form-control customInput" name="email" id="email"
-                                    placeholder="E-Posta Adresi" />
-                            </div>
-                            <!-- Tarih -->
-                            <div class="input-group-lg mb-3">
-                                <div class="input-group-text text-muted"><i class="fa fa-calendar-alt mr-3"></i>Tarih
-                                </div>
-                                <input type="date" class="form-control customInput" name="tarih" id="tarih"
-                                    placeholder="gg-aa-yyyy" />
-                            </div>
-                            <div class="input-group-lg mb-3">
-                                <div class="input-group-text text-muted"><i class="fa fa-phone-alt mr-3"></i>Tarih
-                                </div>
-                                <input type="text" class="js-masked-phone form-control js-masked-enabled"
-                                    id="telefon" name="telefon" placeholder="(5xx) xxx-xxxx">
+                                <input type="text" class="form-control customInput" name="email" value="{{$zd->email}}" id="email"
+                                       placeholder="E-Posta Adresi" />
                             </div>
 
                             <!-- Ziyaretçi Notu -->
@@ -49,7 +37,7 @@
                                     <h5 class="mb-1 text-muted"><i class="fa fa-edit mr-3"></i> Ziyaretçi Notu</h5>
                                 </div>
                                 <div class="form-group">
-                                    <textarea id="js-ckeditor" name="not" placeholder="Ziyaretçi Notu" rows="4"></textarea>
+                                    <textarea id="js-ckeditor" name="mesaj" placeholder="Ziyaretçi Notu" rows="4">{{$zd->mesaj}}</textarea>
                                 </div>
 
                             </div>
@@ -57,12 +45,14 @@
                             <div class="input-group-lg mb-3">
                                 <div class="custom-control custom-switch">
 
-                                    <input type="checkbox" class="custom-control-input" id="durum" name="durum" checked>
+                                    <input type="checkbox" class="custom-control-input" id="durum" name="durum" @if ($zd->durum==1)
+                                    checked
+                                        @endif>
                                     <label class="custom-control-label" for="durum">Göster</label>
                                 </div>
                             </div>
                             <!--KAYDET-->
-                            <input type="submit" value="Güncelle" class="btn btn-block btn-success mt-4" />
+                            <input type="submit" value="Kaydet" class="btn btn-block btn-success mt-4" />
                         </form>
                     </div>
                 </div>
@@ -81,7 +71,7 @@
             Dashmix.helpers(['ckeditor', 'masked-inputs']);
             $("#telefon").mask('(999) 999-9999');
         });
-        
+
 
     </script>
 @endsection

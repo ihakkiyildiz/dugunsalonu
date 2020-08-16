@@ -40,4 +40,9 @@ class WebController extends Controller
         return view('Web.hizmetler',compact('hizmetler','liste'));
 
     }
+
+    public function rezervasyontakvimi()
+    {
+        return view('Web.rezervasyontakvimi');
+    }
 }

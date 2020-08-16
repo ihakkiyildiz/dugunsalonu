@@ -25,42 +25,38 @@
                                 <tr>
                                     <th scope="col" class="block-title text-body-color-light">#</th>
                                     <th scope="col" class="block-title text-body-color-light">Ad Soyad</th>
-                                    <th scope="col" class="block-title text-body-color-light">Telefon</th>
                                     <th scope="col" class="block-title text-body-color-light">E-Posta</th>
                                     <th scope="col" class="block-title text-body-color-light">Z. Notu</th>
                                     <th scope="col" class="block-title text-body-color-light"></th>
                                 </tr>
                             </thead>
                             <tbody>
-
+                                @foreach($zd as $z)
                                 <tr>
-                                    <th scope="row">1.</th>
-                                    <td><strong>Abdullah YILDIZ</strong></td>
-                                    <td>05078873651</td>
-                                    <td>abdullahyildiz@gmail.com</td>
-                                    <td class="w-25">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat debitis hic
-                                        consequatur commodi odio voluptatem cupiditate deserunt. Similique eaque repellendus
-                                        inventore itaque ex sed aspernatur, ut ea quis molestias doloremque.</td>
+                                    <th scope="row">{{$loop->index+1}}.</th>
+                                    <td><strong>{{$z->adsoyad}}</strong></td>
+
+                                    <td>{{$z->email}}</td>
+                                    <td class="w-25">{!! $z->mesaj !!}</td>
                                     <td class="float-right">
                                         <div class="form-group text-center">
                                             <div class="custom-control custom-switch">
-                                    
-                                                <input type="checkbox" class="custom-control-input" id="durum" name="durum" checked>
+                                               <input type="checkbox" class="custom-control-input" id="durum" onchange="javascript:durumdegistir({{$z->id}})" name="durum" @if($z->durum==1) checked @endif>
                                                 <label class="custom-control-label" for="durum">Göster</label>
                                             </div>
                                         </div>
 
                                         <div class="text-center text-md-right">
-                                        <a href="{{ route('yonetim.ZiyaretciDefteri.edit', 2) }}" class="btn btn-hero-primary btn-hero-sm">
+                                        <a href="{{ route('yonetim.ZiyaretciDefteri.edit', $z->id) }}" class="btn btn-hero-primary btn-hero-sm">
                                                 <i class="fa fa-edit"></i>
                                             </a>
-                                            <a href="#" class="btn btn-hero-danger btn-hero-sm mt-2 mt-md-0">
+                                            <a href="javascript:sil({{$z->id}})" class="btn btn-hero-danger btn-hero-sm mt-2 mt-md-0">
                                                 <i class="fa fa-trash"></i>
                                             </a>
                                         </div>
                                     </td>
                                 </tr>
-
+                                @endforeach
 
                             </tbody>
                         </table>
@@ -78,8 +74,8 @@
 
     <script>
         function sil(id) {
-            if (confirm('Duyuruyu Silmek İstediğinize Emin misiniz?')) {
-                var url = "{{ route('yonetim.Duyurular.destroy', ':id') }}".replace(':id', id);
+            if (confirm('Ziyaretçi Yorumunu Silmek İstediğinize Emin misiniz?')) {
+                var url = "{{ route('yonetim.ZiyaretciDefteri.destroy', ':id') }}".replace(':id', id);
                 $.ajax({
                     url: url,
                     method: "post",
@@ -97,6 +93,26 @@
             }
 
         }
+        function durumdegistir(id)
+        {
+            if (confirm('Durumu değiştirmek istediğinize emin misiniz?')) {
+                var url = "{{ route('yonetim.ZiyaretciDefteri.update', ':id') }}".replace(':id', id);
+                $.ajax({
+                    url: url,
+                    method: "post",
+                    data: {
+                        '_token': "{{ csrf_token() }}",
+                        '_method': "patch",
+                        'id': id
+                    },
+                    success: function(d) {
+                        if (d.status == 'ok')
+                            location.reload();
+                    }
+                });
 
+            }
+
+        }
     </script>
 @endsection

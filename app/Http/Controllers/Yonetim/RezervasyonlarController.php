@@ -21,12 +21,10 @@ class RezervasyonlarController extends RedirectController
     public function index(RezervasyonlarTableDataTable $table)
     {
         //
+        Rezervasyonlar::where('okundu',null)->update(['okundu'=>date('Y-m-d H:d:i')]);
         return $table->render('Yonetim.rezervasyonlar.index');
     }
-    public function rezervasyonListesi()
-    {
-        return DataTable::of(Rezervasyonlar::all())->toJson();
-    }
+
 
     /**
      * Show the form for creating a new resource.

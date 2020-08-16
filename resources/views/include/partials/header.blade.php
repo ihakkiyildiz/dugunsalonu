@@ -28,15 +28,13 @@
                 </button>
                 <div class="dropdown-menu dropdown-menu-right p-0" aria-labelledby="page-header-user-dropdown">
                     <div class="bg-primary-darker rounded-top font-w600 text-white text-center p-3">
-                        User Options
+                        Kullanıcı Bilgileri
                     </div>
                     <div class="p-2">
-                        <a class="dropdown-item" href="be_pages_generic_profile.html">
-                            <i class="far fa-fw fa-user mr-1"></i> Profil
-                        </a>
-                        <a class="dropdown-item d-flex align-items-center justify-content-between" href="be_pages_generic_inbox.html">
+
+                        <a class="dropdown-item d-flex align-items-center justify-content-between" href="{{route('yonetim.ZiyaretciDefteri.index')}}">
                             <span><i class="far fa-fw fa-envelope mr-1"></i> Mesajlar</span>
-                            <span class="badge badge-primary">3</span>
+                            <span class="badge badge-primary">{{\App\Models\Ziyaretcidefteri::where('okundu',null)->count()}}</span>
                         </a>
 
                         <div role="separator" class="dropdown-divider"></div>
@@ -50,10 +48,10 @@
 
             <!-- Notifications Dropdown -->
             <div class="d-inline-block">
-                <button type="button" class="btn btn-dual" id="page-header-notifications-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a href="{{route('yonetim.Rezervasyonlar.index')}}"class="btn btn-dual">
                     <i class="fa fa-fw fa-bell"></i>
-                    <span class="badge badge-secondary badge-pill">5</span>
-                </button>
+                    <span class="badge badge-secondary badge-pill">{{\App\Models\Rezervasyonlar::where('okundu',null)->count()}}</span>
+                </a>
 
             </div>
             <!-- END Notifications Dropdown -->

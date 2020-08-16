@@ -41,7 +41,7 @@
                                 </div>
 
                                 <input type="text" class="form-control customInput" name="telefon"
-                                       placeholder="5xxxxxxxxx" id="telefon" maxlength="10" value="{{$rez->telefon}}"/>
+                                       placeholder="(5xx) xxx-xxxx" id="telefon" maxlength="15" value="{{$rez->telefon}}"/>
                             </div>
 
                             <div class="input-group-lg mb-3">

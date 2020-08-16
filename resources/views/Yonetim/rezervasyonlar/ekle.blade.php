@@ -40,7 +40,7 @@
                                 </div>
 
                                 <input type="text" class="form-control customInput" name="telefon"
-                                    placeholder="5xxxxxxxxx" id="telefon" maxlength="10"/>
+                                    placeholder="(5xx) xxx-xxxx" id="telefon" maxlength="10"/>
                             </div>
 
                             <div class="input-group-lg mb-3">
