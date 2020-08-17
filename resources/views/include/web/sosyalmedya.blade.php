@@ -30,7 +30,7 @@
                 <ul class="list-inline p-0 text-center">
                     @if(cekAyar('facebook')!='')
                     <li class="list-inline-item a bg-dblue">
-                        <a class="social-item" href="https://www.twitter.com/{{cekAyar('facebook')}}" target="_blank"> <i class="fab fa-facebook-f"></i> </a>
+                        <a class="social-item" href="https://www.facebook.com/{{cekAyar('facebook')}}" target="_blank"> <i class="fab fa-facebook-f"></i> </a>
                     </li>
                     @endif
                     @if(cekAyar('twitter')!='')
@@ -42,7 +42,7 @@
 
 
                     <li class="list-inline-item a bg-lblue">
-                        <a class="social-item " href="https://www.twitter.com/{{cekAyar('instagram')}}" target="_blank"> <i class="fab fa-instagram"></i> </a>
+                        <a class="social-item " href="https://www.instagram.com/{{cekAyar('instagram')}}" target="_blank"> <i class="fab fa-instagram"></i> </a>
                     </li>
                         @endif
                 </ul>

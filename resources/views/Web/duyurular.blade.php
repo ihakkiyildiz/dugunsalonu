@@ -7,7 +7,7 @@
                     <div class="col-md-12">
                         <div class="card flex-md-row mb-4 box-shadow h-md-250">
 
-                            <img class="flex-auto img-fluid d-md-block duyuruImg" alt="{{$d->duyurutitle}}" src="{{$d->image}}" data-holder-rendered="true">
+                            <img class="flex-auto d-md-block duyuruImg" alt="{{$d->duyurutitle}}" src="{{$d->image}}" data-holder-rendered="true">
                             <div class="card-body d-flex flex-column align-items-start">
                                 <h4 class="mb-0">
                                     <a class="duyuruHover font-weight-lighter" href="{{route('web.duyurular',$d->seourl)}}">{{$d->duyurutitle}}</a>
@@ -29,8 +29,9 @@
         <div class="row">
 
             <div class="col-md-3">
-                <img src="{{$duyurular->image}}" width="255" height="360">
+                <img src="{{$duyurular->image}}" class="duyuruImg">
             </div>
+            <div class="offset-1"></div>
             <div class="col-md-8 mt-4">
                 <h3 class="mb-3 letterSpace-3 font-weight-lighter text-dark">{{$duyurular->duyurutitle}}</h3>
                 {!! $duyurular->icerik !!}

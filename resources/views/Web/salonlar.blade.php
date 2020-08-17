@@ -10,7 +10,7 @@
                         <div class="modal-content">
                             <div class="modal-body mb-0 p-0">
                                 <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
-                                    <img class="embed-responsive-item" src="{{$salon->resim}}">
+                                    <img class="embed-responsive-item salonImg" src="{{$salon->resim}}">
                                 </div>
                             </div>
 
@@ -27,7 +27,7 @@
                         </div>
                     </div>
                 </div>
-                <a><img class="img-fluid z-depth-1" src="{{$salon->resim}}" alt="video" data-toggle="modal" data-target="#modal1"></a>
+                <a><img class="img-fluid z-depth-1" src="{{$salon->resim}}" data-toggle="modal" data-target="#modal1"></a>
             </div>
                 @endforeach
 
@@ -36,4 +36,14 @@
 
 
     </div>
+@endsection
+@section('css')
+    <style>
+        .salonImg{
+            object-fit: cover;
+            object-position: center;
+            -o-object-fit: cover;
+            -o-object-position: center;
+        }
+    </style>
 @endsection

@@ -3,22 +3,22 @@
     <!--SLIDER-->
     <section class="container-fluid mt-3 m-0 p-0">
         <div id="sliderDesktop" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item itemSized active">
+            <div class="carousel-inner itemSized">
+                <div class="carousel-item active">
                     <img src="./css/img/p1.jpg" class="d-block img-fluid w-100">
                 </div>
-                <div class="carousel-item itemSized">
+                <div class="carousel-item">
                     <img src="./css/img/banner.jpg" class="d-block img-fluid w-100">
                 </div>
-                <div class="carousel-item itemSized">
+                <div class="carousel-item">
                     <img src="./css/img/p2.jpg" class="d-block img-fluid w-100">
                 </div>
 
-                <div class="carousel-item itemSized">
+                <div class="carousel-item">
                     <img src="./css/img/p3.jpg" class="d-block img-fluid w-100">
                 </div>
 
-                <div class="carousel-item itemSized">
+                <div class="carousel-item">
                     <img src="./css/img/haber.jpeg" class="d-block img-fluid w-100">
                 </div>
             </div>
@@ -44,12 +44,14 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <small class="text-muted font-weight-lighter fs-8">ADINIZ SOYADINIZ</small>
-                                    <input type="text" class="form-control fs-10 customInput" id="isim" placeholder="ADINIZ SOYADINIZ">
+                                    <input type="text" class="form-control fs-10 customInput" id="isim"
+                                        placeholder="ADINIZ SOYADINIZ">
                                 </div>
 
                                 <div class="col-md-6">
                                     <small class="text-muted font-weight-lighter fs-8">TELEFON NUMARANIZ</small>
-                                    <input type="text" class="form-control fs-10 customInput" id="telNo" placeholder="TELEFON NUMARANIZ">
+                                    <input type="text" class="form-control fs-10 customInput" id="telNo"
+                                        placeholder="TELEFON NUMARANIZ">
                                 </div>
                             </div>
                             <br class="d-none d-md-block">
@@ -97,7 +99,8 @@
                                 <div class="hizmetler text-left">
                                     <h1 class="hizmetIndexText"> 1. </h1>
                                     <a href="hizmetlerimizDetay.html" class="hizmetLink">Düğün Organizasyonu</a>
-                                    <a href="hizmetlerimizDetay.html" class="hizmetLinkDetay">Detayları Görmek İçin Tıkla</a>
+                                    <a href="hizmetlerimizDetay.html" class="hizmetLinkDetay">Detayları Görmek İçin
+                                        Tıkla</a>
                                 </div>
 
                             </div>
@@ -105,14 +108,16 @@
                                 <div class="hizmetler text-left">
                                     <h1 class="hizmetIndexText"> 2. </h1>
                                     <a href="hizmetlerimizDetay.html" class="hizmetLink">İş Toplantıları Ve Konferans</a>
-                                    <a href="hizmetlerimizDetay.html" class="hizmetLinkDetay">Detayları Görmek İçin Tıkla</a>
+                                    <a href="hizmetlerimizDetay.html" class="hizmetLinkDetay">Detayları Görmek İçin
+                                        Tıkla</a>
                                 </div>
                             </div>
                             <div class="col-md-4 mt-4 mt-md-0">
                                 <div class="hizmetler text-left">
                                     <h1 class="hizmetIndexText"> 3. </h1>
                                     <a href="hizmetlerimizDetay.html" class="hizmetLink">Nişan Organizasyonu</a>
-                                    <a href="hizmetlerimizDetay.html" class="hizmetLinkDetay">Detayları Görmek İçin Tıkla</a>
+                                    <a href="hizmetlerimizDetay.html" class="hizmetLinkDetay">Detayları Görmek İçin
+                                        Tıkla</a>
                                 </div>
 
                             </div>
@@ -123,21 +128,24 @@
                                 <div class="hizmetler text-left">
                                     <h1 class="hizmetIndexText"> 4. </h1>
                                     <a href="hizmetlerimizDetay.html" class="hizmetLink">Yemek Organizasyonu</a>
-                                    <a href="hizmetlerimizDetay.html" class="hizmetLinkDetay">Detayları Görmek İçin Tıkla</a>
+                                    <a href="hizmetlerimizDetay.html" class="hizmetLinkDetay">Detayları Görmek İçin
+                                        Tıkla</a>
                                 </div>
                             </div>
                             <div class="col-md-4 mt-4 mt-md-0">
                                 <div class="hizmetler text-left">
                                     <h1 class="hizmetIndexText"> 5. </h1>
                                     <a href="hizmetlerimizDetay.html" class="hizmetLink">Sünnet Organizasyonu</a>
-                                    <a href="hizmetlerimizDetay.html" class="hizmetLinkDetay">Detayları Görmek İçin Tıkla</a>
+                                    <a href="hizmetlerimizDetay.html" class="hizmetLinkDetay">Detayları Görmek İçin
+                                        Tıkla</a>
                                 </div>
                             </div>
                             <div class="col-md-4 mt-4 mt-md-0">
                                 <div class="hizmetler text-left">
                                     <h1 class="hizmetIndexText"> 6. </h1>
                                     <a href="hizmetlerimizDetay.html" class="hizmetLink">Dini Düğün Organizasyonu</a>
-                                    <a href="hizmetlerimizDetay.html" class="hizmetLinkDetay">Detayları Görmek İçin Tıkla</a>
+                                    <a href="hizmetlerimizDetay.html" class="hizmetLinkDetay">Detayları Görmek İçin
+                                        Tıkla</a>
                                 </div>
                             </div>
                         </div>
@@ -167,7 +175,8 @@
                     </div>
                 </div>
                 <br class="d-block d-md-none">
-                <a href="duyuruDetay.html" class="btn btnSubmit text-white">Detayları Gör &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
+                <a href="duyuruDetay.html" class="btn btnSubmit text-white">Detayları Gör &nbsp;<i
+                        class="fa fa-arrow-circle-right"></i></a>
                 <br class="d-block d-md-none"> <br class="d-block d-md-none">
             </div>
             <div class="col-md-3 mt-3 mt-md-0">
@@ -180,7 +189,8 @@
                     </div>
                 </div>
                 <br class="d-block d-md-none">
-                <a href="duyuruDetay.html" class="btn btnSubmit text-white">Detayları Gör &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
+                <a href="duyuruDetay.html" class="btn btnSubmit text-white">Detayları Gör &nbsp;<i
+                        class="fa fa-arrow-circle-right"></i></a>
                 <br class="d-block d-md-none"> <br class="d-block d-md-none">
             </div>
             <div class="col-md-3 mt-3 mt-md-0">
@@ -193,7 +203,8 @@
                     </div>
                 </div>
                 <br class="d-block d-md-none">
-                <a href="duyuruDetay.html" class="btn btnSubmit text-white">Detayları Gör &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
+                <a href="duyuruDetay.html" class="btn btnSubmit text-white">Detayları Gör &nbsp;<i
+                        class="fa fa-arrow-circle-right"></i></a>
                 <br class="d-block d-md-none"> <br class="d-block d-md-none">
             </div>
             <div class="col-md-3 mt-3 mt-md-0">
@@ -206,7 +217,8 @@
                     </div>
                 </div>
                 <br class="d-block d-md-none">
-                <a href="duyuruDetay.html" class="btn btnSubmit text-white">Detayları Gör &nbsp;<i class="fa fa-arrow-circle-right"></i></a>
+                <a href="duyuruDetay.html" class="btn btnSubmit text-white">Detayları Gör &nbsp;<i
+                        class="fa fa-arrow-circle-right"></i></a>
                 <br class="d-block d-md-none"> <br class="d-block d-md-none">
             </div>
         </div>
@@ -220,41 +232,40 @@
                 <hr class="bg-white hrStyle">
             </div>
         </div>
-        <div id="salonumuzGorseller" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner salonumuzSlider row" role="listbox">
-                <div class="carousel-item col-12 col-sm-12 col-md-12 col-lg-3 active">
-                    <img src="./css/img/p1.jpg" class=" d-block salonumuzIMG">
+        <div class="col-md-12">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner itemSized">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="css/img/p1.jpg" alt="First slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="css/img/p2.jpg" alt="Second slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="css/img/p3.jpg" alt="Third slide">
+                    </div>
                 </div>
-                <div class="carousel-item col-12 col-sm-12 col-md-12 col-lg-3">
-                    <img src="./css/img/p2.jpg" class=" d-block salonumuzIMG">
-                </div>
-                <div class="carousel-item col-12 col-sm-12 col-md-12 col-lg-3">
-                    <img src="./css/img/p3.jpg" class=" d-block salonumuzIMG">
-                </div>
-                <div class="carousel-item col-12 col-sm-12 col-md-12 col-lg-3">
-                    <img src="./css/img/p4.jpg" class=" d-block salonumuzIMG">
-                </div>
-                <div class="carousel-item col-12 col-sm-12 col-md-12 col-lg-3">
-                    <img src="./css/img/p1.jpg" class=" d-block salonumuzIMG">
-                </div>
-                <div class="carousel-item col-12 col-sm-12 col-md-12 col-lg-3">
-                    <img src="./css/img/p2.jpg" class=" d-block salonumuzIMG">
-                </div>
-                <div class="carousel-item col-12 col-sm-12 col-md-12 col-lg-3">
-                    <img src="./css/img/p3.jpg" class=" d-block salonumuzIMG">
-                </div>
-                <div class="carousel-item col-12 col-sm-12 col-md-12 col-lg-3">
-                    <img src="./css/img/p4.jpg" class=" d-block salonumuzIMG">
-                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </a>
             </div>
-            <a class="carousel-control-prev" href="#salonumuzGorseller" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#salonumuzGorseller" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
         </div>
     </section>
+@endsection
+@section('js')
+    <script src="{{ asset('assets/js/plugins/slick-carousel/slick.min.js') }}"></script>
+
+    <script>
+        jQuery(function() {
+            Dashmix.helpers('slick');
+        });
+
+    </script>
+@endsection
+@section('css')
+    <link rel="stylesheet" href="{{ asset('assets/js/plugins/slick-carousel/slick.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/js/plugins/slick-carousel/slick-theme.css') }}">
 @endsection

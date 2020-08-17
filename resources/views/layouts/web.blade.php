@@ -26,6 +26,7 @@
 <!--FOOTER-->
 @include('include.web.footer')
 <script src="{{asset('/js/jquery-3.5.1.js')}}"></script>
+<script src="{{asset('/assets/js/dashmix.app.min.js')}}"></script>
 <script src="{{asset('/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('/fontawesome/js/all.min.js')}}"></script>
 <script src="{{asset('/js/custom.js')}}"></script>

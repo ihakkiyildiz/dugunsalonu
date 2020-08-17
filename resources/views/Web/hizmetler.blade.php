@@ -26,8 +26,9 @@
         <div class="row">
 
             <div class="col-md-3">
-                <img src="{{$hizmet->image}}" width="255" height="360">
+                <img src="{{$hizmet->image}}" class="duyuruImg">
             </div>
+            <div class="offset-1"></div>
             <div class="col-md-8 mt-4">
                 <h3 class="mb-3 letterSpace-3 font-weight-lighter text-dark">{{$hizmet->sayfatitle}}</h3>
                 {!! $hizmet->icerik !!}
