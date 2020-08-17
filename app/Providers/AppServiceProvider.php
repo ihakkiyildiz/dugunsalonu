@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\ServiceProvider;
+use function Matrix\diagonal;
 
 class AppServiceProvider extends ServiceProvider
 {

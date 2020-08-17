@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Yonetim\HizmetlerController;
+use App\Models\Duyurular;
 use App\Models\Galeri;
 use App\Models\Hizmetler;
 use App\Models\Salonlar;
 use App\Models\Sayfalar;
+use App\Models\Ziyaretcidefteri;
 use Illuminate\Http\Request;
 
 class WebController extends Controller
@@ -44,19 +46,31 @@ class WebController extends Controller
     }
     function salonlar()
     {
-        $galeri = Galeri::whereYer('galeri')->get();
+        $galeri = Galeri::whereYer('galeri')->whereDurum(1)->orderBy('sira','asc')->get();
         return view('Web.salonlar',compact('galeri'));
     }
-    function duyurular()
+    function duyurular($duyuru = null)
     {
+        if(is_null($duyuru))
+        {
+            $duyurular = Duyurular::all();
+            $durum = true;
+            return view('Web.duyurular',compact('duyurular','durum'));
+        }
+        $duyurular = Duyurular::whereSeourl($duyuru)->firstOrFail();
+        $durum = false;
+        return view('Web.duyurular',compact('duyurular','durum'));
 
     }
     function ziyaretcidefteri()
     {
+        $yorumlar = Ziyaretcidefteri::whereDurum(1)->orderBy('created_at','desc')->paginate(10);
+        return view('Web.ziyaretcidefteri',compact('yorumlar'));
 
     }
     function iletisim()
     {
+        return view('Web.iletisim');
 
     }
     public function rezervasyontakvimi()

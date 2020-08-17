@@ -111,13 +111,13 @@
                         <hr class="mt-0 mb-1" />
                     </li>
                     <li class="nav-item dNavItem">
-                        <a href="hizmetlerimiz.html" class="nav-link text-uppercase"><i
+                        <a href="{{route('web.hizmetler')}}" class="nav-link text-uppercase"><i
                                 class="fa fa-sticky-note mr-2 navIcon"></i>
                             Hizmetlerimiz</a>
                         <hr class="mt-0 mb-1" />
                     </li>
                     <li class="nav-item dNavItem">
-                        <a href="{{route('web.hizmetler')}}" class="nav-link text-uppercase"><i
+                        <a href="{{route('web.salonlar')}}" class="nav-link text-uppercase"><i
                                 class="fas fa-images mr-2 navIcon"></i>
                             Salonlarımız</a>
                         <hr class="mt-0 mb-1" />
