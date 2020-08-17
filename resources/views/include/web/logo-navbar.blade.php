@@ -42,31 +42,31 @@
                     <hr class="mt-0 mb-1" />
                 </li>
                 <li class="nav-item dNavItem">
-                    <a href="hizmetlerimiz.html" class="nav-link text-uppercase"><i
+                    <a href="{{route('web.hizmetler')}}" class="nav-link text-uppercase"><i
                             class="fa fa-sticky-note mr-1 navIcon"></i>
                         Hizmetlerimiz</a>
                     <hr class="mt-0 mb-1" />
                 </li>
                 <li class="nav-item dNavItem">
-                    <a href="salonlarimiz.html" class="nav-link text-uppercase"><i
+                    <a href="{{route('web.salonlar')}}" class="nav-link text-uppercase"><i
                             class="fas fa-images mr-1 navIcon"></i>
                         Salonlarımız</a>
                     <hr class="mt-0 mb-1" />
                 </li>
                 <li class="nav-item dNavItem">
-                    <a href="duyurular.html" class="nav-link text-uppercase"><i
+                    <a href="{{route('web.duyurular')}}" class="nav-link text-uppercase"><i
                             class="fa fa-newspaper mr-1 navIcon"></i>
                         Duyurular</a>
                     <hr class="mt-0 mb-1" />
                 </li>
                 <li class="nav-item dNavItem">
-                    <a href="z_defteri.html" class="nav-link text-uppercase"><i
+                    <a href="{{route('web.ziyaretcidefteri')}}" class="nav-link text-uppercase"><i
                             class="fas fa-pencil-alt mr-1 navIcon"></i>
                         Z. Defteri</a>
                     <hr class="mt-0 mb-1" />
                 </li>
                 <li class="nav-item dNavItem">
-                    <a href="iletisim.html" class="nav-link text-uppercase"><i class="fa fa-phone-alt mr-1 navIcon"></i>
+                    <a href="{{route('web.iletisim')}}" class="nav-link text-uppercase"><i class="fa fa-phone-alt mr-1 navIcon"></i>
                         İletişim</a>
                 </li>
             </ul>
@@ -98,13 +98,13 @@
                             <i class="fa fa-info-circle mr-2 navIcon"></i> Hakkımızda
                         </a>
                         <div class="dropdown-menu fs-10 mt-0" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item px-3 mainDropdown" href="hakkinda.html"><i
+                            <a class="dropdown-item px-3 mainDropdown" href="{{route('web.sayfa','hakkinda')}}"><i
                                     class="fas fa-bullseye mr-2 navIcon fs-9"></i> Hakkımızda</a>
                             <hr class="mb-0 mt-2 mx-3">
-                            <a class="dropdown-item px-3 mainDropdown" href="misyonumuz.html"><i
+                            <a class="dropdown-item px-3 mainDropdown" href="{{route('web.sayfa','misyon')}}"><i
                                     class="fas fa-bullseye mr-2 navIcon fs-9"></i> Misyonumuz</a>
                             <hr class="mb-0 mt-2 mx-3">
-                            <a class="dropdown-item px-3 mainDropdown" href="vizyonumuz.html"><i
+                            <a class="dropdown-item px-3 mainDropdown" href="{{route('web.sayfa','vizyon')}}"><i
                                     class="fas fa-bullseye mr-2 navIcon fs-9"></i> Vizyonumuz</a>
 
                         </div>
@@ -117,25 +117,25 @@
                         <hr class="mt-0 mb-1" />
                     </li>
                     <li class="nav-item dNavItem">
-                        <a href="salonlarimiz.html" class="nav-link text-uppercase"><i
+                        <a href="{{route('web.hizmetler')}}" class="nav-link text-uppercase"><i
                                 class="fas fa-images mr-2 navIcon"></i>
                             Salonlarımız</a>
                         <hr class="mt-0 mb-1" />
                     </li>
                     <li class="nav-item dNavItem">
-                        <a href="duyurular.html" class="nav-link text-uppercase"><i
+                        <a href="{{route('web.duyurular')}}" class="nav-link text-uppercase"><i
                                 class="fa fa-newspaper mr-2 navIcon"></i>
                             Duyurular</a>
                         <hr class="mt-0 mb-1" />
                     </li>
                     <li class="nav-item dNavItem">
-                        <a href="z_defteri.html" class="nav-link text-uppercase"><i
+                        <a href="{{route('web.ziyaretcidefteri')}}" class="nav-link text-uppercase"><i
                                 class="fas fa-pencil-alt mr-2 navIcon"></i>
                             Z. Defteri</a>
                         <hr class="mt-0 mb-1" />
                     </li>
                     <li class="nav-item dNavItem">
-                        <a href="iletisim.html" class="nav-link text-uppercase"><i
+                        <a href="{{route('web.iletisim')}}" class="nav-link text-uppercase"><i
                                 class="fa fa-phone-alt mr-2 navIcon"></i>
                             İletişim</a>
                     </li>
