@@ -46,6 +46,7 @@
                                         <option value="galeri" @if($resim->yer=='galeri') selected @endif>Galeri</option>
                                         <option value="alt" @if($resim->yer=='alt') selected @endif>Alt Kısım</option>
                                         <option value="liste" @if($resim->yer=='liste') selected @endif>Liste</option>
+                                        <option value="liste" @if($resim->yer=='site_ici') selected @endif>Site İçinde Kullanılacaklar</option>
                                     </select>
                                 </div>
                                 <div class="form-group">

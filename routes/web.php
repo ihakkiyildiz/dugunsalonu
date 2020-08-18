@@ -41,7 +41,9 @@ Route::group(['as'=>'web','namespace'=>'Web'],function (){
     Route::get('/Salonlar','WebController@salonlar')->name('.salonlar');
     Route::get('/Duyurular/{duyuru?}','WebController@duyurular')->name('.duyurular');
     Route::get('/ZiyaretciDefteri','WebController@ziyaretcidefteri')->name('.ziyaretcidefteri');
+    Route::post('/ZiyaretciDefteri','WebController@ziyaretcidefteripost')->name('.ziyaretcidefteri.post');
     Route::get('/Iletisim','WebController@iletisim')->name('.iletisim');
+    Route::post('/Iletisim','WebController@iletisimpost')->name('.iletisim.post');
 });
 
 

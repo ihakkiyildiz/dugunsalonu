@@ -1,11 +1,7 @@
 @extends('layouts.webpages')
 @section('content')
     <section class="container mt-3">
-        <div class="row text-center">
-            <div class="col-12">
-                <img src="{{ $sayfa->image }}" class="hakkindaImg">
-            </div>
-        </div>
+
         <div class="row">
             <div class="col-md-12 mt-4">
                 {!! $sayfa->icerik !!}

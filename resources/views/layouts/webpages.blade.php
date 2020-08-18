@@ -7,7 +7,7 @@
     <title>@yield('title','RoPi Düğün Salonu V.1')</title>
     <link rel="stylesheet" href="{{asset('/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('/fontawesome/css/all.min.css')}}">
-    <link rel="stylesheet" href="{{asset('//css/animate.min.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/animate.min.css')}}">
     <link rel="stylesheet" href="{{asset('/css/custom.css')}}">
     @yield('css')
 </head>
