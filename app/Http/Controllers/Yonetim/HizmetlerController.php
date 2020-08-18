@@ -144,7 +144,7 @@ class HizmetlerController extends RedirectController
         $hizmetler = Hizmetler::where('id',$id)->first();
 
         if($hizmetler) {
-              unlink(storage_path('app/public'.$hizmetler->image));
+           unlink(storage_path('app/public'.$hizmetler->image));
             $hizmetler->delete();
 
 

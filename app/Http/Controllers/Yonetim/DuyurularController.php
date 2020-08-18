@@ -112,6 +112,7 @@ class DuyurularController extends RedirectController
         $duyuru->metaicerik = $request->metaicerik;
         $duyuru->keyword = $request->keyword;
         if($request->has('image')) {
+
             unlink(storage_path('/app/public'.$duyuru->image));
             $resim = $request->file('image');
             $name = Str::slug($request->duyurutitle)."-".time();
