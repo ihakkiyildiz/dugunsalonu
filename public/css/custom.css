@@ -358,11 +358,11 @@ body {
 .duyuruImg {
     width: 350px;
     height: 250px;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
-    -o-object-fit: cover;
+    -o-object-fit: contain;
     -o-object-position: center;
-    
+
     overflow: hidden;
 }
 

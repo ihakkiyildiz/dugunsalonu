@@ -5,20 +5,20 @@
         <div class="row">
             @foreach ($galeri as $salon)
                 <div class="col-lg-4 col-md-12 mb-4">
-                    <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                    <div class="modal fade" id="modal{{$salon->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
                         aria-hidden="true" style="display: none;">
                         <div class="modal-dialog modal-lg" role="document">
                             <div class="modal-content">
-                                
-                                <div class="modal-body mb-0 p-0">
-                                    <div class="embed-responsive embed-responsive-16by9 z-depth-1-half salonImg">
+
+                                <div class="modal-body mb-0 p-0 salonImg">
+                                    <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
                                         <img class="embed-responsive-item" src="{{ $salon->resim }}">
                                     </div>
                                 </div>
 
                                 <div class="modal-footer justify-content-center">
-                                    <span class="mr-4">{{ $salon->aciklama }}<br>{!! $salon->aciklama !!}</span>
-                                    <a type="button" class="btn-floating btn-sm btn-fb"><svg
+                                    <span class="mr-4">{{ $salon->aciklama }}</span>
+                                    <a href="https://www.facebook.com/sharer/sharer.php?u={{env('APP_URL')}}" type="button" class="btn-floating btn-sm btn-fb"><svg
                                             class="svg-inline--fa fa-facebook-f fa-w-10" aria-hidden="true"
                                             focusable="false" data-prefix="fab" data-icon="facebook-f" role="img"
                                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg="">
@@ -27,7 +27,7 @@
                                             </path>
                                         </svg><!-- <i class="fab fa-facebook-f"></i> --></a>
 
-                                    <a type="button" class="btn-floating btn-sm btn-tw"><svg
+                                    <a href="http://twitter.com/share?text=Dugun%20Salonumuz&url={{env('APP_URL')}}&hashtags=dugun,düğün,düğün%20salonu" type="button" class="btn-floating btn-sm btn-tw"><svg
                                             class="svg-inline--fa fa-twitter fa-w-16" aria-hidden="true" focusable="false"
                                             data-prefix="fab" data-icon="twitter" role="img"
                                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
@@ -45,7 +45,7 @@
                         </div>
                     </div>
                     <a><img width="100%" height="300px" class="z-depth-1 salonImg" src="{{ $salon->resim }}" data-toggle="modal"
-                            data-target="#modal1"></a>
+                            data-target="#modal{{$salon->id}}"></a>
                 </div>
             @endforeach
 
@@ -62,8 +62,8 @@
             object-position: center;
             -o-object-fit: contain;
             -o-object-position: center;
-            border: 1px solid cornsilk;
-            background-image: linear-gradient(to bottom right, rgb(224, 182, 43), rgb(118, 124, 61));
+            border: 1px solid rosybrown;
+            padding: 3px;
             cursor: pointer
         }
 
