@@ -19,8 +19,13 @@ class WebController extends RedirectController
 {
     //
     function index() {
+        $manset = Galeri::whereYer('liste')->orderBy('sira','asc')->whereDurum(1)->get();
+        $altresimler = Galeri::whereYer('alt')->orderBy('sira','asc')->get();
+        $hizmetler = Hizmetler::limit(6)->get();
+        $duyurular = Duyurular::limit(4)->get();
+        $salonlar = Salonlar::all();
 
-        return view('Web.index');
+        return view('Web.index',compact('hizmetler','duyurular','manset','altresimler','salonlar'));
 
     }
     function sayfa($slug)
