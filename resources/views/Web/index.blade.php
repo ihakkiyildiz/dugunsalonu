@@ -37,26 +37,26 @@
                     geçeceğiz</small>
                 <div class="row mt-4">
                     <div class="col-12">
-                        <form>
-
+                        <form action="{{route('web.rezervasyon.post')}}" method="post" >
+        @csrf
                             <div class="row">
                                 <div class="col-md-6">
                                     <small class="text-muted font-weight-lighter fs-8">ADINIZ SOYADINIZ</small>
-                                    <input type="text" class="form-control fs-10 customInput" id="isim"
+                                    <input type="text" class="form-control fs-10 customInput" name="adsoyad" id="adsoyad"
                                         placeholder="ADINIZ SOYADINIZ">
                                 </div>
 
                                 <div class="col-md-6">
                                     <small class="text-muted font-weight-lighter fs-8">TELEFON NUMARANIZ</small>
-                                    <input type="text" class="form-control fs-10 customInput" id="telNo"
-                                        placeholder="TELEFON NUMARANIZ">
+                                    <input type="text" name="telefon" class="form-control fs-10 customInput" id="telefon"
+                                        placeholder="(5xx) xxx-xxxx">
                                 </div>
                             </div>
                             <br class="d-none d-md-block">
                             <div class="row">
                                 <div class="col-md-4">
                                     <small class="text-muted font-weight-lighter fs-8">Düğün Salonu</small>
-                                    <select id="rezersyonTipi" class="form-control fs-10 customInput">
+                                    <select id="salon" name="salon" class="form-control fs-10 customInput">
                                         <option disabled selected>~Lütfen Seçiniz~</option>
                                         @foreach($salonlar as $s)
                                         <option value="{{$s->id}}">{{$s->adi}}</option>
@@ -66,7 +66,7 @@
 
                                 <div class="col-md-4">
                                     <small class="text-muted font-weight-lighter fs-8">REZERVASYON TARİHİ</small>
-                                    <input type="date" class="form-control fs-10 customInput" id="tarih" value="{{date('Y-m-d')}}" min="{{date('Y-m-d')}}">
+                                    <input type="date" class="form-control fs-10 customInput" name="tarih" id="tarih" value="{{date('Y-m-d')}}" min="{{date('Y-m-d')}}">
                                 </div>
 
                                 <div class="col-md-4">
@@ -171,14 +171,44 @@
     </section>
 @endsection
 @section('js')
+   
+    <script src="{{asset('assets/js/dashmix.core.min.js')}}"></script>
+    <script src="{{asset('assets/js/dashmix.app.min.js')}}"></script>
+    <script src="{{asset('assets/js/plugins/jquery.maskedinput/jquery.maskedinput.min.js')}}"></script>
     <script src="{{ asset('assets/js/plugins/slick-carousel/slick.min.js') }}"></script>
-
     <script>
-        jQuery(function() {
-            Dashmix.helpers('slick');
-        });
 
-    </script>
+        jQuery(function() {
+            Dashmix.helpers(['masked-inputs','slick']);
+            $('#telefon').mask('(999) 999-9999');
+
+        });
+        </script>
+
+
+
+    @if(\Illuminate\Support\Facades\Session::has('status'))
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+        <script>
+            Swal.fire(
+                '{{\Illuminate\Support\Facades\Session::get('status')=='ok'?'Başarılı İşlem':'Başarısız İşlem'}}',
+                '{{\Illuminate\Support\Facades\Session::get('message')}}',
+                '{{\Illuminate\Support\Facades\Session::get('type')=='danger'?'error':'success'}}'
+            )
+        </script>
+    @endif
+    @if($errors->any())
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+        <script>
+            Swal.fire(
+                'Başarısız İşlem',
+                'Formda Hatalar Mevcut Tüm Alanları Doldurunuz',
+                'error'
+            )
+        </script>
+    @endif   
 @endsection
 @section('css')
     <link rel="stylesheet" href="{{ asset('assets/js/plugins/slick-carousel/slick.css') }}">

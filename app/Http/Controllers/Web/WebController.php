@@ -10,6 +10,7 @@ use App\Models\Duyurular;
 use App\Models\Galeri;
 use App\Models\Hizmetler;
 use App\Models\Salonlar;
+use App\Models\Rezervasyonlar;
 use App\Models\Sayfalar;
 use App\Models\Ziyaretcidefteri;
 use Illuminate\Http\Request;
@@ -35,6 +36,25 @@ class WebController extends RedirectController
         if($sayfa)
             return view('Web.pages',compact('sayfa'));
 
+
+    }
+    function rezervasyonyap(Request $req){
+        $req->validate([
+            'adsoyad'=>'required|max:150',
+            'tarih'=>'date|required|after_or_equal:'.date('Y-m-d'),
+            'telefon'=>'required|max:15',
+            'salon'=>'required|numeric',
+        ]);
+        $r = new Rezervasyonlar();
+        $r->adsoyad = $req->adsoyad;
+        $r->salon_id = $req->salon;
+        $r->tarih = $req->tarih;
+        $r->telefon = $req->telefon;
+        $r->not = 'GELEN REZERVASYON';
+        $r->durum = 0;
+        if($r->save())
+        return $this->success('Rezervasyonunuz Yöneticilerimize Ulaştı! En Kısa Sürede Size Dönüş Yapılacaktır.');
+        return $this->fail('Tanımlanmayan bir hata oluştu');
 
     }
 
