@@ -22,6 +22,8 @@ class RezervasyonlarController extends RedirectController
     {
         //
         Rezervasyonlar::where('okundu',null)->update(['okundu'=>date('Y-m-d H:d:i')]);
+        $query = Rezervasyonlar::whereDate('tarih','>',date('Y-m-d'))->get();
+
         return $table->render('Yonetim.rezervasyonlar.index');
     }
 

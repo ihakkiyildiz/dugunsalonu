@@ -1,13 +1,12 @@
 @extends('layouts.web')
 @section('content')
-    <section class="container-fluid m-0 p-0">
-    <div class="row">
-        @foreach($salonlar as $s)
-        <div class="col-lg-4 col-md-12 mb-4">
-            <a href="{{route('web.rezervasyontakvimi.detay',$s->id)}}"><img width="100%" height="300px" class="z-depth-1 salonImg" src="{{$s->image}}" alt="{{$s->adi}}"></a>
+
+        <section class="container-fluid m-0 p-0">
+        <div class="calendar-wrapper">
+            <button id="btnPrev" type="button"><i class="fa fa-step-backward"></i>  Önceki</button>
+            <button id="btnNext" type="button">Sonraki <i class="fa fa-step-forward"></i></button>
+            <div id="divCal"></div>
         </div>
-            @endforeach
-    </div>
     </section>
 @endsection
 
@@ -56,11 +55,7 @@
 
         // Goes to previous month
         Cal.prototype.previousMonth = function() {
-            if(this.currMonth < this.currMonth-1)
-            {
-                this.currMonth = this.currMonth
-
-            }else if(this.currMonth == 0) {
+            if (this.currMonth == 0) {
                 this.currMonth = 11;
                 this.currYear = this.currYear - 1;
             } else {
@@ -133,6 +128,10 @@
                 var chkM = chk.getMonth();
                 if (chkY == this.currYear && chkM == this.currMonth && i == this.currDay) {
                     html += '<td class="bos"><span style="color:yellow">' + i + '</span></td>';
+                } else if(chkY == this.currYear && chkM == this.currMonth && this.currDay>i){
+                    html += '<td class="dolu">' + i + '</td>';
+                } else if(chkY > this.currYear || chkM > this.currMonth ){
+                    html += '<td class="dolu">' + i + '</td>';
                 } else {
                     html += '<td class="bos" id="gun'+i+m+y+'">' + i + '</td>';
                 }
@@ -158,6 +157,7 @@
 
             // Write HTML to the div
             document.getElementById(this.divId).innerHTML = html;
+            gunleriIsaretle();
         };
 
         // On Load of the window
@@ -174,6 +174,23 @@
             getId('btnPrev').onclick = function() {
                 c.previousMonth();
             };
+
+        }
+        function gunleriIsaretle() {
+        var arr = {!! $gunler !!};
+        //        var arr = ["2020-08-16","2020-08-16","2020-08-16"];
+            var gun = new Date();
+            var list = "";
+            var id = null;
+           arr.forEach(function (key,ind) {
+               list = key.split('-')
+               id ="gun"+parseInt(list[2],10)+parseInt(list[1],10)+list[0];
+               $('#'+id).removeClass('bos').addClass('dolu');
+               console.log(id);
+           })
+
+
+
         }
 
         // Get element by id

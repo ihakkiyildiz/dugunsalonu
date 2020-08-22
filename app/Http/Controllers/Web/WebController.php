@@ -136,6 +136,13 @@ class WebController extends RedirectController
     }
     public function rezervasyontakvimi()
     {
-        return view('Web.rezervasyontakvimi');
+        $salonlar = Salonlar::all();
+        return view('Web.rezervasyontakvimi',compact('salonlar'));
+    }
+    public function rezervasyondetay($id)
+    {
+        $gunler = Rezervasyonlar::select('tarih')->where('salon_id',$id)->whereDate('tarih','>',date('Y-m-d'))->pluck('tarih');
+
+      return view('Web.rezervasyondetay',compact('gunler'));
     }
 }

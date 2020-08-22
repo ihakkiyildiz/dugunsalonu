@@ -17,9 +17,11 @@ class RezervasyonlarTableDataTable extends DataTable
      */
     public function dataTable($query)
     {
+
         $GLOBALS['art'] = 1;
-        return datatables()
-            ->eloquent($query)
+        $query = Rezervasyonlar::whereDate('tarih','>',date('Y-m-d'))->get();
+        return datatables($query)
+           // ->eloquent($query)
             ->addColumn('#',function () {
                 global $art;
                return $art++;
@@ -63,7 +65,8 @@ class RezervasyonlarTableDataTable extends DataTable
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->dom('Bfrtip')
-                    ->orderBy(1)
+
+                   ->orderBy(3,'desc')
 
                 ->parameters([
                     'language'=>[
