@@ -3,7 +3,7 @@
     @if($liste)
         <div class="row mt-3">
            @foreach($hizmetler as $hzm)
-            <div class="col-md-6">
+            <div class="col-md-6 mt-2">
                 <div class="hizmetContainer">
                     <div class="row bg-grey">
                         <div class="col-4 p-0 m-0">

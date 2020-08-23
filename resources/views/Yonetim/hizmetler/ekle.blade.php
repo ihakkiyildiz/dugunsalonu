@@ -6,7 +6,7 @@
             <div class="col-12 col-md-8 mx-auto">
                 <div class="block block-themed block-fx-shadow">
                     <div class="block-header bg-gd-sea">
-                        <h3 class="block-title">Hizmetlerimiz Sayfası Ayarları</h3>
+                        <h3 class="block-title">Hizmet Ekle</h3>
 
                     </div>
                     <div class="block-content p-1 mt-2">
@@ -16,11 +16,11 @@
                             <!--Sayfa Başlığı-->
                             <div class="input-group-lg mb-3">
 
-                                <div class="input-group-text text-muted"><i class="fas fa-heading mr-3"></i> Sayfa Başlığı
+                                <div class="input-group-text text-muted"><i class="fas fa-heading mr-3"></i> Hizmet Adı
                                 </div>
 
                                 <input type="text" class="form-control customInput" name="sayfatitle"
-                                    placeholder="Sayfa Başlığı" />
+                                    placeholder="Hizmet Adı" />
                             </div>
 
                             <!--Meta İçeriği-->

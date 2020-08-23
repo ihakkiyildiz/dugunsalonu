@@ -94,9 +94,9 @@
                             yerdesiniz.</small>
                         <div class="row mt-5">
                             @foreach($hizmetler as $h)
-                            <div class="col-md-4">
+                            <div class="col-md-4 mt-1 mt-md-0">
                                 <div class="hizmetler text-left">
-                                    <h1 class="hizmetIndexText"> 1. </h1>
+                                    <h1 class="hizmetIndexText"> {{ $loop->index + 1 }}. </h1>
                                     <a href="{{route('web.hizmetler',$h->seourl)}}" class="hizmetLink">{{$h->sayfatitle}}</a>
                                     <a href="{{route('web.hizmetler',$h->seourl)}}" class="hizmetLinkDetay">Detayları Görmek İçin
                                         Tıkla</a>

@@ -7,7 +7,7 @@
                     <div class="col-md-12">
                         <div class="card flex-md-row mb-4 box-shadow h-md-250">
 
-                            <img class="flex-auto d-md-block duyuruImg" alt="{{$d->duyurutitle}}" src="{{$d->image}}" data-holder-rendered="true">
+                            <img class="flex-auto d-md-block duyuruImg border bg-dark-o1" alt="{{$d->duyurutitle}}" src="{{$d->image}}" data-holder-rendered="true">
                             <div class="card-body d-flex flex-column align-items-start">
                                 <h4 class="mb-0">
                                     <a class="duyuruHover font-weight-lighter" href="{{route('web.duyurular',$d->seourl)}}">{{$d->duyurutitle}}</a>

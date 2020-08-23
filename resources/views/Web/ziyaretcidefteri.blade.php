@@ -3,7 +3,7 @@
 
     <div class="row mb-4">
         @foreach($yorumlar as $y)
-        <div class="col-md-12 yorumSatiri text-center m-0 p-0 img-thumbnail">
+        <div class="col-md-12 yorumSatiri text-center m-0 p-0 mt-1">
             <div class="yorumSatiriOver p-4">
                 <div class="mesaj w-75 mx-auto">
                     <h4 class="text-muted font-weight-lighter">{{$y->adsoyad}}</h4>

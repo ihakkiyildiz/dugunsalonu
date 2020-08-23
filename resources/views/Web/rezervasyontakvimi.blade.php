@@ -1,16 +1,34 @@
 @extends('layouts.web')
 @section('content')
     <section class="container-fluid m-0 p-0">
-    <div class="row">
-        @foreach($salonlar as $s)
-        <div class="col-lg-4 col-md-12 mb-4">
-            <a href="{{route('web.rezervasyontakvimi.detay',$s->id)}}"><img width="100%" height="300px" class="z-depth-1 salonImg" src="{{$s->image}}" alt="{{$s->adi}}"></a>
+        
+        <div class="container">
+            <div class="row">
+                @foreach ($salonlar as $s)
+                    <div class="col-md-4 animated fadeIn my-4">
+                        <div class="options-container fx-item-zoom-in">
+                            <img class="img-fluid options-item" src="{{ $s->image }}" alt="">
+                            <div class="options-overlay bg-black-75">
+                                <div class="options-overlay-content">
+                                    <h3 class="h4 text-white mb-2">{{ $s->adi }}</h3>
+                                    <h4 class="h6 text-white-75 mb-3 text-capitalize">Bu düğün salonunda rezervasyon yap!
+                                    </h4>
+                                    <a class="btn btn-sm btn-primary"
+                                        href="{{ route('web.rezervasyontakvimi.detay', $s->id) }}"> TARİH SEÇ
+                                        <i class="fa fa-pencil-alt mr-1"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
         </div>
-            @endforeach
-    </div>
     </section>
 @endsection
-
+@section('css')
+<link rel="stylesheet" id="css-main" href="{{ asset('assets/css/dashmix.min.css') }}">
+@endsection
 @section('js')
     <script>
         var Cal = function(divId) {
@@ -56,11 +74,10 @@
 
         // Goes to previous month
         Cal.prototype.previousMonth = function() {
-            if(this.currMonth < this.currMonth-1)
-            {
+            if (this.currMonth < this.currMonth - 1) {
                 this.currMonth = this.currMonth
 
-            }else if(this.currMonth == 0) {
+            } else if (this.currMonth == 0) {
                 this.currMonth = 11;
                 this.currYear = this.currYear - 1;
             } else {
@@ -132,9 +149,9 @@
                 var chkY = chk.getFullYear();
                 var chkM = chk.getMonth();
                 if (chkY == this.currYear && chkM == this.currMonth && i == this.currDay) {
-                    html += '<td class="bos"><span style="color:yellow">' + i + '</span></td>';
+                    html += '<td class="bos" id="gun' + i + m + y + '"><span style="color:yellow">' + i + '</span></td>';
                 } else {
-                    html += '<td class="bos" id="gun'+i+m+y+'">' + i + '</td>';
+                    html += '<td class="bos" id="gun' + i + m + y + '">' + i + '</td>';
                 }
                 // If Saturday, closes the row
                 if (dow == 6) {
@@ -311,10 +328,12 @@
             background-color: rgb(73, 163, 73);
             color: white;
         }
+
         @media (max-width: 760px) {
-            .calendar-wrapper{
+            .calendar-wrapper {
                 width: 100%;
             }
         }
+
     </style>
 @endsection

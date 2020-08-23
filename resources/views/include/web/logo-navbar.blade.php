@@ -16,10 +16,10 @@
         </button>
 
         <div id="NAV" class="collapse navbar-collapse text-left mt-3">
-            <ul class="navbar-nav list-group fs-10">
+            <ul class="navbar-nav list-group fs-9">
                 <li class="nav-item active dNavItem">
                     <a href="{{ route('web.index') }}" class="nav-link text-uppercase"><i
-                            class="fa fa-home mr-1 navIcon"></i> Ana
+                            class="fa fa-home mr-1 navIcon"></i>Ana
                         Sayfa</a>
                     <hr class="mt-0 mb-1" />
                 </li>

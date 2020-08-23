@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row mt-5 mb-5">
             <div class="col-12 col-md-7 mx-auto">
-                <h1 class="text-muted text-center">Hizmetlerimiz Sayfası Ayarları</h1>
+                <h1 class="text-muted text-center">Hizmet Düzenle</h1>
                 <!--FORM-->
                 <form action="{{route('yonetim.Hizmetler.update',$hizmet->id)}}" method="post" enctype="multipart/form-data">
                     <!--SEO TITLE-->

@@ -39,7 +39,7 @@
                                                 Düzenle</a>
 
                                             <a href="javascript:sil({{ $h->id }})" type="submit"
-                                                class="btn btn-hero-primary btn-hero-sm"><i class="fa fa-trash"></i> Sil</a>
+                                                class="btn btn-hero-danger btn-hero-sm"><i class="fa fa-trash"></i> Sil</a>
                                         </td>
                                     </tr>
                                 @endforeach
