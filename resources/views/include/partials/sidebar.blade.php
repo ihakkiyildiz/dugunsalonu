@@ -26,14 +26,14 @@
         <ul class="nav-main">
             <li class="nav-main-item">
                 <a class="nav-main-link" href="{{route('yonetim.index')}}">
-                    <i class="nav-main-link-icon si si-cursor"></i>
-                    <span class="nav-main-link-name">Gösterge Paneli</span>
+                    <i class="nav-main-link-icon si si-home"></i>
+                    <span class="nav-main-link-name">Ana Sayfa</span>
 
                 </a>
             </li>
             <li class="nav-main-item">
                 <a class="nav-main-link" href="{{request()->getSchemeAndHttpHost()}}" target="_blank">
-                    <i class="nav-main-link-icon si si-home"></i>
+                    <i class="nav-main-link-icon si si-cursor"></i>
                     <span class="nav-main-link-name">Siteye Git</span>
 
                 </a>
@@ -41,18 +41,18 @@
             <li class="nav-main-heading">GENEL AYARLAR</li>
             <li class="nav-main-item">
                 <a class="nav-main-link" href="{{route('yonetim.Ayarlar.index')}}">
-                    <i class="nav-main-link-icon si si-grid"></i><span class="nav-main-link-name">Ayarlar</span>
+                    <i class="nav-main-link-icon si si-settings"></i><span class="nav-main-link-name">Ayarlar</span>
                 </a>
             </li>
             <li class="nav-main-item">
                 <a class="nav-main-link" href="{{route('yonetim.Galeri.index')}}">
-                    <i class="nav-main-link-icon si si-grid"></i><span class="nav-main-link-name">Galeri</span>
+                    <i class="nav-main-link-icon fas fa-images"></i><span class="nav-main-link-name">Galeri</span>
                 </a>
             </li>
             <li class="nav-main-heading">SAYFA YÖNETİMİ</li>
             <li class="nav-main-item">
                 <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
-                    <i class="nav-main-link-icon si si-chemistry"></i>
+                    <i class="nav-main-link-icon fa fa-outdent"></i>
                     <span class="nav-main-link-name">Sabit Sayfalar</span>
                 </a>
                 <ul class="nav-main-submenu">
@@ -79,7 +79,7 @@
             </li>
             <li class="nav-main-item">
                 <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
-                    <i class="nav-main-link-icon si si-notebook"></i>
+                    <i class="nav-main-link-icon fab fa-servicestack"></i>
                     <span class="nav-main-link-name">Hizmetlerimiz</span>
                 </a>
                 <ul class="nav-main-submenu">
@@ -93,7 +93,7 @@
             </li>
             <li class="nav-main-item">
                 <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
-                    <i class="nav-main-link-icon si si-notebook"></i>
+                    <i class="nav-main-link-icon fa fa-bullhorn"></i>
                     <span class="nav-main-link-name">Duyurular</span>
                 </a>
                 <ul class="nav-main-submenu">
@@ -107,7 +107,7 @@
             </li>
             <li class="nav-main-item">
                 <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
-                    <i class="nav-main-link-icon si si-notebook"></i>
+                    <i class="nav-main-link-icon far fa-building"></i>
                     <span class="nav-main-link-name">Salonlar</span>
                 </a>
                 <ul class="nav-main-submenu">
@@ -121,7 +121,7 @@
             </li>
             <li class="nav-main-item">
                 <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
-                    <i class="nav-main-link-icon si si-cup"></i>
+                    <i class="nav-main-link-icon fa fa-list-alt"></i>
                     <span class="nav-main-link-name">Rezervasyonlar</span>
                 </a>
                 <ul class="nav-main-submenu">

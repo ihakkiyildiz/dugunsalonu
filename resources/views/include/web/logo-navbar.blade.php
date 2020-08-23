@@ -86,10 +86,15 @@
 
             <div id="NAV" class="collapse navbar-collapse text-left mt-3">
                 <ul class="navbar-nav list-group fs-10">
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a href="{{ route('web.index') }}" class="nav-link text-uppercase"><i
                                 class="fa fa-home mr-3"></i> Ana
                             Sayfa</a>
+                        <hr class="mt-0 mb-1" />
+                    </li>
+                    <li class="nav-item active">
+                        <a href="{{ route('web.rezervasyontakvimi') }}" class="nav-link text-uppercase"><i
+                                class="fa fa-book-medical mr-3"></i> Rezervasyon</a>
                         <hr class="mt-0 mb-1" />
                     </li>
                     <li class="nav-item dropdown dNavItem">
