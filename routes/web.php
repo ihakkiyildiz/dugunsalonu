@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::group(['prefix' => 'Yonetim','as'=>'yonetim.','namespace'=>'Yonetim'], function () {
+Route::group(['prefix' => 'Yonetim','as'=>'yonetim.','namespace'=>'Yonetim','middleware'=>'auth'], function () {
     Route::get('/', 'MainController@index')->name('index');
         Route::resource('Ayarlar', 'AyarlarController');
         Route::resource('Galeri', 'GaleriController');

@@ -62,7 +62,7 @@
                                     placeholder="Anahtar Kelimeler (Virgülle ayırın örn: a, b, c,...)" />
                             </div>
                             <!--KAYDET-->
-                            <input type="submit" value="Güncelle" class="btn btn-block btn-success mt-4" />
+                            <input type="submit" value="Duyuru Ekle" class="btn btn-block btn-success mt-4" />
                         </form>
                     </div>
                 </div>
