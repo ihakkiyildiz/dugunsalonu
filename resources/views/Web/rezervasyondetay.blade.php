@@ -66,7 +66,9 @@
 
         // Show current month
         Cal.prototype.showcurr = function() {
+
             this.showMonth(this.currYear, this.currMonth);
+            gunleriIsaretle();
         };
 
 
@@ -133,7 +135,7 @@
                 } else if(chkY > this.currYear || chkM > this.currMonth ){
                     html += '<td class="dolu">' + i + '</td>';
                 } else {
-                    html += '<td class="bos" id="gun'+i+m+y+'">' + i + '</td>';
+                    html += '<td class="bos" id="gun'+i+(m+1)+y+'">' + i + '</td>';
                 }
                 // If Saturday, closes the row
                 if (dow == 6) {
@@ -157,7 +159,8 @@
 
             // Write HTML to the div
             document.getElementById(this.divId).innerHTML = html;
-            gunleriIsaretle();
+
+
         };
 
         // On Load of the window
