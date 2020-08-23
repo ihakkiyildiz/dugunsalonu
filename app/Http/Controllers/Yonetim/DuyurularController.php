@@ -21,7 +21,7 @@ class DuyurularController extends RedirectController
     {
         //
         $duyurular = Duyurular::paginate(20);
-        return view('yonetim.duyurular.index',compact('duyurular'));
+        return view('Yonetim.duyurular.index',compact('duyurular'));
     }
 
     /**
@@ -32,7 +32,7 @@ class DuyurularController extends RedirectController
     public function create()
     {
         //
-        return view('yonetim.duyurular.ekle');
+        return view('Yonetim.duyurular.ekle');
     }
 
     /**
