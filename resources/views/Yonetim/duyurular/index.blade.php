@@ -45,8 +45,12 @@
 
                             </tbody>
                         </table>
-                        <div class="text-center">
-                            {{ $duyurular->links() }}
+                        <div class="row">
+                            <div class="col-12 mx-auto my-5">
+                                <div class="pag mx-auto">
+                                    {{ $duyurular->links() }}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -82,4 +86,20 @@
         }
 
     </script>
+@endsection
+@section('css')
+    <style>
+.pag{
+    width: 13%;
+}
+
+.page-item{
+    
+    padding: 3px;
+}
+.page-link{
+    border-radius: 10px;
+    border: 1px solid #dadad0
+}
+    </style>
 @endsection
