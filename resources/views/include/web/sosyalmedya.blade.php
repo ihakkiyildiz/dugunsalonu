@@ -16,10 +16,10 @@
                         href="https://www.instagram.com/{{ cekAyar('instagram') }}" target="_blank"><i
                             class="fab fa-instagram"></i></a></li>
             @endif
-
-            <li class="list-inline-item bg-grey p-1"><a class="color-grey p-2" href="#" target="_blank"><i
+            @if(cekAyar('whatsapp-no')!='')
+            <li class="list-inline-item bg-grey p-1"><a class="color-grey p-2" href="https://wa.me/{{cekAyar('whatsapp-no')}}?text={{urlencode(cekAyar('whatsapp-text'))}}" target="_blank"><i
                         class="fab fa-whatsapp"></i></a></li>
-
+            @endif
         </ul>
     </section>
 
@@ -52,11 +52,11 @@
                                 target="_blank"> <i class="fab fa-instagram"></i> </a>
                         </li>
                     @endif
-
+                        @if(cekAyar('whatsapp-no')!='')
                     <li class="list-inline-item a bg-success">
-                        <a class="social-item " href="#" target="_blank"> <i class="fab fa-whatsapp"></i> </a>
+                        <a class="social-item " href="https://wa.me/{{cekAyar('whatsapp-no')}}?text={{urlencode(cekAyar('whatsapp-text'))}}" target="_blank"> <i class="fab fa-whatsapp"></i> </a>
                     </li>
-
+                    @endif
                 </ul>
             </div>
         </div>
