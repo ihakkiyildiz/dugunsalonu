@@ -18,9 +18,10 @@ class ZiyaretciDefteriController extends RedirectController
     public function index()
     {
         //
+        $yorumlar = Ziyaretcidefteri::paginate(10);
         $zd = Ziyaretcidefteri::all()->sortByDesc('created_at');
         Ziyaretcidefteri::where('okundu',null)->update(['okundu'=>date('Y-m-d H:i:s')]);
-        return view('Yonetim.ziyaretcidefteri.index',compact('zd'));
+        return view('Yonetim.ziyaretcidefteri.index',compact('zd', 'yorumlar'));
     }
 
     /**
