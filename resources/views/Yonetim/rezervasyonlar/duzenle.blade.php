@@ -31,7 +31,7 @@
                                 </div>
 
                                 <input type="date" class="form-control customInput" name="tarih"
-                                       placeholder="Rezervasyon Tarihi" id="tarih" value="{{$rez->tarih}}"/>
+                                       placeholder="Rezervasyon Tarihi" id="tarih" value="{{date('Y-m-d',strtotime($rez->tarih))}}"/>
                             </div>
 
                             <!--Telefon-->
