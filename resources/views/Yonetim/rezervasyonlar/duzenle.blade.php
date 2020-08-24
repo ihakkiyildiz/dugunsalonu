@@ -108,14 +108,6 @@
             var fileName = $(this).val().split("\\").pop();
             $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
         });
-
-
-        //BUGÜN
-        var t = new Date();
-        var gun = ("0" + t.getDate()).slice(-2);
-        var ay = ("0" + (t.getMonth() + 1)).slice(-2);
-        var tarih = t.getFullYear()+"-"+(ay)+"-"+(gun);
-        $("#tarih").val(tarih);
     </script>
 @endsection
 
