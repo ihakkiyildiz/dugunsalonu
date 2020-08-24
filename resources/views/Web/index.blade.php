@@ -1,4 +1,5 @@
 @extends('layouts.web')
+@section('title',cekAyar('site-basligi'))
 @section('content')
     <!--SLIDER-->
     <section class="container-fluid mt-3 m-0 p-0">
@@ -160,13 +161,13 @@
                     @endforeach
 
                 </div>
-               
+
             </div>
         </div>
     </section>
 @endsection
 @section('js')
-   
+
     <script src="{{asset('assets/js/dashmix.core.min.js')}}"></script>
     <script src="{{asset('assets/js/dashmix.app.min.js')}}"></script>
     <script src="{{asset('assets/js/plugins/jquery.maskedinput/jquery.maskedinput.min.js')}}"></script>
@@ -203,7 +204,7 @@
                 'error'
             )
         </script>
-    @endif   
+    @endif
 @endsection
 @section('css')
     <link rel="stylesheet" href="{{ asset('assets/js/plugins/slick-carousel/slick.css') }}">

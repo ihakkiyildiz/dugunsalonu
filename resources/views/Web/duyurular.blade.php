@@ -1,4 +1,5 @@
 @extends('layouts.webpages')
+@section('title',"Duyurular - ".cekAyar('site-basligi'))
 @section('content')
     @if($durum)
 

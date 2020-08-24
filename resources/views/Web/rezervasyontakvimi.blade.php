@@ -1,7 +1,8 @@
 @extends('layouts.web')
+@section('title',"Rezervasyon Takvimi - ".cekAyar('site-basligi'))
 @section('content')
     <section class="container-fluid m-0 p-0">
-        
+
         <div class="container">
             <div class="row">
                 @foreach ($salonlar as $s)

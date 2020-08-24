@@ -1,4 +1,5 @@
 @extends('layouts.webpages')
+@section('title',"Hizmetler - ".cekAyar('site-basligi'))
 @section('content')
     @if($liste)
         <div class="row mt-3">

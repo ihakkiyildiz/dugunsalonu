@@ -1,4 +1,5 @@
 @extends('layouts.webpages')
+@section('title',"İletişim - ".cekAyar('site-basligi'))
 @section('content')
     <div class="row">
         <div class="col-md-6">

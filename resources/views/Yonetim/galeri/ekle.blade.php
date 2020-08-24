@@ -42,7 +42,7 @@
                                     <select name="yer" id="yer">
                                         <option value="galeri">Galeri</option>
                                         <option value="alt">Alt Kısım</option>
-                                        <option value="liste">Liste</option>
+                                        <option value="liste">Slider</option>
                                         <option value="site_ici" >Site İçinde Kullanılacaklar</option>
                                     </select>
                                 </div>

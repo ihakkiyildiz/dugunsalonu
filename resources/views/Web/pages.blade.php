@@ -1,4 +1,5 @@
 @extends('layouts.webpages')
+@section('title',$sayfa->sayfatitle." - ".cekAyar('site-basligi'))
 @section('content')
     <section class="container mt-3">
 

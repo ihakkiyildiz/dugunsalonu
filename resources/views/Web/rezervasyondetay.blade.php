@@ -1,4 +1,5 @@
 @extends('layouts.web')
+@section('title',"Rezervasyonlar - ".cekAyar('site-basligi'))
 @section('content')
 
     <section class="container-fluid m-0 p-0">
@@ -262,19 +263,19 @@
             $(document).on("click", ".bos", function() {
                 //alert($(this).data("tarih"))
                 var yeniTarih = $(this).data("tarih");
-               
+
                 var t = yeniTarih.split("-");
                 var d = new Date();
                 var g = t[2];
                 var a = t[1];
-                if(g<10){g='0'+g} 
+                if(g<10){g='0'+g}
                 if(a<10){a='0'+a}
 
                 //d.setDate(t[0], t[1], t[2],0,0,0);
                 $("#tarih2").val(t[0]+"-"+ a+"-"+ g)
                 $("#modal-block-vcenter").modal("show");
                 console.log($("#tarih2").val())
-                
+
             });
 
         }
@@ -302,7 +303,19 @@
         }
 
     </script>
-    
+    <script src="{{asset('assets/js/dashmix.core.min.js')}}"></script>
+    <script src="{{asset('assets/js/dashmix.app.min.js')}}"></script>
+    <script src="{{asset('assets/js/plugins/jquery.maskedinput/jquery.maskedinput.min.js')}}"></script>
+
+    <script>
+
+        jQuery(function() {
+            Dashmix.helpers(['masked-inputs','slick']);
+            $('#telefon').mask('(999) 999-9999');
+
+        });
+    </script>
+
     @if(\Illuminate\Support\Facades\Session::has('status'))
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
@@ -324,7 +337,7 @@
                 'error'
             )
         </script>
-    @endif   
+    @endif
 @endsection
 
 @section('css')
