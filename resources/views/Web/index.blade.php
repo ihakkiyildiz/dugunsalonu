@@ -1,5 +1,12 @@
 @extends('layouts.web')
 @section('title',cekAyar('site-basligi'))
+@section('ogtitle',cekAyar('site-basligi'))
+@section('ogsitename',env('APP_NAME'))
+@section('ogsection',)
+@section('ogurl',url()->current())
+@section('ogimage',cekAyar('logo'))
+
+
 @section('content')
     <!--SLIDER-->
     <section class="container-fluid mt-3 m-0 p-0">

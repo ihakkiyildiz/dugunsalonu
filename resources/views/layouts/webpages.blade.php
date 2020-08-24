@@ -9,6 +9,12 @@
     <link rel="stylesheet" href="{{asset('/fontawesome/css/all.min.css')}}">
     <link rel="stylesheet" href="{{asset('/css/animate.min.css')}}">
     <link rel="stylesheet" href="{{asset('/css/custom.css')}}">
+    <meta property="og:title" content="@yield('ogtitle')">
+    <meta property="og:site_name" content="@yield('ogsitename')">
+    <meta property="og:description" content="@yield('ogsection')">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="@yield('ogurl')">
+    <meta property="og:image" content="@yield('ogimage')">
     @yield('css')
 </head>
 

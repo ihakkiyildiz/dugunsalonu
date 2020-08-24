@@ -1,5 +1,10 @@
 @extends('layouts.web')
 @section('title',"Rezervasyon Takvimi - ".cekAyar('site-basligi'))
+@section('ogtitle','Rezervasyon Listesi')
+@section('ogsitename',env('APP_NAME'))
+@section('ogsection',cekAyar('site-basligi').' - Rezervasyon Listesi')
+@section('ogurl',url()->current())
+@section('ogimage',cekAyar('logo'))
 @section('content')
     <section class="container-fluid m-0 p-0">
 

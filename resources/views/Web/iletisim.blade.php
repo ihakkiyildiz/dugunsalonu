@@ -1,5 +1,11 @@
 @extends('layouts.webpages')
 @section('title',"İletişim - ".cekAyar('site-basligi'))
+@section('ogtitle','İletişim Bilgileri')
+@section('ogsitename',env('APP_NAME'))
+@section('ogsection',cekAyar('site-basligi').' İletişim Bilgileri')
+@section('ogurl',url()->current())
+@section('ogimage',cekAyar('logo'))
+
 @section('content')
     <div class="row">
         <div class="col-md-6">

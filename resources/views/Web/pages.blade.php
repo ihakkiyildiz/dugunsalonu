@@ -1,5 +1,10 @@
 @extends('layouts.webpages')
 @section('title',$sayfa->sayfatitle." - ".cekAyar('site-basligi'))
+@section('ogtitle',$sayfa->sayfatitle)
+@section('ogsitename',env('APP_NAME'))
+@section('ogsection',$sayfa->metaicerik))
+@section('ogurl',url()->current())
+@section('ogimage',$sayfa->image))
 @section('content')
     <section class="container mt-3">
 

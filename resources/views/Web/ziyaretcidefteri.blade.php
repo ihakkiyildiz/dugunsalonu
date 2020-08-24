@@ -1,4 +1,9 @@
 @extends('layouts.webpages')
+@section('ogtitle','Yorumlar')
+@section('ogsitename',env('APP_NAME'))
+@section('ogsection',cekAyar('site-basligi').' - Yorum Sayfası')
+@section('ogurl',url()->current())
+@section('ogimage',cekAyar('logo'))
 @section('content')
 
     <div class="row mb-4">
@@ -96,7 +101,7 @@
 }
 
 .page-item{
-    
+
     padding: 3px;
 }
 .page-link{
