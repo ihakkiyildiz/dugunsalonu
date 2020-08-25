@@ -58,49 +58,58 @@ class WebController extends RedirectController
 
     }
 
-    function hizmetler($sayfa=null)
+    function hizmetler($pg=null)
     {
-        if(is_null($sayfa)) //sayfa değişkeni yoksa hizmetler sayfasını açacak!
+        $sayfa =(object) ['sayfatitle'=>'Hizmetler'];
+        if(is_null($pg)) //sayfa değişkeni yoksa hizmetler sayfasını açacak!
         {
             $hizmetler = Hizmetler::orderBy('sira','asc')->get();
             $liste = true;
-            return view('Web.hizmetler',compact('hizmetler','liste'));
+            return view('Web.hizmetler',compact('hizmetler','liste','sayfa'));
         }
 
-        $hizmet = Hizmetler::where('seourl',$sayfa)->first();
+        $hizmet = Hizmetler::where('seourl',$pg)->first();
         $liste = false;
-        return view('Web.hizmetler',compact('hizmet','liste'));
+        $sayfa =(object) ['sayfatitle'=>$hizmet->sayfatitle];
+        return view('Web.hizmetler',compact('hizmet','liste','sayfa'));
 
     }
     function salonlar($salonid = null)
     {
         $durum = true;
+
         if($salonid)
         {
             $durum = false;
             $salonlar = Galeri::whereYer('salon'.$salonid)->whereDurum(1)->orderBy('sira','asc')->get();
+            $salon = Salonlar::whereId($salonid)->first();
+            $sayfa =(object) ['sayfatitle'=>$salon->adi];
         } else {
+            $sayfa =(object) ['sayfatitle'=>'Salonlar'];
             $salonlar = Salonlar::all();
         }
-        return view('Web.salonlar',compact('salonlar','durum'));
+        return view('Web.salonlar',compact('salonlar','durum','sayfa'));
     }
     function duyurular($duyuru = null)
     {
+        $sayfa =(object) ['sayfatitle'=>'Duyurular'];
         if(is_null($duyuru))
         {
             $duyurular = Duyurular::all();
             $durum = true;
-            return view('Web.duyurular',compact('duyurular','durum'));
+            return view('Web.duyurular',compact('duyurular','durum','sayfa'));
         }
         $duyurular = Duyurular::whereSeourl($duyuru)->firstOrFail();
         $durum = false;
-        return view('Web.duyurular',compact('duyurular','durum'));
+        $sayfa =(object) ['sayfatitle'=>$duyurular->duyurutitle];
+        return view('Web.duyurular',compact('duyurular','durum','sayfa'));
 
     }
     function ziyaretcidefteri()
     {
         $yorumlar = Ziyaretcidefteri::whereDurum(1)->orderBy('created_at','desc')->paginate(10);
-        return view('Web.ziyaretcidefteri',compact('yorumlar'));
+        $sayfa =(object) ['sayfatitle'=>'Ziyaretçi Defteri'];
+        return view('Web.ziyaretcidefteri',compact('yorumlar','sayfa'));
 
     }
     function ziyaretcidefteripost(ZiyaretciRequest $req)
@@ -117,7 +126,8 @@ class WebController extends RedirectController
     }
     function iletisim()
     {
-        return view('Web.iletisim');
+        $sayfa =(object) ['sayfatitle'=>'İletişim Sayfası'];
+        return view('Web.iletisim',compact('sayfa'));
 
     }
     function iletisimpost(Request $request)

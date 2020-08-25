@@ -8,6 +8,7 @@
 @section('ogimage',!empty($duyurular)?cekAyar('logo'):$duyurular->image)
 
 @section('content')
+
     @if($durum)
 
            @foreach($duyurular as $d)
