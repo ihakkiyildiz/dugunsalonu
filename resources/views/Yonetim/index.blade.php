@@ -63,7 +63,7 @@
                                                 </div>
                                                 <div class="ml-3 text-right">
                                                     <p class="text-white font-size-base font-w600 mb-0">
-                                                        <span>0</span> Aktif Duyuru
+                                                        <span>{{\App\Models\Duyurular::count()}}</span> Aktif Duyuru
                                                     </p>
                                                     <p class="text-white-75 mb-0">
                                                         Duyurular
@@ -87,7 +87,7 @@
                                                         class="block-content block-content-sm block-content-full d-flex align-items-center justify-content-between">
                                                         <div class="mr-3">
                                                             <p class="text-white font-size-h3 font-w300 mb-0">
-                                                                0
+                                                                {{\App\Models\Rezervasyonlar::whereDate('tarih','>',date('Y-m-d'))->count()}}
                                                             </p>
                                                             <p class="text-white-75 mb-0">
                                                                 Toplam Rezervasyon Sayısı
@@ -103,7 +103,7 @@
                                                         class="block-content block-content-sm block-content-full d-flex align-items-center justify-content-between">
                                                         <div class="mr-3">
                                                             <p class="text-white font-size-h3 font-w300 mb-0">
-                                                                0
+                                                                {{\App\Models\Ziyaretcidefteri::count()}}
                                                             </p>
                                                             <p class="text-white-75 mb-0">
                                                                 Toplam Ziyaretçi Yorumu
@@ -119,7 +119,7 @@
                                                         class="block-content block-content-sm block-content-full d-flex align-items-center justify-content-between">
                                                         <div class="mr-3">
                                                             <p class="text-white font-size-h3 font-w300 mb-0">
-                                                                0
+                                                                {{\App\Models\Duyurular::count()}}
                                                             </p>
                                                             <p class="text-white-75 mb-0">
                                                                 Toplam Duyuru Sayısı
@@ -135,7 +135,7 @@
                                                         class="block-content block-content-sm block-content-full d-flex align-items-center justify-content-between">
                                                         <div class="mr-3">
                                                             <p class="text-white font-size-h3 font-w300 mb-0">
-                                                                0
+                                                                {{\App\Models\Hizmetler::count()}}
                                                             </p>
                                                             <p class="text-white-75 mb-0">
                                                                 Aktif Hizmet Sayısı
