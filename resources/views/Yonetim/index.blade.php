@@ -90,7 +90,7 @@
                                                                 {{\App\Models\Rezervasyonlar::whereDate('tarih','>=',date('Y-m-d'))->count()}}
                                                             </p>
                                                             <p class="text-white-75 mb-0">
-                                                                Toplam Rezervasyon Sayısı
+                                                                Aktif Rezervasyon Sayısı
                                                             </p>
                                                         </div>
                                                         <div class="item">
