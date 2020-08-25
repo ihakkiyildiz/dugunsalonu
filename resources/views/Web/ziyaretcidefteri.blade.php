@@ -1,5 +1,7 @@
 @extends('layouts.webpages')
-@section('ogtitle','Yorumlar')
+
+@section('title',cekAyar('site-basligi'))
+@section('ogtitle','Ziyaretçi Yorumları')
 @section('ogsitename',env('APP_NAME'))
 @section('ogsection',cekAyar('site-basligi').' - Yorum Sayfası')
 @section('ogurl',url()->current())
