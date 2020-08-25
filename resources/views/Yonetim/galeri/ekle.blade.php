@@ -44,6 +44,9 @@
                                         <option value="alt">Alt Kısım</option>
                                         <option value="liste">Slider</option>
                                         <option value="site_ici" >Site İçinde Kullanılacaklar</option>
+                                        @foreach(\App\Models\Salonlar::all() as $salon)
+                                            <option value="salon{{$salon->id}}">{{$salon->adi}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group">

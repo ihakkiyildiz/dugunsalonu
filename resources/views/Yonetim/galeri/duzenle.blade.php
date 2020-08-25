@@ -47,6 +47,9 @@
                                         <option value="alt" @if($resim->yer=='alt') selected @endif>Alt Kısım</option>
                                         <option value="liste" @if($resim->yer=='liste') selected @endif>Slider</option>
                                         <option value="site_ici" @if($resim->yer=='site_ici') selected @endif>Site İçinde Kullanılacaklar</option>
+                                        @foreach(\App\Models\Salonlar::all() as $salon)
+                                            <option value="salon{{$salon->id}}" @if($resim->yer=='salon'.$salon->id) selected @endif>{{$salon->adi}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group">

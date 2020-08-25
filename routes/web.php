@@ -40,7 +40,7 @@ Route::group(['as'=>'web','namespace'=>'Web'],function (){
     Route::get('/Rezervasyontakvimi','WebController@rezervasyontakvimi')->name('.rezervasyontakvimi');
     Route::get('/RezervasyontakvimiDetay/{id}','WebController@rezervasyondetay')->name('.rezervasyontakvimi.detay');
     Route::post('/Rezervasyonyap','WebController@rezervasyonyap')->name('.rezervasyon.post');
-    Route::get('/Salonlar','WebController@salonlar')->name('.salonlar');
+    Route::get('/Salonlar/{salonid?}','WebController@salonlar')->name('.salonlar');
     Route::get('/Duyurular/{duyuru?}','WebController@duyurular')->name('.duyurular');
     Route::get('/ZiyaretciDefteri','WebController@ziyaretcidefteri')->name('.ziyaretcidefteri');
     Route::post('/ZiyaretciDefteri','WebController@ziyaretcidefteripost')->name('.ziyaretcidefteri.post');

@@ -27,7 +27,7 @@ class GaleriRequest extends FormRequest
         return [
             'aciklama' => 'required|max:20',
             'link'=>'nullable',
-            'yer'=>'required|in:galeri,alt,liste,site_ici',
+            'yer'=>'required',
             'sira'=>'required|numeric',
             'resim' => $img
         ];
