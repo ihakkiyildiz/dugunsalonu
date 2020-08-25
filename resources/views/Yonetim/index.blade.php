@@ -87,7 +87,7 @@
                                                         class="block-content block-content-sm block-content-full d-flex align-items-center justify-content-between">
                                                         <div class="mr-3">
                                                             <p class="text-white font-size-h3 font-w300 mb-0">
-                                                                {{\App\Models\Rezervasyonlar::whereDate('tarih','>',date('Y-m-d'))->count()}}
+                                                                {{\App\Models\Rezervasyonlar::whereDate('tarih','>=',date('Y-m-d'))->count()}}
                                                             </p>
                                                             <p class="text-white-75 mb-0">
                                                                 Toplam Rezervasyon Sayısı
