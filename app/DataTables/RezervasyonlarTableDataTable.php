@@ -19,7 +19,7 @@ class RezervasyonlarTableDataTable extends DataTable
     {
 
         $GLOBALS['art'] = 1;
-        $query = Rezervasyonlar::whereDate('tarih','>',date('Y-m-d'))->get();
+        $query = Rezervasyonlar::whereDate('tarih','>=',date('Y-m-d'))->get();
         return datatables($query)
            // ->eloquent($query)
             ->addColumn('#',function () {
