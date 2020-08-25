@@ -12,7 +12,7 @@
             @foreach ($salonlar as $salon)
                 <div class="col-lg-4 col-md-12 mb-4">
 
-                    <a href="{{route('web.salonlar',$salon->id)}}"><img width="100%" height="300px" class="z-depth-1 salonImg" src="{{ $salon->image }}"></a>
+                    <a href="{{route('web.salonlar',$salon->id)}}" title="{{$salon->adi}}"><img width="100%" height="300px" class="z-depth-1 salonImg" src="{{ $salon->image }}"></a>
                 </div>
             @endforeach
 

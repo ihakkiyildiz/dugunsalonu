@@ -77,6 +77,7 @@ class WebController extends RedirectController
         $durum = true;
         if($salonid)
         {
+            $durum = false;
             $salonlar = Galeri::whereYer('salon'.$salonid)->whereDurum(1)->orderBy('sira','asc')->get();
         } else {
             $salonlar = Salonlar::all();
