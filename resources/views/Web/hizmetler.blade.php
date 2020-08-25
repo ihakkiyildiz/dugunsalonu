@@ -1,11 +1,11 @@
 @extends('layouts.webpages')
 @section('title',"Hizmetler - ".cekAyar('site-basligi'))
 
-@section('ogtitle',is_array($hizmetler)?'Hizmetler':$hizmetler->sayfatitle)
+@section('ogtitle',!empty($hizmetler)?'Hizmetler':$hizmet->sayfatitle)
 @section('ogsitename',env('APP_NAME'))
-@section('ogsection',is_array($hizmetler)?'Düğün Salonu Hizmet Listesi':$hizmetler->metaicerik))
+@section('ogsection',!empty($hizmetler)?'Düğün Salonu Hizmet Listesi':$hizmet->metaicerik)
 @section('ogurl',url()->current())
-@section('ogimage',is_array($hizmetler)?cekAyar('logo'):$hizmetler->image))
+@section('ogimage',!empty($hizmetler)?cekAyar('logo'):$hizmet->image)
 
 
 @section('content')

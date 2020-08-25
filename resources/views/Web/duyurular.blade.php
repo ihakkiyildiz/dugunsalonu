@@ -1,11 +1,11 @@
 @extends('layouts.webpages')
 @section('title',"Duyurular - ".cekAyar('site-basligi'))
 
-@section('ogtitle',is_array($duyurular)?'Duyurular':$duyurular->duyurutitle)
+@section('ogtitle',!empty($duyurular)?'Duyurular':$duyurular->duyurutitle)
 @section('ogsitename',env('APP_NAME'))
-@section('ogsection',is_array($duyurular)?'Duyurular - '.cekAyar('site-basligi'):$duyurular->icerik)
+@section('ogsection',!empty($duyurular)?'Duyurular - '.cekAyar('site-basligi'):$duyurular->icerik)
 @section('ogurl',url()->current())
-@section('ogimage',is_array($duyurular)?cekAyar('logo'):$duyurular->image)
+@section('ogimage',!empty($duyurular)?cekAyar('logo'):$duyurular->image)
 
 @section('content')
     @if($durum)
