@@ -1,6 +1,6 @@
 @extends('layouts.webpages')
 
-@section('title',cekAyar('site-basligi'))
+@section('title',"Ziyaretçi Defteri - ".cekAyar('site-basligi'))
 @section('ogtitle','Ziyaretçi Yorumları')
 @section('ogsitename',env('APP_NAME'))
 @section('ogsection',cekAyar('site-basligi').' - Yorum Sayfası')
