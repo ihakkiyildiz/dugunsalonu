@@ -1,10 +1,10 @@
 @extends('layouts.web')
-@section('title',"Rezervasyonlar - ".cekAyar('site-basligi'))
-@section('ogtitle','Rezervasyon Detayları')
-@section('ogsitename',env('APP_NAME'))
-@section('ogsection',cekAyar('site-basligi').' - Rezervasyon Detayları')
-@section('ogurl',url()->current())
-@section('ogimage',cekAyar('logo'))
+@section('title', 'Rezervasyonlar - ' . cekAyar('site-basligi'))
+@section('ogtitle', 'Rezervasyon Detayları')
+@section('ogsitename', env('APP_NAME'))
+@section('ogsection', cekAyar('site-basligi') . ' - Rezervasyon Detayları')
+@section('ogurl', url()->current())
+@section('ogimage', cekAyar('logo'))
 @section('content')
 
     <section class="container-fluid m-0 p-0">
@@ -14,7 +14,9 @@
             <div id="divCal"></div>
         </div>
     </section>
-
+    <style>
+        
+    </style>
     <div class="modal" id="modal-block-vcenter" tabindex="-1" role="dialog" aria-labelledby="modal-block-vcenter"
         aria-hidden="true" style="display: none;">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -24,11 +26,6 @@
                         <h3 class="block-title">
                             <b>ONLINE</b> <span class="font-weight-lighter">REZERVASYON</span>
                         </h3>
-                        <div class="block-options">
-                            <button type="button" class="btn-block-option" data-dismiss="modal" aria-label="Close">
-                                <i class="fa fa-fw fa-times"></i>
-                            </button>
-                        </div>
                     </div>
                     <div class="block-content">
                         <div class="row">
@@ -86,8 +83,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="block-content block-content-full text-right bg-light">
-                        <button type="button" class="btn btn-hero-sm btn-hero-danger" data-dismiss="modal">İptal</button>
+                    <div class="block-content block-content-full bg-light">
+                        <button type="button" class="btn btn-sm btn-danger col-3 btn-block float-right mb-3" data-dismiss="modal">İptal</button>
                     </div>
                 </div>
             </div>
@@ -273,11 +270,15 @@
                 var d = new Date();
                 var g = t[2];
                 var a = t[1];
-                if(g<10){g='0'+g}
-                if(a<10){a='0'+a}
+                if (g < 10) {
+                    g = '0' + g
+                }
+                if (a < 10) {
+                    a = '0' + a
+                }
 
                 //d.setDate(t[0], t[1], t[2],0,0,0);
-                $("#tarih2").val(t[0]+"-"+ a+"-"+ g)
+                $("#tarih2").val(t[0] + "-" + a + "-" + g)
                 $("#modal-block-vcenter").modal("show");
                 console.log($("#tarih2").val())
 
@@ -308,31 +309,41 @@
         }
 
     </script>
-    <script src="{{asset('assets/js/dashmix.core.min.js')}}"></script>
-    <script src="{{asset('assets/js/dashmix.app.min.js')}}"></script>
-    <script src="{{asset('assets/js/plugins/jquery.maskedinput/jquery.maskedinput.min.js')}}"></script>
+    <script src="{{ asset('assets/js/dashmix.core.min.js') }}"></script>
+    <script src="{{ asset('assets/js/dashmix.app.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/jquery.maskedinput/jquery.maskedinput.min.js') }}"></script>
 
     <script>
-
         jQuery(function() {
-            Dashmix.helpers(['masked-inputs','slick']);
+            Dashmix.helpers(['masked-inputs', 'slick']);
             $('#telefon').mask('(999) 999-9999');
 
         });
+
     </script>
 
-    @if(\Illuminate\Support\Facades\Session::has('status'))
+    @if (\Illuminate\Support\Facades\Session::has('status'))
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
         <script>
             Swal.fire(
-                '{{\Illuminate\Support\Facades\Session::get('status')=='ok'?'Başarılı İşlem':'Başarısız İşlem'}}',
-                '{{\Illuminate\Support\Facades\Session::get('message')}}',
-                '{{\Illuminate\Support\Facades\Session::get('type')=='danger'?'error':'success'}}'
+                '{{ \Illuminate\Support\Facades\Session::get('
+                status ') == '
+                ok ' ? '
+                Başarılı İşlem ' : '
+                Başarısız İşlem ' }}',
+                '{{ \Illuminate\Support\Facades\Session::get('
+                message ') }}',
+                '{{ \Illuminate\Support\Facades\Session::get('
+                type ') == '
+                danger ' ? '
+                error ' : '
+                success ' }}'
             )
+
         </script>
     @endif
-    @if($errors->any())
+    @if ($errors->any())
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
         <script>
@@ -341,12 +352,12 @@
                 'Formda Hatalar Mevcut Tüm Alanları Doldurunuz',
                 'error'
             )
+
         </script>
     @endif
 @endsection
 
 @section('css')
-    <link rel="stylesheet" id="css-main" href="{{ asset('assets/css/dashmix.min.css') }}">
     <style>
         *,
         *:before,
@@ -486,12 +497,230 @@
             background-color: rgb(73, 163, 73);
             color: white;
         }
+        .modal-open {
+            overflow: hidden;
+        }
 
+        .modal-open .modal {
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1050;
+            display: none;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            outline: 0;
+        }
+
+        .modal-dialog {
+            position: relative;
+            width: auto;
+            margin: 0.5rem;
+            pointer-events: none;
+        }
+
+        .modal-dialog-centered {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  min-height: calc(100% - 1rem);
+}
+
+.modal-dialog-centered::before {
+  display: block;
+  height: calc(100vh - 1rem);
+  content: "";
+}
+
+.modal-dialog-centered.modal-dialog-scrollable {
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: center;
+      justify-content: center;
+  height: 100%;
+}
+
+.modal-dialog-centered.modal-dialog-scrollable .modal-content {
+  max-height: none;
+}
+
+.modal-dialog-centered.modal-dialog-scrollable::before {
+  content: none;
+}
+
+
+        .modal-content {
+            position: relative;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            width: 100%;
+            pointer-events: auto;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            border-radius: 0.3rem;
+            outline: 0;
+        }
+
+        .block {
+            margin-bottom: 1.75rem;
+            background-color: #fff;
+            box-shadow: 0 2px 6px rgba(230, 235, 244, 0.4);
+            min-width: 100%;
+        }
+
+        .block-header {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            -ms-flex-align: center;
+            align-items: center;
+            padding: 0.75rem 1.25rem;
+            transition: opacity .25s ease-out;
+        }
+
+        .block-header.block-header-rtl {
+            -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+        }
+
+        .bg-primary-dark {
+            background-color: #054d9e !important;
+        }
+
+        .block.block-themed>.block-header {
+            border-bottom: none;
+            color: #fff;
+            background-color: #0665d0;
+        }
+
+        .block.block-themed>.block-header>.block-title {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .block.block-themed .block-options .block-options-item {
+            color: #fff;
+        }
+
+        .block.block-themed .btn-block-option {
+            color: #fff;
+            opacity: .7;
+        }
+
+        .block.block-transparent {
+            background-color: transparent;
+            box-shadow: none;
+        }
+
+        .block.block-mode-fullscreen.block-transparent {
+            background-color: #fff;
+        }
+
+        .block-title {
+            -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+            min-height: 1.75rem;
+            margin: 0;
+            font-size: 1.125rem;
+            font-weight: 400;
+            line-height: 1.75;
+        }
+
+        .block-header.block-header-rtl .block-options {
+            padding-right: 1.25rem;
+            padding-left: 0;
+        }
+
+        .block-options {
+            -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+            padding-left: 1.25rem;
+        }
+        .block-content {
+  transition: opacity .25s ease-out;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.25rem 1.25rem 1px;
+  overflow-x: visible;
+}
+.block-content.block-content-full {
+  padding-bottom: 1.25rem;
+}
+.btn-hero-sm {
+  padding: 0.375rem 1.25rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+}
+.btn-hero-danger {
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: .0625rem;
+  font-weight: 700;
+  padding: 0.625rem 1.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  background-color: #e04f1a;
+  border: none;
+  box-shadow: 0 0.125rem 0.75rem rgba(155, 55, 18, 0.25);
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-transform 0.12s ease-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, transform 0.12s ease-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, transform 0.12s ease-out, -webkit-transform 0.12s ease-out;
+}
+
+.btn-hero-danger:hover {
+  color: #fff;
+  background-color: #e97044;
+  box-shadow: 0 0.375rem 0.75rem rgba(155, 55, 18, 0.4);
+  -webkit-transform: translateY(-1px);
+          transform: translateY(-1px);
+}
+
+.btn-hero-danger:focus, .btn-hero-danger.focus {
+  color: #fff;
+  background-color: #e97044;
+  box-shadow: 0 0.125rem 0.75rem rgba(155, 55, 18, 0.25);
+}
         @media (max-width: 760px) {
             .calendar-wrapper {
                 width: 100%;
             }
         }
+
+        @media (min-width: 576px) {
+  .modal-dialog {
+    max-width: 500px;
+    margin: 1.75rem auto;
+  }
+  .modal-dialog-scrollable {
+    max-height: calc(100% - 3.5rem);
+  }
+  .modal-dialog-scrollable .modal-content {
+    max-height: calc(100vh - 3.5rem);
+  }
+  .modal-dialog-centered {
+    min-height: calc(100% - 3.5rem);
+  }
+  .modal-dialog-centered::before {
+    height: calc(100vh - 3.5rem);
+  }
+  .modal-sm {
+    max-width: 300px;
+  }
+}
 
     </style>
 @endsection

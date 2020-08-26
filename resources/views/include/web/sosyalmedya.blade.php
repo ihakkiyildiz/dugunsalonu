@@ -47,7 +47,7 @@
                         </li>
                     @endif
                     @if (cekAyar('instagram') != '')
-                        <li class="list-inline-item block a bg-warning">
+                        <li class="list-inline-item a bg-warning">
                             <a class="social-item" href="https://www.instagram.com/{{ cekAyar('instagram') }}"
                                 target="_blank"> <i class="fab fa-instagram"></i> </a>
                         </li>

@@ -13,7 +13,7 @@
         @foreach ($galeri as $g)
             <div class="col-md-6 col-lg-4 col-xl-3 animated fadeIn">
                 <div class="options-container fx-item-zoom-in fx-overlay-zoom-out">
-                    <img class="img-fluid options-item" src="{{ $g->resim }}" alt="{{ $g->aciklama }}">
+                    <img class="img-fluid options-item customImg" src="{{ $g->resim }}" alt="{{ $g->aciklama }}">
                     <div class="options-overlay bg-black-75">
                         <div class="options-overlay-content">
                             <h3 class="h4 text-white mb-1">{{ $g->aciklama }}</h3>
@@ -62,17 +62,25 @@
 
 @section('css')
     <style>
-.pag{
-    width: 13%;
-}
+        .pag {
+            width: 13%;
+        }
 
-.page-item{
-    
-    padding: 3px;
-}
-.page-link{
-    border-radius: 10px;
-    border: 1px solid #dadad0
-}
+        .page-item {
+
+            padding: 3px;
+        }
+
+        .page-link {
+            border-radius: 10px;
+            border: 1px solid #dadad0
+        }
+
+        .customImg {
+            width: 100%;
+            height: 300px;
+            object-fit: contain;
+        }
+
     </style>
 @endsection
