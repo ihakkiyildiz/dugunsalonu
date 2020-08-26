@@ -13,6 +13,7 @@
                 background-color: rgba(0,0,0,.7);
                 color: whitesmoke;
                 padding: 5px;
+                bottom: -7px;
 
             }
         </style>
