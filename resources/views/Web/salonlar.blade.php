@@ -6,12 +6,23 @@
 @section('ogimage',cekAyar('logo'))
 @section('content')
     <div class="container my-4">
+        <style>
+            .salonAdi{
+                position: absolute;
+                width: 92%;
+                background-color: rgba(0,0,0,.7);
+                color: whitesmoke;
+                padding: 5px;
 
+            }
+        </style>
         @if($durum)
         <div class="row">
             @foreach ($salonlar as $salon)
-                <div class="col-lg-4 col-md-12 mb-4 text-center">
-                    <span class="text-gray-dark h5">{{$salon->adi}}</span>
+                <div class="col-lg-4 col-md-12 mb-4 text-center overflow-hidden">
+
+                        <span class="salonAdi h5">{{$salon->adi}}</span>
+
                     <a href="{{route('web.salonlar',$salon->id)}}" title="{{$salon->adi}}"><img width="100%" height="300px" class="z-depth-1 salonImg" src="{{ $salon->image }}"></a>
                 </div>
             @endforeach
