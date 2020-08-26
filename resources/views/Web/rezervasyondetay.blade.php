@@ -15,7 +15,7 @@
         </div>
     </section>
     <style>
-        
+
     </style>
     <div class="modal" id="modal-block-vcenter" tabindex="-1" role="dialog" aria-labelledby="modal-block-vcenter"
         aria-hidden="true" style="display: none;">
@@ -57,10 +57,9 @@
                                                 <div class="col-12">
                                                     <small class="text-muted font-weight-lighter fs-8">DÜĞÜN SALONU</small>
                                                     <select id="salon" name="salon" class="form-control fs-10 customInput">
-                                                        <option disabled selected>~Lütfen Seçiniz~</option>
-                                                        @foreach ($salonlar as $s)
-                                                            <option value="{{ $s->id }}">{{ $s->adi }}</option>
-                                                        @endforeach
+
+                                                            <option value="{{ $salonlar->id }}">{{ $salonlar->adi }}</option>
+
                                                     </select>
                                                 </div>
 

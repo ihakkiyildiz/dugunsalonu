@@ -158,7 +158,7 @@ class WebController extends RedirectController
     }
     public function rezervasyondetay($id)
     {
-        $salonlar = Salonlar::all();
+        $salonlar = Salonlar::whereId($id)->firstOrFail();
         $gunler = Rezervasyonlar::select('tarih')->whereDurum(1)->where('salon_id',$id)->whereDate('tarih','>',date('Y-m-d'))->pluck('tarih');
 
       return view('Web.rezervasyondetay',compact('gunler','salonlar'));

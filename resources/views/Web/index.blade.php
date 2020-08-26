@@ -89,37 +89,7 @@
         </div>
     </section>
 
-    <!--AREA-->
-    <section class="container-fluid p-0 m-0 mt-5">
-        <div class="carousel">
-            <div class="carousel-inner">
-                <div class="itemSized itemSizedHizmetler">
-                    <div class="overlay bg-dark-o8"></div>
 
-                    <div class="carousel-caption sliderText text-uppercase">
-                        <h2 class="letterSpace-4">Hizmet <span class="font-weight-lighter">programlarımız</span></h2>
-                        <small class="fs-8 font-weight-lighter">Her şey kusursuz olsun istiyorsanız, doğru
-                            yerdesiniz.</small>
-                        <div class="row mt-5">
-                            @foreach($hizmetler as $h)
-                            <div class="col-md-4 mt-1 mt-md-0">
-                                <div class="hizmetler text-left">
-                                    <h1 class="hizmetIndexText"> {{ $loop->index + 1 }}. </h1>
-                                    <a href="{{route('web.hizmetler',$h->seourl)}}" class="hizmetLink">{{$h->sayfatitle}}</a>
-                                    <a href="{{route('web.hizmetler',$h->seourl)}}" class="hizmetLinkDetay">Detayları Görmek İçin
-                                        Tıkla</a>
-                                </div>
-
-                            </div>
-                            @endforeach
-
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!--HABERLER DUYURULAR-->
     <section class="container text-center mt-5">
