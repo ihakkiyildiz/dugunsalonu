@@ -12,6 +12,7 @@ use App\Models\Hizmetler;
 use App\Models\Salonlar;
 use App\Models\Rezervasyonlar;
 use App\Models\Sayfalar;
+use App\Models\Video;
 use App\Models\Ziyaretcidefteri;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -82,7 +83,7 @@ class WebController extends RedirectController
         {
             $durum = false;
             $salonlar = Galeri::whereYer('salon'.$salonid)->whereDurum(1)->orderBy('sira','asc')->paginate(9);
-            $videolar = Salonlar::where('salon_id',$salonid)->orderBy('sira','asc')->paginate(9);
+            $videolar = Video::where('salon_id',$salonid)->orderBy('sira','asc')->paginate(9);
             $salon = Salonlar::whereId($salonid)->first();
             $sayfa =(object) ['sayfatitle'=>$salon->adi];
         } else {
