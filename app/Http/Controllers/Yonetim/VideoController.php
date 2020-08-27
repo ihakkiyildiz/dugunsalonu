@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Yonetim;
 
 use App\Http\Controllers\RedirectController;
 use App\Http\Requests\VideoRequest;
-use App\Video;
+use App\Models\Video;
 use Illuminate\Http\Request;
 
 class VideoController extends RedirectController
