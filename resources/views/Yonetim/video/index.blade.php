@@ -35,7 +35,7 @@
                                 <tr>
                                     <th scope="row">{{$loop->index+1}}.</th>
                                     <td class="p-2 m-0" style="width:17%">
-                                        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/{{str_replace("www.youtube.com/watch?v=","",$v->youtubelink)}}?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        <iframe width="300" height="150" src="https://www.youtube.com/embed/{{str_replace("https://www.youtube.com/watch?v=","",$v->youtubelink)}}?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                     </td>
                                     <td>{{dugunsalonu($v->salon_id)}}</td>
                                     <td class="w-25">
