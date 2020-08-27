@@ -82,7 +82,7 @@ class WebController extends RedirectController
         {
             $durum = false;
             $salonlar = Galeri::whereYer('salon'.$salonid)->whereDurum(1)->orderBy('sira','asc')->paginate(9);
-            $videolar = Galeri::whereId($salonid)->orderBy('sira','asc')->paginate(9);
+            $videolar = Galeri::where('salon_id',$salonid)->orderBy('sira','asc')->paginate(9);
             $salon = Salonlar::whereId($salonid)->first();
             $sayfa =(object) ['sayfatitle'=>$salon->adi];
         } else {
