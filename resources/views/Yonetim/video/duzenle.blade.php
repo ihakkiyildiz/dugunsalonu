@@ -7,76 +7,68 @@
             <div class="col-12 col-md-8 mx-auto">
                 <div class="block block-themed block-fx-shadow">
                     <div class="block-header bg-primary-dark">
-                        <h2 class="block-title">Duyurular</h2>
+                        <h2 class="block-title">Video Düzenle</h2>
                     </div>
                     <div class="block-content p-2 mt-3">
-
                         <!--FORM-->
-                        <form action="{{ route('yonetim.Duyurular.update', $d->id) }}" method="post"
-                            enctype="multipart/form-data">
+                        <form action="{{ route('yonetim.Videolar.update') }}" method="post" enctype="multipart/form-data">
                             @csrf
-                            @method('PUT')
-                            <!--Duyuru Başlığı-->
+                            <!--Youtube Link-->
                             <div class="input-group-lg mb-3">
-                                <div class="input-group-text text-muted"><i class="fa fa-bullhorn mr-3"></i>Duyuru Başlığı
+                                <div class="input-group-text text-muted"><i class="fab fa-youtube mr-3"></i>Youtube Linki
                                 </div>
-                                <input type="text" class="form-control customInput" name="duyurutitle" id="duyurutitle"
-                                    value="{{ $d->duyurutitle }}" placeholder="Duyuru Başlığı" />
+                                <input type="text" class="form-control customInput" name="youtubelink" id="youtubelink"
+                                    placeholder="https://www.youtube.com/watch?v=" />
                             </div>
-                            <!--Duyuru Önbilgi-->
+                           
+                            <!--Video Açıklama-->
                             <div class="input-group-lg mb-3">
-
                                 <div class="input-group-text">
-                                    <h5 class="mb-1 text-muted"><i class="fab fa-affiliatetheme mr-3"></i> Duyuru Önbilgi
-                                    </h5>
+                                    <h5 class="mb-1 text-muted"><i class="fa fa-edit mr-3"></i> Video Açıklaması</h5>
                                 </div>
                                 <div class="form-group">
-                                    <textarea class="form-control" name="metaicerik" placeholder="Hizmetlerimiz Yazısı"
-                                        rows="4">{{ $d->metaicerik }}</textarea>
+                                    <textarea id="js-ckeditor" name="aciklama" placeholder="Video Açıklaması"
+                                        rows="4"></textarea>
                                 </div>
                             </div>
-                            <!--Duyuru İçerik-->
-                            <div class="input-group-lg mb-3">
+                            <!--Salon-->
+                            <div class="row mb-3">
+                                <div class="col-12 col-md-9">
+                                    <div class="input-group-lg">
 
-                                <div class="input-group-text">
-                                    <h5 class="mb-1 text-muted"><i class="fa fa-edit mr-3"></i> Duyuru İçerik</h5>
+                                        <div class="input-group-text text-muted"><i class="fa fa-building mr-3"></i>Salon
+                                        </div>
+        
+                                        <select name="salon_id" class="form-control customInput">
+                                            <option selected disabled>Düğün Salonu Seçiniz</option>
+                                            <option value="deneme">Kır Düğünü</option>
+                                            <option value="deneme">Deneme Düğün Salonu</option>
+                                            <option value="deneme">Deneme Düğün Salonu</option>
+                                        </select>
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <textarea id="js-ckeditor" name="icerik" placeholder="Hizmetlerimiz Yazısı"
-                                        rows="4">{{ $d->icerik }}</textarea>
+                                <div class="col-12 col-md-3">
+                                    <div class="input-group">
+                                        <div class="input-group-lg mb-3">
+                                            <div class="input-group-text text-muted"><i class="fas fa-bars mr-3"></i>Sıra
+                                            </div>
+                                            <input type="number" class="form-control customInput" value="0" name="sira" placeholder="Sıra">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <!--Resim-->
-                            <div class="input-group-lg mb-3">
-                                <div class="custom-file">
-                                    <img src="{{ $d->image }}" class="img img-thumbnail" alt="">
-                                    <input type="file" class="custom-file-input js-custom-file-input-enabled"
-                                        data-toggle="custom-file-input" id="example-file-input-custom" name="image">
-                                    <label class="custom-file-label" for="image">Dosya Seç</label>
-                                </div>
-                            </div>
-
                             <!--keyword-->
                             <div class="input-group-lg mb-3">
 
                                 <div class="input-group-text text-muted"><i class="fa fa-tags mr-3"></i> Anahtar Kelimeler
                                 </div>
 
-                                <input type="text" class="form-control customInput" name="keyword"
-                                    placeholder="Anahtar Kelimeler (Virgülle ayırın örn: a, b, c,...)"
-                                    value="{{ $d->keyword }}" />
+                                <input type="text" class="form-control customInput" name="metaetiketler"
+                                    placeholder="Anahtar Kelimeler (Virgülle ayırın örn: a, b, c,...)" />
                             </div>
-                            <div class="input-group-lg mb-3">
-                                <div class="custom-control custom-switch">
-                                    
-                                    <input type="checkbox" class="custom-control-input" id="durum" name="durum" @if ($d->durum == 1) checked @endif>
-                                    <label class="custom-control-label" for="durum">Durum</label>
-                                </div>
-                            </div>
+                            <!--KAYDET-->
                             <input type="submit" value="Güncelle" class="btn btn-block btn-success mt-4" />
-
                         </form>
-
                     </div>
                 </div>
 
@@ -91,12 +83,6 @@
     <script>
         jQuery(function() {
             Dashmix.helpers(['ckeditor']);
-        });
-
-        //CUSTOM FILE INPUT
-        $(".custom-file-input").on("change", function() {
-            var fileName = $(this).val().split("\\").pop();
-            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
         });
 
     </script>

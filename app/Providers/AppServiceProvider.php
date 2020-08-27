@@ -39,6 +39,8 @@ class AppServiceProvider extends ServiceProvider
                 return Ayarlar::all();
             });
         }
+		
+		
 
 
     }
