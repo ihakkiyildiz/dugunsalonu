@@ -81,14 +81,16 @@ class WebController extends RedirectController
         if($salonid)
         {
             $durum = false;
-            $salonlar = Galeri::whereYer('salon'.$salonid)->whereDurum(1)->orderBy('sira','asc')->get();
+            $salonlar = Galeri::whereYer('salon'.$salonid)->whereDurum(1)->orderBy('sira','asc')->paginate(9);
+            $videolar = Galeri::whereId($salonid)->orderBy('sira','asc')->paginate(9);
             $salon = Salonlar::whereId($salonid)->first();
             $sayfa =(object) ['sayfatitle'=>$salon->adi];
         } else {
             $sayfa =(object) ['sayfatitle'=>'Salonlar'];
             $salonlar = Salonlar::all();
+            $videolar =null;
         }
-        return view('Web.salonlar',compact('salonlar','durum','sayfa'));
+        return view('Web.salonlar',compact('salonlar','durum','sayfa','videolar'));
     }
     function duyurular($duyuru = null)
     {

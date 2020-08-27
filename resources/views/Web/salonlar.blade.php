@@ -30,7 +30,11 @@
 
         </div>
             @else
+
             <div class="row">
+                <div class="block-header">
+                    <h3 class="block-title">Resim <small>Galerisi</small></h3>
+                </div>
                 @foreach ($salonlar as $salon)
                     <div class="col-lg-4 col-md-12 mb-4">
                         <div class="modal fade" id="modal{{$salon->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -80,6 +84,19 @@
                     </div>
                 @endforeach
 
+            </div>
+
+
+            <div class="block-header">
+                <h3 class="block-title">Video <small>Galeri</small></h3>
+            </div>
+
+            <div class="row">
+                @foreach($videolar as $v)
+                <div class="col-md-6">
+                    <iframe width="300" height="150" src="https://www.youtube.com/embed/{{str_replace("https://www.youtube.com/watch?v=","",$v->youtubelink)}}?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+               @endforeach
             </div>
         @endif
 
