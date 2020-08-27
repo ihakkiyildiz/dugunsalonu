@@ -83,7 +83,7 @@
                                 data-target="#modal{{$salon->id}}"></a>
                     </div>
                 @endforeach
-
+            {{$salonlar->links()}}
             </div>
 
 
@@ -97,6 +97,7 @@
                     <iframe width="600" height="250" src="https://www.youtube.com/embed/{{str_replace("https://www.youtube.com/watch?v=","",$v->youtubelink)}}?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
                @endforeach
+                {{$videolar->links()}}
             </div>
         @endif
 
