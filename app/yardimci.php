@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Salonlar;
 use Illuminate\Support\Facades\Artisan;
 
 function cekAyar($ayar)
@@ -19,4 +20,10 @@ function cekAyar($ayar)
 function tumAyarlar()
 {
     return Illuminate\Support\Facades\Cache::get('ayarlar')->toArray();
+}
+
+ function dugunsalonu($id)
+{
+    $salon = Salonlar::whereId($id)->firstOrFail();
+    return $salon->adi;
 }

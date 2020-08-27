@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Yonetim;
 
 use App\Http\Controllers\RedirectController;
+use App\Http\Requests\VideoRequest;
+use App\Video;
 use Illuminate\Http\Request;
 
 class VideoController extends RedirectController
@@ -15,7 +17,8 @@ class VideoController extends RedirectController
     public function index()
     {
         //
-        return view('Yonetim.video.index');
+        $videolar = Video::orderby('id','desc')->paginate(10);
+        return view('Yonetim.video.index',compact('videolar'));
     }
 
     /**
@@ -35,9 +38,18 @@ class VideoController extends RedirectController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(VideoRequest $request)
     {
         //
+        $v = new Video();
+        $v->youtubelink = $request->youtubelink;
+        $v->aciklama = $request->aciklama;
+        $v->salon_id = $request->salon_id;
+        $v->sira = $request->sira;
+        $v->metaetiketler = $request->metaetiketler;
+        if($v->save())
+            return $this->success('Video Başarıyla Eklenmiştir.');
+        return $this->fail('Video Eklenemedi');
     }
 
     /**
@@ -60,7 +72,8 @@ class VideoController extends RedirectController
     public function edit($id)
     {
         //
-        return view('Yonetim.video.duzenle');
+        $v = Video::whereId($id)->firstOrFail();
+        return view('Yonetim.video.duzenle',compact('v'));
     }
 
     /**
@@ -73,6 +86,15 @@ class VideoController extends RedirectController
     public function update(Request $request, $id)
     {
         //
+        $v = Video::whereId($id)->firstOrFail();
+        $v->youtubelink = $request->youtubelink;
+        $v->aciklama = $request->aciklama;
+        $v->salon_id = $request->salon_id;
+        $v->sira = $request->sira;
+        $v->metaetiketler = $request->metaetiketler;
+        if($v->save())
+            return $this->success('Video Başarıyla Güncellendi.');
+        return $this->fail('Video Güncellenemedi');
     }
 
     /**
@@ -83,6 +105,16 @@ class VideoController extends RedirectController
      */
     public function destroy($id)
     {
-        //
+        $video = Video::where('id',$id)->first();
+
+        if($video) {
+            $video->delete();
+
+
+
+            return ['status'=>'ok','message'=>'Silme İşlemi Başarılı'];
+        }
+        return ['status'=>'err','message'=>'Silme İşlemi Başarısız'];
+
     }
 }

@@ -31,64 +31,21 @@
                                 </tr>
                             </thead>
                             <tbody>
-
+                            @foreach($videolar as $v)
                                 <tr>
-                                    <th scope="row">1.</th>
-                                    <td class="p-2 m-0" style="width:17%"><img
-                                            src="{{ asset('assets/media/photos/photo1.jpg') }}" class="img-thumbnail"
-                                            style="width:10em;height:5em;border-radius:.8xem" alt=""></td>
-                                    <td>Kır Düğünü</td>
-                                    <td class="w-25">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia adipisci veniam, porro dolores dolore placeat nihil amet facere labore molestiae a laborum maiores, enim, reiciendis exercitationem nulla id voluptatem tempore?
-
+                                    <th scope="row">{{$loop->index+1}}.</th>
+                                    <td class="p-2 m-0" style="width:17%"><iframe width="200" height="120" src="{{$v->youtubelink}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+                                    <td>{{dugunsalonu($v->id)}}</td>
+                                    <td class="w-25">
+                                        {{$v->aciklama}}
                                     </td>
-                                    <td class="float-right"><a href="#" class="btn btn-hero-sm btn-hero-primary">Göster <i
-                                                class="si si-eye"></i></a> <a href="#"
+                                    <td class="float-right"><a href="{{route('yonetim.Videolar.edit',$v->id)}}" class="btn btn-hero-sm btn-hero-primary">Göster <i
+                                                class="si si-eye"></i></a> <a href="javascript:sil({{$v->id}});"
                                             class="btn btn-hero-sm btn-hero-danger">Sil <i class="si si-trash"></i></a>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <th scope="row">1.</th>
-                                    <td class="p-2 m-0" style="width:17%"><img
-                                            src="{{ asset('assets/media/photos/photo1.jpg') }}" class="img-thumbnail"
-                                            style="width:10em;height:5em;border-radius:.8xem" alt=""></td>
-                                    <td>Kır Düğünü</td>
-                                    <td class="w-25">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia adipisci veniam, porro dolores dolore placeat nihil amet facere labore molestiae a laborum maiores, enim, reiciendis exercitationem nulla id voluptatem tempore?
+                                @endforeach
 
-                                    </td>
-                                    <td class="float-right"><a href="#" class="btn btn-hero-sm btn-hero-primary">Göster <i
-                                                class="si si-eye"></i></a> <a href="#"
-                                            class="btn btn-hero-sm btn-hero-danger">Sil <i class="si si-trash"></i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">1.</th>
-                                    <td class="p-2 m-0" style="width:17%"><img
-                                            src="{{ asset('assets/media/photos/photo1.jpg') }}" class="img-thumbnail"
-                                            style="width:10em;height:5em;border-radius:.8xem" alt=""></td>
-                                    <td>Kır Düğünü</td>
-                                    <td class="w-25">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia adipisci veniam, porro dolores dolore placeat nihil amet facere labore molestiae a laborum maiores, enim, reiciendis exercitationem nulla id voluptatem tempore?
-
-                                    </td>
-                                    <td class="float-right"><a href="#" class="btn btn-hero-sm btn-hero-primary">Göster <i
-                                                class="si si-eye"></i></a> <a href="#"
-                                            class="btn btn-hero-sm btn-hero-danger">Sil <i class="si si-trash"></i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">1.</th>
-                                    <td class="p-2 m-0" style="width:17%"><img
-                                            src="{{ asset('assets/media/photos/photo1.jpg') }}" class="img-thumbnail"
-                                            style="width:10em;height:5em;border-radius:.8xem" alt=""></td>
-                                    <td>Kır Düğünü</td>
-                                    <td class="w-25">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia adipisci veniam, porro dolores dolore placeat nihil amet facere labore molestiae a laborum maiores, enim, reiciendis exercitationem nulla id voluptatem tempore?
-
-                                    </td>
-                                    <td class="float-right"><a href="#" class="btn btn-hero-sm btn-hero-primary">Göster <i
-                                                class="si si-eye"></i></a> <a href="#"
-                                            class="btn btn-hero-sm btn-hero-danger">Sil <i class="si si-trash"></i></a>
-                                    </td>
-                                </tr>
-                                
 
 
                             </tbody>
@@ -113,8 +70,8 @@
 
     <script>
         function sil(id) {
-            if (confirm('Duyuruyu Silmek İstediğinize Emin misiniz?')) {
-                var url = "{{ route('yonetim.Duyurular.destroy', ':id') }}".replace(':id', id);
+            if (confirm('Video\'yu Silmek İstediğinize Emin misiniz?')) {
+                var url = "{{ route('yonetim.Videolar.destroy', ':id') }}".replace(':id', id);
                 $.ajax({
                     url: url,
                     method: "post",

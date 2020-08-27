@@ -11,25 +11,23 @@
                     </div>
                     <div class="block-content p-2 mt-3">
                         <!--FORM-->
-                        <form action="{{ route('yonetim.Videolar.store') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('yonetim.Videolar.store') }}" method="post">
                             @csrf
                             <!--Youtube Link-->
                             <div class="input-group-lg mb-3">
                                 <div class="input-group-text text-muted"><i class="fab fa-youtube mr-3"></i>Youtube Linki
                                 </div>
                                 <input type="text" class="form-control customInput" name="youtubelink" id="youtubelink"
-                                    placeholder="https://www.youtube.com/watch?v=" />
+                                    placeholder="https://www.youtube.com/watch?v=LiNkBRyA" />
                             </div>
-                           
+
                             <!--Video Açıklama-->
                             <div class="input-group-lg mb-3">
                                 <div class="input-group-text">
                                     <h5 class="mb-1 text-muted"><i class="fa fa-edit mr-3"></i> Video Açıklaması</h5>
                                 </div>
-                                <div class="form-group">
-                                    <textarea id="js-ckeditor" name="aciklama" placeholder="Video Açıklaması"
-                                        rows="4"></textarea>
-                                </div>
+                                <input type="text" class="form-control customInput" name="aciklama" id="aciklama"
+                                       placeholder="Açıklama" />
                             </div>
                             <!--Salon-->
                             <div class="row mb-3">
@@ -38,12 +36,12 @@
 
                                         <div class="input-group-text text-muted"><i class="fa fa-building mr-3"></i>Salon
                                         </div>
-        
+
                                         <select name="salon_id" class="form-control customInput">
-                                            <option selected disabled>Düğün Salonu Seçiniz</option>
-                                            <option value="deneme">Kır Düğünü</option>
-                                            <option value="deneme">Deneme Düğün Salonu</option>
-                                            <option value="deneme">Deneme Düğün Salonu</option>
+                                            @foreach(\App\Models\Salonlar::all() as $s)
+                                            <option value="{{$s->id}}">{{$s->adi}}</option>
+                                            @endforeach
+
                                         </select>
                                     </div>
                                 </div>
