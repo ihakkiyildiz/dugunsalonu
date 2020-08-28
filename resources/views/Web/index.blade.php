@@ -92,7 +92,7 @@
 
 
     <!--HABERLER DUYURULAR-->
-    <section class="container text-center mt-5">
+    <section class="container text-center mt-5 mb-5">
         <div class="row mb-5">
             <div class="col-12">
                 <h2 class="letterSpace-4 font-weight-lighter" style="color:rgb(56, 56, 56)">DUYURULAR</h2>
@@ -120,28 +120,6 @@
         </div>
     </section>
 
-    <!--SALONUMUZDAN GÖRSELLER-->
-    <section class="container-fluid mt-5 m-0 bg-dark-o8 slnmzsldr text-center">
-        <div class="row mb-5">
-            <div class="col-12">
-                <h2 class="text-white letterSpace-4">SALONUMUZDAN <span class="font-weight-lighter">KARELER</span></h2>
-                <hr class="bg-white hrStyle">
-            </div>
-        </div>
-        <div class="col-md-12">
-            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner itemSized">
-                    @foreach($altresimler as $a)
-                    <div class="carousel-item @if($loop->index==0) active @endif ">
-                        <img class="d-block w-100" src="{{$a->resim}}">
-                    </div>
-                    @endforeach
-
-                </div>
-
-            </div>
-        </div>
-    </section>
 @endsection
 @section('js')
 

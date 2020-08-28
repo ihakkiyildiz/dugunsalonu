@@ -51,7 +51,7 @@
             </li>
             <li class="nav-main-item">
                 <a class="nav-main-link" href="{{route('yonetim.Videolar.index')}}">
-                    <i class="nav-main-link-icon fas fa-images"></i><span class="nav-main-link-name">Videolar</span>
+                    <i class="nav-main-link-icon fas fa-video"></i><span class="nav-main-link-name">Videolar</span>
                 </a>
             </li>
             <li class="nav-main-heading">SAYFA YÖNETİMİ</li>
