@@ -97,28 +97,28 @@
 
 
             <div class="row">
-                <div class="row mx-auto mb-4">
-                    <div class="col-md-12">
-                        <div class="block">
-                            <div class="block-header block-header-default">
-                                <h3 class="block-title">Video <small>Galeri</small></h3>
-                            </div>
-                            <div class="block-content">
-                                <div class="row">
-                                    @foreach ($videolar as $v)
-                                        <div class="col-12 col-md-6">
-                                            <iframe width="100%" class="cstmIframe"
-                                                src="https://www.youtube.com/embed/{{ str_replace('https://www.youtube.com/watch?v=', '', $v->youtubelink) }}?controls=0"
-                                                frameborder="0"
-                                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                                allowfullscreen></iframe>
-                                        </div>
-                                    @endforeach
-                                </div>
+
+                <div class="col-md-12">
+                    <div class="block">
+                        <div class="block-header block-header-default">
+                            <h3 class="block-title">Video <small>Galeri</small></h3>
+                        </div>
+                        <div class="block-content">
+                            <div class="row">
+                                @foreach ($videolar as $v)
+                                    <div class="col-12 col-md-6">
+                                        <iframe width="100%" class="cstmIframe"
+                                            src="https://www.youtube.com/embed/{{ str_replace('https://www.youtube.com/watch?v=', '', $v->youtubelink) }}?controls=0"
+                                            frameborder="0"
+                                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                            allowfullscreen></iframe>
+                                    </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
                 </div>
+
 
                 <div class="row">
                     <div class="col-12 mx-auto my-5">
