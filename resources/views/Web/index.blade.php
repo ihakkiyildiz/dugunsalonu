@@ -10,7 +10,7 @@
 @section('content')
     <!--SLIDER-->
     <section class="container-fluid mt-3 m-0 p-0">
-        <div id="sliderDesktop" class="carousel slide" data-ride="carousel">
+        <div id="sliderDesktop" class="carousel slide" data-ride="carousel" data-interval="3000">
             <div class="carousel-inner itemSized">
                 @foreach($manset as $m)
                     @if(empty($m->link))
