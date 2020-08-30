@@ -173,7 +173,7 @@ body {
 }
 
 .itemSized {
-    height: 547px;
+    height: 300px;
     overflow: hidden !important;
     margin: auto;
     object-fit: cover;
@@ -214,11 +214,7 @@ body {
     color: white;
 }
 
-.hizmetler {
-    width: 100%;
-    height: 100px;
-    background-color: whitesmoke;
-}
+
 
 .itemSizedHizmetler {
     background-image: url("./img/haber.jpeg");
@@ -228,39 +224,11 @@ body {
     background-size: cover;
 }
 
-.hizmetLink {
-    color: rgb(46, 41, 41);
-    position: relative;
-    left: 18%;
-    font-size: 16px;
-    font-weight: 400;
-    word-wrap: inherit;
-    top: 20%;
-}
 
-.hl {
-    font-size: 16pt;
-    left: 0;
-    top: 10%;
-}
 
-.hizmetLink:hover,
-.hizmetLinkDetay:hover {
-    text-decoration: none;
-    color: rgb(145, 118, 32)
-}
 
-.hizmetLinkDetay {
-    position: absolute;
-    left: 21%;
-    font-size: 7pt;
-    top: 55%;
-}
 
-.hld {
-    left: 4.2%;
-    font-size: 9pt;
-}
+
 
 .containerImg {
     position: relative;
@@ -362,7 +330,6 @@ body {
     object-position: center;
     -o-object-fit: contain;
     -o-object-position: center;
-
     overflow: hidden;
 }
 
@@ -415,20 +382,7 @@ body {
         background-image: url("./img/haber.jpeg");
         background-size: cover;
     }
-    .hizmetLink {
-        color: rgb(46, 41, 41);
-        position: absolute;
-        left: 24%;
-        font-size: 12pt;
-        font-weight: 400;
-        top: 20%;
-    }
-    .hizmetLinkDetay {
-        position: absolute;
-        left: 24%;
-        font-size: 8pt;
-        top: 70%;
-    }
+    
     .slnmzsldr {
         padding: 25px;
     }

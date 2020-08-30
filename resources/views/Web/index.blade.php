@@ -9,9 +9,9 @@
 
 @section('content')
     <!--SLIDER-->
-    <section class="container-fluid mt-3 m-0 p-0">
+    <section class="container-fluid mt-4 m-0 p-0 mb-3 mb-md-0">
         <div id="sliderDesktop" class="carousel slide" data-ride="carousel" data-interval="3000">
-            <div class="carousel-inner itemSized">
+            <div class="carousel-inner">
                 @foreach($manset as $m)
                     @if(empty($m->link))
                     <div class="carousel-item @if($loop->index==0) active @endif">
@@ -33,7 +33,7 @@
 
     <!--PHOTO-->
     <!--ONLINE REZERVASYON MOBİL-->
-    <section class="container text-center mt-3">
+    <section class="container text-center mt-0 mt-md-3">
         <div class="row">
             <div class="col-12 col-md-6">
                 <img src="./css/img/gelin-damat.jpg" class="img-thumbnail img-fluid">
