@@ -1,5 +1,6 @@
 @extends('layouts.webpages')
 @section('ogtitle', 'Galeri Resimleri')
+@section('title',$sayfa->sayfatitle." - ".cekAyar('site-basligi'))
 @section('ogsitename', env('APP_NAME'))
 @section('ogsection', 'Galeri Resimleri')
 @section('ogurl', url()->current())
