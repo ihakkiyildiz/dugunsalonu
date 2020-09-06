@@ -37,7 +37,39 @@
         <div class="container text-center text-md-left mt-5">
 
             <div class="row mt-3">
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                    <div class="row mb-5">
+                        <div class="col-12">
+                            <img src="{{cekAyar('logo')}}" class="img-fluid">
+                        </div>
+                    </div>
+                    <p class="fs-10"><i class="fas fa-home mr-3"></i> {{cekAyar('adres')}}</p>
+                    <p class="fs-10"><i class="fas fa-envelope mr-3"></i> {{cekAyar('email')}}</p>
+                    <p class="fs-10"><i class="fas fa-mobile mr-3"></i> {{cekAyar('cep-telefonu')}}</p>
 
+                </div>
+                
+
+                <div class="col-md-4 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <h6 class="text-uppercase font-weight-bold">Yönlendirmeler</h6>
+                    <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                    <p>
+                        <a href="/" class="footerLink fs-12">Ana Sayfa</a>
+                    </p>
+                    <p>
+                        <a href="{{route('web.sayfa','hakkinda')}}" class="footerLink fs-12">Hakkımızda</a>
+                    </p>
+                    <p>
+                        <a href="{{route('web.hizmetler')}}" class="footerLink fs-12">Hizmetlerimiz</a>
+                    </p>
+                    <p>
+                        <a href="{{route('web.salonlar')}}" class="footerLink fs-12">Salonlarımız</a>
+                    </p>
+                    <p>
+                        <a href="{{route('web.duyurular')}}" class="footerLink fs-12">Duyurular</a>
+                    </p>
+
+                </div>
                 <div class="col-md-4 col-lg-4 col-xl-3 mx-auto mb-4">
 
                     <h6 class="text-uppercase font-weight-bold">{{cekAyar('site-basligi')}}</h6>
@@ -48,39 +80,7 @@
 
                 </div>
 
-                <div class="col-md-4 col-lg-2 col-xl-2 mx-auto mb-4">
-                    <h6 class="text-uppercase font-weight-bold">Yönlendirmeler</h6>
-                    <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                    <p>
-                        <a href="/" class="footerLink">Ana Sayfa</a>
-                    </p>
-                    <p>
-                        <a href="{{route('web.sayfa','hakkinda')}}" class="footerLink">Hakkımızda</a>
-                    </p>
-                    <p>
-                        <a href="{{route('web.hizmetler')}}" class="footerLink">Hizmetlerimiz</a>
-                    </p>
-                    <p>
-                        <a href="{{route('web.salonlar')}}" class="footerLink">Salonlarımız</a>
-                    </p>
-                    <p>
-                        <a href="{{route('web.duyurular')}}" class="footerLink">Duyurular</a>
-                    </p>
-
-                </div>
-
-                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                    <div class="row mb-4">
-                        <div class="col-12">
-                            <img src="{{cekAyar('logo')}}" class="img-fluid">
-                        </div>
-                    </div>
-                    <p><i class="fas fa-home mr-3"></i> {{cekAyar('adres')}}</p>
-                    <p><i class="fas fa-envelope mr-3"></i> {{cekAyar('email')}}</p>
-                    <p><i class="fas fa-phone mr-3"></i> Telefon: {{cekAyar('is-telefonu')}}</p>
-                    <p><i class="fas fa-mobile mr-3"></i> GSM: {{cekAyar('cep-telefonu')}}</p>
-
-                </div>
+                
             </div>
         </div>
         <div class="footer-copyright text-center py-3">© 2020 Copyright:
